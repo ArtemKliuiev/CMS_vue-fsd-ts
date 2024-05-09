@@ -1,6 +1,7 @@
 <template>
   <div>
-wwwwwwwwwwww222
+
+    <router-view></router-view>
   </div>
 </template>
 
