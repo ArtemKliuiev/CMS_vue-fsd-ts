@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
-  base: 'kino-cms',
+  base: '/kino-cms',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
