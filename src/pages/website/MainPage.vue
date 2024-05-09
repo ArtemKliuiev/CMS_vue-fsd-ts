@@ -1,14 +1,13 @@
-<template>
-  <div>
-111111111111111111111111111a
-  </div>
-</template>
-
-<script setup>
-
+<script setup lang="ts">
 
 </script>
 
-<style lang="scss" scoped>
+<template>
+  <div>
+    111111111111111111
+  </div>
+</template>
+
+<style scoped lang="scss">
 
 </style>
