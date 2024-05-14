@@ -1,0 +1,21 @@
+<template>
+  <v-layout ref="app">
+    <slot name="header"></slot>
+
+    <slot name="navigation"></slot>
+
+    <v-main>
+      <slot />
+    </v-main>
+
+    <slot name="footer"></slot>
+  </v-layout>
+</template>
+
+<script setup lang="ts">
+
+</script>
+
+<style lang="scss" scoped>
+@import "styles";
+</style>

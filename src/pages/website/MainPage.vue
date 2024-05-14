@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    111111111111111111
+    <router-link to="/admin/statistics">Админка</router-link>
   </div>
 </template>
 

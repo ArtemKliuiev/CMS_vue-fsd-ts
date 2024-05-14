@@ -1,15 +1,40 @@
 <template>
-  <div>
 
-    <router-view></router-view>
+<DefaultLayout>
+  <template v-slot:header>
+    <HeaderAdmin v-if="part === 'admin'"/>
+    <HeaderWebsite v-else/>
+  </template>
 
-    <router-link to="/">1.</router-link>
-    <router-link to="/2">2</router-link>
-  </div>
+  <template v-slot:navigation>
+    <NavigationAdmin v-if="part === 'admin'"/>
+  </template>
+
+  <template v-slot:default>
+    <router-view />
+  </template>
+
+  <template v-slot:footer>
+
+  </template>
+</DefaultLayout>
 </template>
 
 <script setup lang="ts">
+import { HeaderAdmin, HeaderWebsite } from '@/widgets/headers'
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+import { DefaultLayout } from '@/shared/ui/layouts'
+import NavigationAdmin from '@/shared/ui/navigation/admin'
 
+const route = useRoute()
+
+
+
+const part = computed(() => {
+  console.log(route.meta.part)
+  return route.meta.part
+} )
 </script>
 
 <style lang="scss" scoped>
