@@ -18,6 +18,8 @@
 
   </template>
 </DefaultLayout>
+
+  <SvgManager/>
 </template>
 
 <script setup lang="ts">
@@ -26,13 +28,13 @@ import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 import { DefaultLayout } from '@/shared/ui/layouts'
 import NavigationAdmin from '@/shared/ui/navigation/admin'
+import SvgManager from '@/shared/ui/base/SvgManager.vue'
 
 const route = useRoute()
 
 
 
 const part = computed(() => {
-  console.log(route.meta.part)
   return route.meta.part
 } )
 </script>

@@ -9,8 +9,6 @@
     <router-link to="pages">Страницы</router-link>
     <router-link to="users">Пользователи</router-link>
     <router-link to="newsletter">Рассылка</router-link>
-
-
   </nav>
 </template>
 
@@ -18,6 +16,6 @@
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @import "styles.scss";
 </style>

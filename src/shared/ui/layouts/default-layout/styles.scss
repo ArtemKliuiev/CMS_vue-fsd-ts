@@ -1,0 +1,36 @@
+.layout{
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 70px 1fr auto;
+
+  &__header{
+    width: 100%;
+    grid-row: 1;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
+
+  &__main{
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    &-navigation{
+      grid-column: 1;
+    }
+
+    &-content{
+      grid-column: 2;
+    }
+  }
+
+  &__footer{
+    grid-row: 3;
+  }
+}
+
+
+
+
+

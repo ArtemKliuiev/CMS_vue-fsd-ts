@@ -1,21 +1,33 @@
 <template>
-  <v-layout ref="app">
-    <slot name="header"></slot>
+  <div ref="app" class="layout">
+    <div class="layout__header">
+      <slot name="header"></slot>
+    </div>
 
-    <slot name="navigation"></slot>
+    <div class="layout__main">
+      <div class="layout__main-navigation">
+        <slot name="navigation"></slot>
+      </div>
 
-    <v-main>
-      <slot />
-    </v-main>
+      <div class="layout__main-content">
+        <slot />
+      </div>
+    </div>
 
-    <slot name="footer"></slot>
-  </v-layout>
+    <div class="layout__footer">
+      <slot name="footer"></slot>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 
+
 </script>
 
-<style lang="scss" scoped>
-@import "styles";
+<style lang="scss" >
+@import "./styles";
+
+
+
 </style>

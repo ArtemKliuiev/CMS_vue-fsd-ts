@@ -1,15 +1,7 @@
 <template>
   <svg style="width: 0; height: 0; position: absolute">
-    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="logo">
-      <g>
-        <path d="M3,16c-0.1,0-0.3,0-0.4-0.1c-0.2-0.1-0.4-0.3-0.5-0.6l-1.4-3.8C0.4,10.8,0.5,10,0.8,9.3C1.1,8.6,1.7,8,2.5,7.7l20.7-7.5
-		l0,0c0.8-0.3,1.6-0.2,2.3,0.1C26.2,0.6,26.7,1.2,27,2l1.4,3.8c0.1,0.2,0.1,0.5,0,0.8C28.2,6.8,28,6.9,27.8,7L3.3,15.9
-		C3.2,16,3.1,16,3,16z"/>
-      </g>
-      <g>
-        <path d="M30,20v-4c0-0.6-0.4-1-1-1H3c-0.6,0-1,0.4-1,1v4H30z"/>
-        <path d="M2,22v7c0,1.7,1.3,3,3,3h22c1.7,0,3-1.3,3-3v-7H2z"/>
-      </g>
+    <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="statistic">
+      <line id="primary" x1="3" y1="19" x2="21" y2="19" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></line><polyline id="primary-2" data-name="primary" points="3 15 8 9 14 12 21 5" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline><polyline id="primary-3" data-name="primary" points="21 10 21 5 16 5" style="fill: none; stroke: rgb(0, 0, 0); stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline>
     </symbol>
   </svg>
 </template>
