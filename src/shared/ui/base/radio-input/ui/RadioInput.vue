@@ -14,6 +14,6 @@ const toggleChecked = () => {
 };
 </script>
 
-<style scoped>
-/* Добавьте стили, если необходимо */
+<style lang="scss">
+@import "styles";
 </style>

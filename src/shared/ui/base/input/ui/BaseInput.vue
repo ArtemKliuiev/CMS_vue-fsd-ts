@@ -12,3 +12,7 @@
 defineProps(['modelValue', 'placeholder'])
 defineEmits(['update:modelValue'])
 </script>
+
+<style lang="scss">
+@import "styles";
+</style>

@@ -1,0 +1,16 @@
+.movie-card {
+  width: 180px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+
+  &__photo {
+    width: 180px;
+    height: 190px;
+  }
+
+  &__name {
+    font-size: 14px;
+    text-align: center;
+    margin: 10px 0;
+  }
+}
