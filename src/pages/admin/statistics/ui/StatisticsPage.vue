@@ -1,11 +1,21 @@
 <template>
   <div>
-    statistics
+    <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
   </div>
 </template>
 
 <script setup lang="ts">
-
+const breadcrumbs = [
+  {
+    title: 'Admin',
+    disabled: false,
+    href: 'statistics',
+  },
+  {
+    title: 'Statistics',
+    disabled: true,
+  },
+]
 </script>
 
 <style lang="scss" scoped>

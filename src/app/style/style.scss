@@ -4,12 +4,12 @@
 
 body{
     font-family: "Roboto", sans-serif;
-    font-width: 400;
-    background: $bg-color;
     color: $text-color;
+    background: $bg-color;
+    font-width: 400;
 }
 
 a{
-    color: $text-color;
     text-decoration: none;
+    color: $text-color;
 }
