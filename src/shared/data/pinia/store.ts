@@ -1,7 +1,10 @@
 import { defineStore } from 'pinia'
 
-export const piniaData = defineStore('piniaData', {
+export const piniaStore = defineStore('piniaData', {
   state: () => {
-    return { data: 'inform' }
+    return {
+      data: 'data',
+      info: 'info'
+    }
   }
 })

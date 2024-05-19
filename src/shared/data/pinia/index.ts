@@ -1,3 +1,3 @@
-import { piniaData } from './store'
+import { piniaStore } from './store'
 
-export default piniaData
+export default piniaStore

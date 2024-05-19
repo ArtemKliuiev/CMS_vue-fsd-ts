@@ -1,23 +1,25 @@
 <template>
+  <v-app>
+    <DefaultLayout>
+      <template v-slot:header>
+        <HeaderAdmin v-if="part === 'admin'"/>
+        <HeaderWebsite v-else/>
+      </template>
 
-<DefaultLayout>
-  <template v-slot:header>
-    <HeaderAdmin v-if="part === 'admin'"/>
-    <HeaderWebsite v-else/>
-  </template>
+      <template v-slot:navigation>
+        <NavigationAdmin v-if="part === 'admin'"/>
+      </template>
 
-  <template v-slot:navigation>
-    <NavigationAdmin v-if="part === 'admin'"/>
-  </template>
+      <template v-slot:default>
+        <router-view />
+      </template>
 
-  <template v-slot:default>
-    <router-view />
-  </template>
+      <template v-slot:footer>
 
-  <template v-slot:footer>
+      </template>
+    </DefaultLayout>
+  </v-app>
 
-  </template>
-</DefaultLayout>
 
   <SvgManager/>
 </template>
