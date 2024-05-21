@@ -1,3 +1,1 @@
-import { DefaultLayout } from './default-layout'
-
-export { DefaultLayout }
+export * from './default-layout'

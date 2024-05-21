@@ -1,13 +1,13 @@
 <template>
   <v-app>
-    <DefaultLayout>
+    <component :is="layout">
       <template v-slot:header>
-        <HeaderAdmin v-if="part === 'admin'" />
+        <HeaderAdmin v-if="layout === AdminLayout" />
         <HeaderWebsite v-else />
       </template>
 
       <template v-slot:navigation>
-        <NavigationAdmin v-if="part === 'admin'" />
+        <NavigationAdmin v-if="layout === AdminLayout" />
       </template>
 
       <template v-slot:default>
@@ -15,7 +15,7 @@
       </template>
 
       <template v-slot:footer> </template>
-    </DefaultLayout>
+    </component>
   </v-app>
 
   <SvgManager />
@@ -23,17 +23,12 @@
 
 <script setup lang="ts">
 import { HeaderAdmin, HeaderWebsite } from '@/widgets/headers'
+import { AdminLayout, NavigationAdmin, SvgManager } from '@/shared/ui'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
-import { DefaultLayout } from '@/shared/ui/layouts'
-import NavigationAdmin from '@/shared/ui/navigation/admin'
-import SvgManager from '@/shared/ui/base/image/svg-manager/SvgManager.vue'
 
 const route = useRoute()
-
-const part = computed(() => {
-  return route.meta.part
-})
+const layout = computed(() => route.meta.layout || AdminLayout)
 </script>
 
 <style lang="scss" scoped></style>

@@ -1,3 +1,1 @@
-import StockPage from './ui/StockPage.vue'
-
-export default StockPage
+export * from './ui'

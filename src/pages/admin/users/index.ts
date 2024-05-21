@@ -1,3 +1,1 @@
-import UsersPage from './ui/UsersPage.vue'
-
-export default UsersPage
+export * from './ui'

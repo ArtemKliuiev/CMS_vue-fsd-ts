@@ -1,3 +1,1 @@
-import NavigationAdmin from './ui/NavigationAdmin.vue'
-
-export default NavigationAdmin
+export * from './ui'

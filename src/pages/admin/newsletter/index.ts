@@ -1,3 +1,1 @@
-import NewsletterPage from './ui/NewsletterPage.vue'
-
-export default NewsletterPage
+export * from './ui'

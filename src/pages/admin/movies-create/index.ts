@@ -1,3 +1,1 @@
-import MovieCreate from "./ui/MovieCreate.vue";
-
-export default MovieCreate;
+export * from './ui'

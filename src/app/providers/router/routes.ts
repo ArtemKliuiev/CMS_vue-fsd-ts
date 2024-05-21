@@ -1,5 +1,18 @@
 // router vue guard
-import { BannersPage } from '@/pages'
+import { AdminLayout } from '@/shared/ui'
+
+import {
+  BannersPage,
+  CinemasPage,
+  MoviesPage,
+  MovieCreate,
+  NewsPage,
+  NewsletterPage,
+  PagesPage,
+  StatisticsPage,
+  StockPage,
+  UsersPage
+} from '@/pages'
 
 export const routes = [
   {
@@ -7,23 +20,23 @@ export const routes = [
     name: 'main',
     component: () => import('@/pages/website/MainPage.vue'),
     meta: {
-      part: 'website'
+      layout: ''
     }
   },
   {
     path: '/admin/statistics',
     name: 'statistics',
-    component: () => import('@/pages/admin/statistics'),
+    component: () => import('@/pages/admin/statistics/ui/StatisticsPage.vue'),
     meta: {
-      part: 'admin'
+      layout: AdminLayout
     }
   },
   {
     path: '/admin/pages',
     name: 'pages',
-    component: () => import('@/pages/admin/pages'),
+    component: PagesPage,
     meta: {
-      part: 'admin'
+      layout: AdminLayout
     }
   },
   {
@@ -31,63 +44,63 @@ export const routes = [
     name: 'banners',
     component: BannersPage,
     meta: {
-      part: 'admin'
+      layout: AdminLayout
     }
   },
   {
     path: '/admin/news',
     name: 'news',
-    component: () => import('@/pages/admin/news'),
+    component: NewsPage,
     meta: {
-      part: 'admin'
+      layout: AdminLayout
     }
   },
   {
     path: '/admin/movies',
     name: 'movies',
-    component: () => import('@/pages/admin/movies'),
+    component: MoviesPage,
     meta: {
-      part: 'admin'
+      layout: AdminLayout
     }
   },
   {
     path: '/admin/movies-create',
     name: 'movies-create',
-    component: () => import('@/pages/admin/movies-create'),
+    component: MovieCreate,
     meta: {
-      part: 'admin'
+      layout: AdminLayout
     }
   },
   {
     path: '/admin/cinemas',
     name: 'cinemas',
-    component: () => import('@/pages/admin/cinemas'),
+    component: CinemasPage,
     meta: {
-      part: 'admin'
+      layout: AdminLayout
     }
   },
   {
     path: '/admin/newsletter',
     name: 'newsletter',
-    component: () => import('@/pages/admin/newsletter'),
+    component: NewsletterPage,
     meta: {
-      part: 'admin'
+      layout: AdminLayout
     }
   },
   {
     path: '/admin/stock',
     name: 'stock',
-    component: () => import('@/pages/admin/stock'),
+    component: StockPage,
     meta: {
-      part: 'admin'
+      layout: AdminLayout
     }
   },
   {
     path: '/admin/users',
     name: 'users',
-    component: () => import('@/pages/admin/users'),
+    component: UsersPage,
     meta: {
-      part: 'admin'
+      layout: AdminLayout
     }
   }
 ]
