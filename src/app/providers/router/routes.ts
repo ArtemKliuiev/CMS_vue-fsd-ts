@@ -26,7 +26,7 @@ export const routes = [
   {
     path: '/admin/statistics',
     name: 'statistics',
-    component: () => import('@/pages/admin/statistics/ui/StatisticsPage.vue'),
+    component: StatisticsPage,
     meta: {
       layout: AdminLayout
     }
