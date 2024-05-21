@@ -1,17 +1,25 @@
 <template>
-  <v-app-bar :elevation="2">
-    <template v-slot:prepend>
-      <v-btn icon="$vuetify"></v-btn>
-    </template>
+  <div class="header">
+    <v-app-bar :elevation="2">
+      <template v-slot:prepend>
+        <v-btn class="header__logo" icon>
+          <BaseSvg id="icon" />
+        </v-btn>
+      </template>
 
-    <v-app-bar-title>Admin Panel</v-app-bar-title>
+      <v-app-bar-title>Admin Panel</v-app-bar-title>
 
-    <v-btn icon="$vuetify"> </v-btn>
-  </v-app-bar>
+      <v-btn class="header__out" icon>
+        <BaseSvg class="header__out" id="out" />
+      </v-btn>
+    </v-app-bar>
+  </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { BaseSvg } from '@/shared/ui/base/image/base-svg'
+</script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import 'styles';
 </style>

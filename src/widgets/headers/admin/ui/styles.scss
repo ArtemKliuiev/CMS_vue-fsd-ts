@@ -1,0 +1,18 @@
+.header{
+  &__logo{
+    svg{
+      width: 20px;
+      height: 20px;
+      fill: #eeeeee;
+    }
+  }
+
+  &__out{
+    svg{
+      width: 25px;
+      height: 25px;
+      fill: #eeeeee;
+    }
+  }
+
+}
