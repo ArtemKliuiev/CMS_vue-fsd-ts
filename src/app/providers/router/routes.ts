@@ -1,4 +1,5 @@
 // router vue guard
+import { BannersPage } from '@/pages'
 
 export const routes = [
   {
@@ -6,7 +7,7 @@ export const routes = [
     name: 'main',
     component: () => import('@/pages/website/MainPage.vue'),
     meta: {
-       part: 'website'
+      part: 'website'
     }
   },
   {
@@ -28,7 +29,7 @@ export const routes = [
   {
     path: '/admin/banners',
     name: 'banners',
-    component: () => import('@/pages/admin/banners'),
+    component: BannersPage,
     meta: {
       part: 'admin'
     }
@@ -80,6 +81,5 @@ export const routes = [
     meta: {
       part: 'admin'
     }
-  },
+  }
 ]
-
