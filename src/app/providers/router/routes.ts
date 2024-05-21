@@ -50,6 +50,14 @@ export const routes = [
     }
   },
   {
+    path: '/admin/movies-create',
+    name: 'movies-create',
+    component: () => import('@/pages/admin/movies-create'),
+    meta: {
+      part: 'admin'
+    }
+  },
+  {
     path: '/admin/cinemas',
     name: 'cinemas',
     component: () => import('@/pages/admin/cinemas'),

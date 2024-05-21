@@ -1,22 +1,27 @@
 <template>
   <div>
-    movies
-    <MovieCard :card="movieCardData"/>
+    <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
+    <router-link :to="{path:`/admin/movies-create`}" >
+      <MovieCard :card="movieCardData"/>
+    </router-link>
+
   </div>
-  <Seo
-      :valueTitle="title"
-      :valueDescription="description"
-      :placeholderInput="'Title'"
-      :placeholderDescription="'Description'"
-      @update:valueTitle="handleInput"
-      @update:valueDescription="handleDescription"
-  />
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import MovieCard from "@/entities/ui/movie-card/MovieCard.vue";
-import Seo from "@/widgets/headers/admin/ui/seo/Seo.vue";
+
+const breadcrumbs = [
+  {
+    title: 'Admin',
+    disabled: false,
+    href: 'statistics',
+  },
+  {
+    title: 'Movies',
+    disabled: true,
+  },
+]
 
 const movieCardData = {
   img: {
@@ -24,19 +29,6 @@ const movieCardData = {
     default: './image.jpg'
   }
 };
-
-const title = ref('');
-const description = ref('');
-
-const handleInput = (value: string) => {
-  title.value = value;
-  console.log(value)
-};
-
-const handleDescription = (value: string) => {
-  description.value = value;
-  console.log(value)
-}
 
 </script>
 

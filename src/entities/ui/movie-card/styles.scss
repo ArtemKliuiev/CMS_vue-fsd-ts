@@ -1,7 +1,7 @@
 .movie-card {
-  width: 180px;
   border: 1px solid #eee;
   border-radius: 5px;
+  width: 180px;
 
   &__photo {
     width: 180px;
@@ -9,8 +9,8 @@
   }
 
   &__name {
+    margin: 10px 0;
     font-size: 14px;
     text-align: center;
-    margin: 10px 0;
   }
 }
