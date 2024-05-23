@@ -8,6 +8,7 @@ import {
   MovieCreate,
   NewsPage,
   NewsletterPage,
+  //wwwww
   PagesPage,
   StatisticsPage,
   StockPage,
