@@ -4,13 +4,20 @@ import { AdminLayout } from '@/shared/ui'
 import {
   BannersPage,
   CinemasPage,
+  CinemasCardHall,
+  CinemasCardCinema,
   MoviesPage,
   MovieCreate,
   NewsPage,
+  NewsCreate,
   NewsletterPage,
   PagesPage,
+  HomePage,
+  AboutCinemaPage,
+  CafeBar,
   StatisticsPage,
   StockPage,
+  StockCreate,
   UsersPage
 } from '@/pages'
 
@@ -40,6 +47,30 @@ export const routes = [
     }
   },
   {
+    path: '/admin/pages/home-page',
+    name: 'home-page',
+    component: HomePage,
+    meta: {
+      layout: AdminLayout
+    }
+  },
+  {
+    path: '/admin/pages/about-cinema-page',
+    name: 'about-cinema-page',
+    component: AboutCinemaPage,
+    meta: {
+      layout: AdminLayout
+    }
+  },
+  {
+    path: '/admin/pages/cafe-bar',
+    name: 'cafe-bar',
+    component: CafeBar,
+    meta: {
+      layout: AdminLayout
+    }
+  },
+  {
     path: '/admin/banners',
     name: 'banners',
     component: BannersPage,
@@ -51,6 +82,14 @@ export const routes = [
     path: '/admin/news',
     name: 'news',
     component: NewsPage,
+    meta: {
+      layout: AdminLayout
+    }
+  },
+  {
+    path: '/admin/news-create',
+    name: 'news-create',
+    component: NewsCreate,
     meta: {
       layout: AdminLayout
     }
@@ -80,6 +119,23 @@ export const routes = [
     }
   },
   {
+    path: '/admin/cinemas-card-cinema',
+    name: 'cinemas-card-cinema',
+    component: CinemasCardCinema,
+    meta: {
+      layout: AdminLayout
+    }
+  },
+  {
+    path: '/admin/cinemas-card-hall',
+    name: 'cinemas-card-hall',
+    component: CinemasCardHall,
+    meta: {
+      layout: AdminLayout
+    }
+  },
+
+  {
     path: '/admin/newsletter',
     name: 'newsletter',
     component: NewsletterPage,
@@ -91,6 +147,14 @@ export const routes = [
     path: '/admin/stock',
     name: 'stock',
     component: StockPage,
+    meta: {
+      layout: AdminLayout
+    }
+  },
+  {
+    path: '/admin/stock-create',
+    name: 'stock-create',
+    component: StockCreate,
     meta: {
       layout: AdminLayout
     }

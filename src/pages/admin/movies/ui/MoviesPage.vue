@@ -1,26 +1,36 @@
 <template>
   <div>
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
-    <router-link :to="{path:`/admin/movies-create`}" >
-      <MovieCard :card="movieCardData"/>
-    </router-link>
 
+    <h2 class="film-list__title">Список фильмов текущих</h2>
+    <div class="film-list__wrapper">
+      <router-link :to="{ path: `/admin/movies-create` }">
+        <MovieCard :card="movieCardData" />
+      </router-link>
+    </div>
+
+    <h2 class="film-list__title">Список фильмов которые покажут скоро</h2>
+    <div class="film-list__wrapper">
+      <router-link :to="{ path: `/admin/movies-create` }">
+        <MovieCard :card="movieCardData" />
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import MovieCard from "@/entities/ui/movie-card/MovieCard.vue";
+import MovieCard from '@/entities/movies/ui/movie-card/MovieCard.vue'
 
 const breadcrumbs = [
   {
     title: 'Admin',
     disabled: false,
-    href: 'statistics',
+    href: 'statistics'
   },
   {
     title: 'Movies',
-    disabled: true,
-  },
+    disabled: true
+  }
 ]
 
 const movieCardData = {
@@ -28,10 +38,9 @@ const movieCardData = {
     webp: './image.webp',
     default: './image.jpg'
   }
-};
-
+}
 </script>
 
 <style lang="scss" scoped>
-@import "styles";
+@import 'styles';
 </style>

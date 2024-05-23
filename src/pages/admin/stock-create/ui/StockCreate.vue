@@ -2,13 +2,21 @@
   <div>
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
-    <p>Название фильма</p>
-    <BaseInput
-      class="movie-create__block"
-      placeholder="Название фильма"
-      :value="valueInput"
-      @update:modelValue="handleModelValue"
-    />
+    <div class="news-create__contents">
+      <div class="news-create__content">
+        <p>Название акции</p>
+        <BaseInput
+          class="movie-create__block"
+          placeholder="Название акции"
+          :value="valueInput"
+          @update:modelValue="handleModelValue"
+        />
+      </div>
+      <div class="news-create__content">
+        <p>Дата публикации</p>
+        <input type="date" v-model="valueInputDate" @change="handleInputDate" />
+      </div>
+    </div>
 
     <p>Описание</p>
     <BaseTextarea
@@ -32,16 +40,13 @@
       label="Добавить картинку в галерею"
     ></v-file-input>
 
-    <p>Ссылка на трейлер</p>
+    <p>Ссылка на видео</p>
     <BaseInput
       class="movie-create__block"
       placeholder="Ссылка на видео в youtube"
       :value="valueInputYoutube"
       @update:modelValue="handleModelValueYoutube"
     />
-
-    <p>Тип кино</p>
-    <v-select multiple label="Тип кино" :items="['3D', '2D', 'IMAX']"></v-select>
 
     <Seo
       class="movie-create__block"
@@ -55,16 +60,15 @@
 
     <div class="movie-create__buttons">
       <v-btn>Сохранить</v-btn>
-      <v-btn>Вернуть базовую версию</v-btn>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
-import BaseTextarea from '@/shared/ui/base/text-area/ui/BaseTextarea.vue'
 import { Seo } from '@/widgets/seo'
+import BaseTextarea from '@/shared/ui/base/text-area/ui/BaseTextarea.vue'
+import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
+import { ref } from 'vue'
 import '@mdi/font/css/materialdesignicons.css'
 
 const title = ref('')
@@ -72,15 +76,16 @@ const description = ref('')
 const valueInput = ref('')
 const valueTextArea = ref('')
 const valueInputYoutube = ref('')
+const valueInputDate = ref('')
 
 const breadcrumbs = [
   {
-    title: 'Movies',
+    title: 'Stock',
     disabled: false,
-    href: 'movies'
+    href: 'stock'
   },
   {
-    title: 'Movies create',
+    title: 'Stock create',
     disabled: true
   }
 ]
@@ -108,6 +113,10 @@ const handleModelValueText = (value: string) => {
 const handleModelValueYoutube = (value: string) => {
   valueInputYoutube.value = value
   console.log(value)
+}
+
+const handleInputDate = () => {
+  console.log(valueInputDate.value)
 }
 </script>
 

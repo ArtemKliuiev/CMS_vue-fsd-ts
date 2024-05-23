@@ -1,0 +1,19 @@
+.card-cinema {
+  &__textarea {
+    height: 150px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  &__list {
+    margin: 10px 0;
+  }
+
+  &__list-title {
+    text-align: center;
+  }
+}

@@ -2,27 +2,34 @@
   <div>
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
-    <p>Название фильма</p>
+    <p>Номер зала</p>
     <BaseInput
       class="movie-create__block"
-      placeholder="Название фильма"
+      :placeholder="'8 зал'"
       :value="valueInput"
       @update:modelValue="handleModelValue"
     />
 
-    <p>Описание</p>
+    <p>Описание зала</p>
     <BaseTextarea
       class="movie-create__block"
-      placeholder="Текст"
+      :placeholder="'Текст'"
       :value="valueTextArea"
       @update:modelValue="handleModelValueText"
     />
 
-    <p>Главная картинка</p>
+    <p>Схема зала</p>
     <v-file-input
       accept="image/png, image/jpeg"
       show-size
-      label="Добавить главную картинку"
+      label="Добавить схему зала"
+    ></v-file-input>
+
+    <p>Верхний баннер</p>
+    <v-file-input
+      accept="image/png, image/jpeg"
+      show-size
+      label="Добавить верхний баннер"
     ></v-file-input>
 
     <p>Галерея картинок</p>
@@ -32,55 +39,47 @@
       label="Добавить картинку в галерею"
     ></v-file-input>
 
-    <p>Ссылка на трейлер</p>
-    <BaseInput
-      class="movie-create__block"
-      placeholder="Ссылка на видео в youtube"
-      :value="valueInputYoutube"
-      @update:modelValue="handleModelValueYoutube"
-    />
-
-    <p>Тип кино</p>
-    <v-select multiple label="Тип кино" :items="['3D', '2D', 'IMAX']"></v-select>
-
     <Seo
       class="movie-create__block"
       :valueTitle="title"
       :valueDescription="description"
-      placeholderInput="Title"
-      placeholderDescription="Description"
+      :placeholderInput="'Title'"
+      :placeholderDescription="'Description'"
       @update:valueTitle="handleInput"
       @update:valueDescription="handleDescription"
     />
 
     <div class="movie-create__buttons">
       <v-btn>Сохранить</v-btn>
-      <v-btn>Вернуть базовую версию</v-btn>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
-import BaseTextarea from '@/shared/ui/base/text-area/ui/BaseTextarea.vue'
 import { Seo } from '@/widgets/seo'
+import BaseTextarea from '@/shared/ui/base/text-area/ui/BaseTextarea.vue'
+import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
+import { ref } from 'vue'
 import '@mdi/font/css/materialdesignicons.css'
 
 const title = ref('')
 const description = ref('')
 const valueInput = ref('')
 const valueTextArea = ref('')
-const valueInputYoutube = ref('')
 
 const breadcrumbs = [
   {
-    title: 'Movies',
+    title: 'Cinemas',
     disabled: false,
-    href: 'movies'
+    href: 'cinemas'
   },
   {
-    title: 'Movies create',
+    title: 'Cinema card cinema',
+    disabled: false,
+    href: 'cinemas-card-cinema'
+  },
+  {
+    title: 'Cinema card hall',
     disabled: true
   }
 ]
@@ -104,13 +103,6 @@ const handleModelValueText = (value: string) => {
   valueTextArea.value = value
   console.log(value)
 }
-
-const handleModelValueYoutube = (value: string) => {
-  valueInputYoutube.value = value
-  console.log(value)
-}
 </script>
 
-<style lang="scss">
-@import 'styles';
-</style>
+<style lang="scss" scoped></style>

@@ -1,0 +1,1 @@
+export { default as CinemasCardCinema } from './CinemasCardCinema.vue'
