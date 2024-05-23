@@ -1,5 +1,5 @@
 // router vue guard
-import { AdminLayout } from '@/shared/ui'
+import { AdminLayout, WebsiteLayout } from '@/shared/ui'
 
 import {
   BannersPage,
@@ -17,8 +17,14 @@ import {
   CafeBar,
   StatisticsPage,
   StockPage,
+<<<<<<< HEAD
   StockCreate,
   UsersPage
+=======
+  UsersPage,
+  AuthPage,
+  RegistrationPage
+>>>>>>> artem-dev
 } from '@/pages'
 
 export const routes = [
@@ -27,26 +33,27 @@ export const routes = [
     name: 'main',
     component: () => import('@/pages/website/MainPage.vue'),
     meta: {
-      layout: ''
+      layout: WebsiteLayout
     }
   },
   {
-    path: '/admin/statistics',
-    name: 'statistics',
-    component: StatisticsPage,
+    path: '/auth',
+    name: 'auth',
+    component: AuthPage,
     meta: {
-      layout: AdminLayout
+      layout: WebsiteLayout
     }
   },
   {
-    path: '/admin/pages',
-    name: 'pages',
-    component: PagesPage,
+    path: '/registration',
+    name: 'registration',
+    component: RegistrationPage,
     meta: {
-      layout: AdminLayout
+      layout: WebsiteLayout
     }
   },
   {
+<<<<<<< HEAD
     path: '/admin/pages/home-page',
     name: 'home-page',
     component: HomePage,
@@ -166,5 +173,63 @@ export const routes = [
     meta: {
       layout: AdminLayout
     }
+=======
+    path: '/admin',
+    meta: {
+      layout: AdminLayout
+    },
+    children: [
+      {
+        path: 'statistics',
+        name: 'statistics',
+        component: StatisticsPage
+      },
+      {
+        path: 'pages',
+        name: 'pages',
+        component: PagesPage
+      },
+      {
+        path: 'banners',
+        name: 'banners',
+        component: BannersPage
+      },
+      {
+        path: 'news',
+        name: 'news',
+        component: NewsPage
+      },
+      {
+        path: 'movies',
+        name: 'movies',
+        component: MoviesPage
+      },
+      {
+        path: 'movies-create',
+        name: 'movies-create',
+        component: MovieCreate
+      },
+      {
+        path: 'cinemas',
+        name: 'cinemas',
+        component: CinemasPage
+      },
+      {
+        path: 'newsletter',
+        name: 'newsletter',
+        component: NewsletterPage
+      },
+      {
+        path: 'stock',
+        name: 'stock',
+        component: StockPage
+      },
+      {
+        path: 'users',
+        name: 'users',
+        component: UsersPage
+      }
+    ]
+>>>>>>> artem-dev
   }
 ]

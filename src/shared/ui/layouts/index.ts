@@ -1,1 +1,2 @@
-export * from './default-layout'
+export * from './admin-layout'
+export * from './website-layout'

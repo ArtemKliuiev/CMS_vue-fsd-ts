@@ -1,9 +1,14 @@
+@import "@/shared/scss-variables/index";
+
 .header{
+  svg{
+    fill: $white-one;
+  }
+
   &__logo{
     svg{
       width: 20px;
       height: 20px;
-      fill: #eeeeee;
     }
   }
 
@@ -11,7 +16,6 @@
     svg{
       width: 25px;
       height: 25px;
-      fill: #eeeeee;
     }
   }
 

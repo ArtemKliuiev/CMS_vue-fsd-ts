@@ -2,9 +2,11 @@
   <div class="header">
     <v-app-bar :elevation="2">
       <template v-slot:prepend>
-        <v-btn class="header__logo" icon>
-          <BaseSvg id="icon" />
-        </v-btn>
+        <router-link to="/">
+          <v-btn class="header__logo" icon>
+            <BaseSvg id="icon" />
+          </v-btn>
+        </router-link>
       </template>
 
       <v-app-bar-title>Admin Panel</v-app-bar-title>
