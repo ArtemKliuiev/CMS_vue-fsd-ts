@@ -9,6 +9,9 @@ import {
   NewsPage,
   NewsletterPage,
   PagesPage,
+  HomePage,
+  AboutCinemaPage,
+  CafeBar,
   StatisticsPage,
   StockPage,
   UsersPage,
@@ -56,6 +59,21 @@ export const routes = [
         path: 'pages',
         name: 'pages',
         component: PagesPage
+      },
+      {
+        path: 'pages/home-page',
+        name: 'home-page',
+        component: HomePage
+      },
+      {
+        path: 'pages/about-cinema-page',
+        name: 'about-cinema-page',
+        component: AboutCinemaPage
+      },
+      {
+        path: 'pages/cafe-bar',
+        name: 'cafe-bar',
+        component: CafeBar
       },
       {
         path: 'banners',
