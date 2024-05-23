@@ -1,6 +1,12 @@
 input {
   border: 1px solid #eee;
+  border-radius: 5px;
+  background: #444;
   padding: 0 5px;
   width: 100%;
   color: #eee;
+
+  &:focus{
+    outline: none;
+  }
 }

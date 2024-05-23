@@ -1,15 +1,17 @@
-@import 'base/index';
-
-
+@import "src/shared/scss-variables/index";
 
 body{
     font-family: "Roboto", sans-serif;
-    color: $text-color;
+    color: $white-one;
     background: $bg-color;
     font-width: 400;
 }
 
 a{
     text-decoration: none;
-    color: $text-color;
+    color: $white-one;
+}
+
+.app{
+    overflow: hidden;
 }

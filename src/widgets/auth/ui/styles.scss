@@ -1,0 +1,47 @@
+@import "@/shared/scss-variables/index";
+
+.auth-component{
+  width: 500px;
+  background: $next-color;
+  border: 1px solid $white-one;
+  border-radius: 5px;
+  padding: 10px;
+
+  @include media-breakpoint-down(xs){
+    width: 90vw;
+  }
+
+  &__title{
+    text-align: center;
+    margin-bottom: 10px;
+
+    @include media-breakpoint-down(xs){
+     font-size: 20px;
+    }
+  }
+
+  &__input{
+    margin-bottom: 20px;
+  }
+
+  &__name{
+
+  }
+
+  &__email{
+
+  }
+
+  &__login{
+
+  }
+
+  &__password{
+
+  }
+
+  &__btn{
+    display: flex;
+    justify-content: center;
+  }
+}

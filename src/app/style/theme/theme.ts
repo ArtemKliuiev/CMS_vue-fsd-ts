@@ -2,7 +2,7 @@ export const customTheme = {
   dark: false,
   colors: {
     background: '#444',
-    surface: '#444',
+    surface: '#555',
     'surface-bright': '#444',
     'surface-light': '#333',
     'surface-variant': '#333',
@@ -14,13 +14,13 @@ export const customTheme = {
     error: '#f44336',
     info: '#2196F3',
     success: '#4CAF50',
-    warning: '#FB8C00',
+    warning: '#FB8C00'
   },
   variables: {
     'border-color': '#333',
     'border-opacity': 0.12,
     'high-emphasis-opacity': 0.87,
-    'medium-emphasis-opacity': 0.60,
+    'medium-emphasis-opacity': 0.6,
     'disabled-opacity': 0.38,
     'idle-opacity': 0.04,
     'hover-opacity': 0.04,
@@ -32,6 +32,6 @@ export const customTheme = {
     'theme-kbd': '#212529',
     'theme-on-kbd': '#444',
     'theme-code': '#F5F5F5',
-    'theme-on-code': '#000000',
+    'theme-on-code': '#000000'
   }
 }

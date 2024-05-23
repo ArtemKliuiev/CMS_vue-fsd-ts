@@ -5,12 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import axios from 'axios'
-import serverPath from '@/shared/api'
-
-axios.get(serverPath + '/api/auth/cities/choices/').then((item) => {
-  console.log(item)
-})
+import { instance } from '@/shared/api'
 
 const breadcrumbs = [
   {

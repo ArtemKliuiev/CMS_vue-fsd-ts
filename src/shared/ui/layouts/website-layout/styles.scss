@@ -1,0 +1,30 @@
+.site-layout{
+  display: grid;
+  grid-template-rows: 120px 1fr 120px;
+  min-height: 100%;
+  overflow: hidden;
+
+
+  &__header{
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    grid-row: 1;
+    width: 100%;
+  }
+
+  &__main{
+    display: grid;
+    grid-row: 2;
+  }
+
+  &__footer{
+    margin-top: 20px;
+    grid-row: 3;
+  }
+}
+
+
+
+
+

@@ -1,5 +1,5 @@
 // router vue guard
-import { AdminLayout } from '@/shared/ui'
+import { AdminLayout, WebsiteLayout } from '@/shared/ui'
 
 import {
   BannersPage,
@@ -11,7 +11,9 @@ import {
   PagesPage,
   StatisticsPage,
   StockPage,
-  UsersPage
+  UsersPage,
+  AuthPage,
+  RegistrationPage
 } from '@/pages'
 
 export const routes = [
@@ -20,87 +22,81 @@ export const routes = [
     name: 'main',
     component: () => import('@/pages/website/MainPage.vue'),
     meta: {
-      layout: ''
+      layout: WebsiteLayout
     }
   },
   {
-    path: '/admin/statistics',
-    name: 'statistics',
-    component: StatisticsPage,
+    path: '/auth',
+    name: 'auth',
+    component: AuthPage,
     meta: {
-      layout: AdminLayout
+      layout: WebsiteLayout
     }
   },
   {
-    path: '/admin/pages',
-    name: 'pages',
-    component: PagesPage,
+    path: '/registration',
+    name: 'registration',
+    component: RegistrationPage,
     meta: {
-      layout: AdminLayout
+      layout: WebsiteLayout
     }
   },
   {
-    path: '/admin/banners',
-    name: 'banners',
-    component: BannersPage,
+    path: '/admin',
     meta: {
       layout: AdminLayout
-    }
-  },
-  {
-    path: '/admin/news',
-    name: 'news',
-    component: NewsPage,
-    meta: {
-      layout: AdminLayout
-    }
-  },
-  {
-    path: '/admin/movies',
-    name: 'movies',
-    component: MoviesPage,
-    meta: {
-      layout: AdminLayout
-    }
-  },
-  {
-    path: '/admin/movies-create',
-    name: 'movies-create',
-    component: MovieCreate,
-    meta: {
-      layout: AdminLayout
-    }
-  },
-  {
-    path: '/admin/cinemas',
-    name: 'cinemas',
-    component: CinemasPage,
-    meta: {
-      layout: AdminLayout
-    }
-  },
-  {
-    path: '/admin/newsletter',
-    name: 'newsletter',
-    component: NewsletterPage,
-    meta: {
-      layout: AdminLayout
-    }
-  },
-  {
-    path: '/admin/stock',
-    name: 'stock',
-    component: StockPage,
-    meta: {
-      layout: AdminLayout
-    }
-  },
-  {
-    path: '/admin/users',
-    name: 'users',
-    component: UsersPage,
-    meta: {
-      layout: AdminLayout
-    }
+    },
+    children: [
+      {
+        path: 'statistics',
+        name: 'statistics',
+        component: StatisticsPage
+      },
+      {
+        path: 'pages',
+        name: 'pages',
+        component: PagesPage
+      },
+      {
+        path: 'banners',
+        name: 'banners',
+        component: BannersPage
+      },
+      {
+        path: 'news',
+        name: 'news',
+        component: NewsPage
+      },
+      {
+        path: 'movies',
+        name: 'movies',
+        component: MoviesPage
+      },
+      {
+        path: 'movies-create',
+        name: 'movies-create',
+        component: MovieCreate
+      },
+      {
+        path: 'cinemas',
+        name: 'cinemas',
+        component: CinemasPage
+      },
+      {
+        path: 'newsletter',
+        name: 'newsletter',
+        component: NewsletterPage
+      },
+      {
+        path: 'stock',
+        name: 'stock',
+        component: StockPage
+      },
+      {
+        path: 'users',
+        name: 'users',
+        component: UsersPage
+      }
+    ]
   }
 ]

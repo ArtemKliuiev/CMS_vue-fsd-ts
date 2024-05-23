@@ -14,7 +14,9 @@
         <router-view />
       </template>
 
-      <template v-slot:footer> </template>
+      <template v-slot:footer>
+        <TheFooter />
+      </template>
     </component>
   </v-app>
 
@@ -23,6 +25,7 @@
 
 <script setup lang="ts">
 import { HeaderAdmin, HeaderWebsite } from '@/widgets/headers'
+import { TheFooter } from '@/widgets/footer'
 import { AdminLayout, NavigationAdmin, SvgManager } from '@/shared/ui'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
