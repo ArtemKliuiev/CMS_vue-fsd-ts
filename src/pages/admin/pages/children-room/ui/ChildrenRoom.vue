@@ -5,7 +5,7 @@
     <p>Название</p>
     <BaseInput
       class="movie-create__block"
-      placeholder="О кинотеатре"
+      placeholder="Детская комната"
       :value="valueInput"
       @update:modelValue="handleModelValue"
     />
@@ -19,18 +19,10 @@
     />
 
     <p>Главная картинка</p>
-    <v-file-input
-      accept="image/png, image/jpeg"
-      show-size
-      label="Добавить главную картинку"
-    ></v-file-input>
+    <v-file-input accept="image/png, image/jpeg" show-size label="Добавить главную картинку" />
 
     <p>Галерея картинок</p>
-    <v-file-input
-      accept="image/png, image/jpeg"
-      show-size
-      label="Добавить картинку в галерею"
-    ></v-file-input>
+    <v-file-input accept="image/png, image/jpeg" show-size label="Добавить картинку в галерею" />
 
     <Seo
       class="movie-create__block"
@@ -86,7 +78,7 @@ const breadcrumbs = [
     href: '/admin/pages'
   },
   {
-    title: 'About cinema',
+    title: 'Children room',
     disabled: true
   }
 ]

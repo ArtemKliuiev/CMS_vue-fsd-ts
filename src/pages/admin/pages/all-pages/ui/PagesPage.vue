@@ -61,6 +61,15 @@ const handleEditRow = (index: number) => {
     case 2:
       router.push('/admin/pages/cafe-bar')
       break
+    case 3:
+      router.push('/admin/pages/vip-hall')
+      break
+    case 4:
+      router.push('/admin/pages/advertising')
+      break
+    case 5:
+      router.push('/admin/pages/children-room')
+      break
   }
 }
 

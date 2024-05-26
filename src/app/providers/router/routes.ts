@@ -12,11 +12,18 @@ import {
   HomePage,
   AboutCinemaPage,
   CafeBar,
+  VipHall,
+  Adverticing,
+  ChildrenRoom,
   StatisticsPage,
   StockPage,
+  StockCreate,
   UsersPage,
   AuthPage,
-  RegistrationPage
+  RegistrationPage,
+  NewsCreate,
+  CinemasCardCinema,
+  CinemasCardHall
 } from '@/pages'
 
 export const routes = [
@@ -76,6 +83,21 @@ export const routes = [
         component: CafeBar
       },
       {
+        path: 'pages/vip-hall',
+        name: 'vip-hall',
+        component: VipHall
+      },
+      {
+        path: 'pages/advertising',
+        name: 'advertising',
+        component: Adverticing
+      },
+      {
+        path: 'pages/children-room',
+        name: 'children-room',
+        component: ChildrenRoom
+      },
+      {
         path: 'banners',
         name: 'banners',
         component: BannersPage
@@ -84,6 +106,11 @@ export const routes = [
         path: 'news',
         name: 'news',
         component: NewsPage
+      },
+      {
+        path: 'news-create',
+        name: 'news-create',
+        component: NewsCreate
       },
       {
         path: 'movies',
@@ -101,6 +128,16 @@ export const routes = [
         component: CinemasPage
       },
       {
+        path: 'cinemas-card-cinema',
+        name: 'cinemas-card-cinema',
+        component: CinemasCardCinema
+      },
+      {
+        path: 'cinemas-card-hall',
+        name: 'cinemas-card-hall',
+        component: CinemasCardHall
+      },
+      {
         path: 'newsletter',
         name: 'newsletter',
         component: NewsletterPage
@@ -109,6 +146,11 @@ export const routes = [
         path: 'stock',
         name: 'stock',
         component: StockPage
+      },
+      {
+        path: 'stock-create',
+        name: 'stock-create',
+        component: StockCreate
       },
       {
         path: 'users',
