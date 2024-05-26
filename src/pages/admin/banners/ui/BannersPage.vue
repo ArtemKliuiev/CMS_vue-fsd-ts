@@ -5,8 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import { instance } from '@/shared/api'
-
 const breadcrumbs = [
   {
     title: 'Admin',

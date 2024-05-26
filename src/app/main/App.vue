@@ -29,9 +29,23 @@ import { TheFooter } from '@/widgets/footer'
 import { AdminLayout, NavigationAdmin, SvgManager } from '@/shared/ui'
 import { useRoute } from 'vue-router'
 import { computed } from 'vue'
+import { useApi } from '@/shared/api/base'
+import { AuthApi, ProformasClientApi, UsersApi } from '@/shared/api/gen'
 
 const route = useRoute()
 const layout = computed(() => route.meta.layout || AdminLayout)
+
+const pizda = useApi(ProformasClientApi)
+
+async function down() {
+  const { data } = await pizda?.proformasClientsGetProformasClientsProformaIdGet({
+    proformaId: 882
+  })
+
+  console.log(data)
+}
+
+down()
 </script>
 
 <style lang="scss" scoped></style>
