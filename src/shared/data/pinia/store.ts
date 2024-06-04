@@ -8,3 +8,11 @@ export const piniaStore = defineStore('piniaData', {
     }
   }
 })
+
+export const userStore = defineStore('piniaData', {
+  state: () => {
+    return {
+      token: ''
+    }
+  }
+})

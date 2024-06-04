@@ -1,10 +1,11 @@
 import axios, { AxiosInstance } from 'axios'
+import { API_URL } from '@/shared/config'
 
 const instance: AxiosInstance = axios.create({
-  baseURL: 'https://kinocms-panel.demodev.cc',
-  withCredentials: true,
+  baseURL: API_URL,
   headers: {
-    accept: 'application/json'
+    accept: 'application/json',
+    'Accept-Language': 'en'
   }
 })
 

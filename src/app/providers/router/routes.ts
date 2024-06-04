@@ -25,6 +25,7 @@ import {
   CinemasCardCinema,
   CinemasCardHall
 } from '@/pages'
+import { beforeEach } from 'node:test'
 
 export const routes = [
   {
@@ -55,6 +56,10 @@ export const routes = [
     path: '/admin',
     meta: {
       layout: AdminLayout
+    },
+    beforeEnter: (to, from, next) => {
+      console.log('Проверка входа в аккаунт админа')
+      next()
     },
     children: [
       {

@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Admin
- * ADMIN API
+ * Kino
+ * KINO API
  *
  * The version of the OpenAPI document: 1.0.0
  * 

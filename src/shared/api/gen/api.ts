@@ -1,8 +1,8 @@
 /* tslint:disable */
 /* eslint-disable */
 /**
- * Admin
- * ADMIN API
+ * Kino
+ * KINO API
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -22,6 +22,292 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from './base';
 
 /**
+ * Pydantic schema for showing cinema card.
+ * @export
+ * @interface CinemaCardOutSchema
+ */
+export interface CinemaCardOutSchema {
+    /**
+     * 
+     * @type {ImageOutSchema}
+     * @memberof CinemaCardOutSchema
+     */
+    'banner': ImageOutSchema;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaCardOutSchema
+     */
+    'name'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaCardOutSchema
+     */
+    'slug'?: any;
+}
+/**
+ * Pydantic schema for creating cinemas to server side.
+ * @export
+ * @interface CinemaInSchema
+ */
+export interface CinemaInSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaInSchema
+     */
+    'seo_title'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaInSchema
+     */
+    'seo_description'?: any;
+    /**
+     * 
+     * @type {ImageInSchema}
+     * @memberof CinemaInSchema
+     */
+    'seo_image': ImageInSchema;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaInSchema
+     */
+    'name_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaInSchema
+     */
+    'name_ru'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaInSchema
+     */
+    'description_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaInSchema
+     */
+    'description_ru'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaInSchema
+     */
+    'terms_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaInSchema
+     */
+    'terms_ru'?: any;
+    /**
+     * 
+     * @type {ImageInSchema}
+     * @memberof CinemaInSchema
+     */
+    'banner': ImageInSchema;
+    /**
+     * 
+     * @type {ImageInSchema}
+     * @memberof CinemaInSchema
+     */
+    'logo': ImageInSchema;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaInSchema
+     */
+    'address'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaInSchema
+     */
+    'coordinate'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaInSchema
+     */
+    'gallery'?: any;
+}
+/**
+ * Pydantic schema for showing cinema full data.
+ * @export
+ * @interface CinemaOutSchema
+ */
+export interface CinemaOutSchema {
+    /**
+     * 
+     * @type {ImageOutSchema}
+     * @memberof CinemaOutSchema
+     */
+    'banner': ImageOutSchema;
+    /**
+     * 
+     * @type {ImageOutSchema}
+     * @memberof CinemaOutSchema
+     */
+    'logo': ImageOutSchema;
+    /**
+     * 
+     * @type {ImageOutSchema}
+     * @memberof CinemaOutSchema
+     */
+    'seo_image': ImageOutSchema;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaOutSchema
+     */
+    'name'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaOutSchema
+     */
+    'description'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaOutSchema
+     */
+    'terms'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaOutSchema
+     */
+    'gallery'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaOutSchema
+     */
+    'slug'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaOutSchema
+     */
+    'address'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaOutSchema
+     */
+    'coordinate'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaOutSchema
+     */
+    'seo_title'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaOutSchema
+     */
+    'seo_description'?: any;
+}
+/**
+ * Pydantic schema for updating cinema.
+ * @export
+ * @interface CinemaUpdateSchema
+ */
+export interface CinemaUpdateSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'seo_title'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'seo_description'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'seo_image'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'name_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'name_ru'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'description_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'description_ru'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'terms_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'terms_ru'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'banner'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'logo'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'address'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'coordinate'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'gallery'?: any;
+}
+/**
  * 
  * @export
  * @interface CityEnum
@@ -29,55 +315,98 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } fr
 export interface CityEnum {
 }
 /**
+ * 
+ * @export
+ * @interface DirectionEnum
+ */
+export interface DirectionEnum {
+}
+/**
+ * 
+ * @export
+ * @interface DynamicInput
+ */
+export interface DynamicInput {
+    /**
+     * 
+     * @type {any}
+     * @memberof DynamicInput
+     */
+    'page'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof DynamicInput
+     */
+    'page_size'?: any;
+}
+/**
+ * Pydantic schema for return gallery images to client side.
+ * @export
+ * @interface GalleryItemOutSchema
+ */
+export interface GalleryItemOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof GalleryItemOutSchema
+     */
+    'image': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof GalleryItemOutSchema
+     */
+    'image_webp': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof GalleryItemOutSchema
+     */
+    'id'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof GalleryItemOutSchema
+     */
+    'alt': any;
+}
+/**
  * Pydantic schema for uploading image to server side.
  * @export
- * @interface GalleryInSchema
+ * @interface GalleryItemSchema
  */
-export interface GalleryInSchema {
+export interface GalleryItemSchema {
     /**
      * 
      * @type {any}
-     * @memberof GalleryInSchema
-     */
-    'images': any;
-}
-/**
- * Pydantic schema for return image to client side.
- * @export
- * @interface GalleryMaxOutSchema
- */
-export interface GalleryMaxOutSchema {
-    /**
-     * 
-     * @type {any}
-     * @memberof GalleryMaxOutSchema
-     */
-    'images': any;
-    /**
-     * 
-     * @type {any}
-     * @memberof GalleryMaxOutSchema
-     */
-    'id'?: any;
-}
-/**
- * Pydantic schema for return image to client side.
- * @export
- * @interface GalleryMinOutSchema
- */
-export interface GalleryMinOutSchema {
-    /**
-     * 
-     * @type {any}
-     * @memberof GalleryMinOutSchema
+     * @memberof GalleryItemSchema
      */
     'id'?: any;
     /**
      * 
      * @type {any}
-     * @memberof GalleryMinOutSchema
+     * @memberof GalleryItemSchema
      */
-    'images': any;
+    'alt'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof GalleryItemSchema
+     */
+    'image'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof GalleryItemSchema
+     */
+    'delete': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof GalleryItemSchema
+     */
+    'filename'?: any;
 }
 /**
  * Pydantic schema for uploading image to server side.
@@ -90,7 +419,19 @@ export interface ImageInSchema {
      * @type {any}
      * @memberof ImageInSchema
      */
-    'alt': any;
+    'alt'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ImageInSchema
+     */
+    'image': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ImageInSchema
+     */
+    'filename': any;
 }
 /**
  * Pydantic schema for return image to client side.
@@ -109,13 +450,38 @@ export interface ImageOutSchema {
      * @type {any}
      * @memberof ImageOutSchema
      */
-    'id'?: any;
+    'image_webp': any;
     /**
      * 
      * @type {any}
      * @memberof ImageOutSchema
      */
     'alt': any;
+}
+/**
+ * Pydantic schema for updating image.
+ * @export
+ * @interface ImageUpdateSchema
+ */
+export interface ImageUpdateSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof ImageUpdateSchema
+     */
+    'alt'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ImageUpdateSchema
+     */
+    'image'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof ImageUpdateSchema
+     */
+    'filename'?: any;
 }
 /**
  * 
@@ -204,7 +570,7 @@ export interface MailingInSchema {
      * @type {any}
      * @memberof MailingInSchema
      */
-    'users'?: any;
+    'user_ids'?: any;
     /**
      * 
      * @type {any}
@@ -224,6 +590,99 @@ export interface MessageOutSchema {
      * @memberof MessageOutSchema
      */
     'detail': any;
+}
+/**
+ * 
+ * @export
+ * @interface PaginatedResponseSchemaCinemaCardOutSchema
+ */
+export interface PaginatedResponseSchemaCinemaCardOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaCinemaCardOutSchema
+     */
+    'count': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaCinemaCardOutSchema
+     */
+    'next': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaCinemaCardOutSchema
+     */
+    'previous': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaCinemaCardOutSchema
+     */
+    'results': any;
+}
+/**
+ * 
+ * @export
+ * @interface PaginatedResponseSchemaList
+ */
+export interface PaginatedResponseSchemaList {
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaList
+     */
+    'count': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaList
+     */
+    'next': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaList
+     */
+    'previous': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaList
+     */
+    'results': any;
+}
+/**
+ * 
+ * @export
+ * @interface PaginatedResponseSchemaUserOutSchema
+ */
+export interface PaginatedResponseSchemaUserOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaUserOutSchema
+     */
+    'count': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaUserOutSchema
+     */
+    'next': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaUserOutSchema
+     */
+    'previous': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaUserOutSchema
+     */
+    'results': any;
 }
 /**
  * Pydantic schema for getting task info.  Purpose of this schema to get task info
@@ -490,37 +949,6 @@ export interface UserUpdateSchema {
      */
     'birthday'?: any;
 }
-/**
- * Pydantic schema for Users. Purpose of this schema to return all users with pagination
- * @export
- * @interface UsersAllSchema
- */
-export interface UsersAllSchema {
-    /**
-     * 
-     * @type {any}
-     * @memberof UsersAllSchema
-     */
-    'items': any;
-    /**
-     * 
-     * @type {any}
-     * @memberof UsersAllSchema
-     */
-    'count': any;
-    /**
-     * 
-     * @type {any}
-     * @memberof UsersAllSchema
-     */
-    'next': any;
-    /**
-     * 
-     * @type {any}
-     * @memberof UsersAllSchema
-     */
-    'previous': any;
-}
 
 /**
  * AuthApi - axios parameter creator
@@ -529,6 +957,137 @@ export interface UsersAllSchema {
 export const AuthApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
+         * Endpoint gets cities for user to choose. Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Cities
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCities: async (acceptLanguage?: any, page?: any, pageSize?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/auth/cities/choices/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get user\'s personal data by token.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get My Profile
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMyProfile: async (acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/auth/my-profile/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get user\'s token by provided credentials.  Please provide:   - **Request body**  data with credentials of user  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Obtain Token
+         * @param {LoginSchema} loginSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        obtainToken: async (loginSchema: LoginSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'loginSchema' is not null or undefined
+            assertParamExists('obtainToken', 'loginSchema', loginSchema)
+            const localVarPath = `/api/auth/login`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(loginSchema, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get user\'s new access token by provided refresh token.  Please provide:   - **Request body**  provide here refresh token  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Refresh Token
          * @param {TokenRefreshInputSchema} tokenRefreshInputSchema 
@@ -536,9 +1095,9 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _2116e4e8ControllerRefreshToken: async (tokenRefreshInputSchema: TokenRefreshInputSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        refreshToken: async (tokenRefreshInputSchema: TokenRefreshInputSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tokenRefreshInputSchema' is not null or undefined
-            assertParamExists('_2116e4e8ControllerRefreshToken', 'tokenRefreshInputSchema', tokenRefreshInputSchema)
+            assertParamExists('refreshToken', 'tokenRefreshInputSchema', tokenRefreshInputSchema)
             const localVarPath = `/api/auth/refresh`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -572,53 +1131,16 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Endpoint gets cities for user to choose. Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Cities
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _3a34ec1eControllerGetCities: async (acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/auth/cities/choices/`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (acceptLanguage != null) {
-                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
-                    ? acceptLanguage 
-                    : JSON.stringify(acceptLanguage);
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Паролі не співпадають       2) Пароль повинен бути:          * Принаймні одна велика літера          * Принаймні одна мала літера          * Принаймні одна цифра          * Принаймні один спеціальний символ із набору ?!@%^&-          * Мінімальна довжина 8 символів       3) Введено некоректний номер телефону       4) Ім\'я та прізвище повинно починатися з великої літери\"          (наступні маленькі), доступна кирилиця,          доступні спецсимволи(\'-)   - **409**: Error: Conflict.         Причини:       1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Паролі не співпадають           2) Пароль повинен бути:              * Принаймні одна велика літера              * Принаймні одна мала літера              * Принаймні одна цифра              * Принаймні один спеціальний символ із набору ?!@%^&-              * Мінімальна довжина 8 символів           3) Введено некоректний номер телефону           4) Ім\'я та прізвище повинно починатися з великої літери              (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)     - **409**: Error: Conflict.       Причини:           1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Register
          * @param {UserRegisterSchema} userRegisterSchema 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _6bd64293ControllerRegister: async (userRegisterSchema: UserRegisterSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        register: async (userRegisterSchema: UserRegisterSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userRegisterSchema' is not null or undefined
-            assertParamExists('_6bd64293ControllerRegister', 'userRegisterSchema', userRegisterSchema)
+            assertParamExists('register', 'userRegisterSchema', userRegisterSchema)
             const localVarPath = `/api/auth/register/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -653,99 +1175,15 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
         },
         /**
          * Get user\'s personal data by token.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get My Profile
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _91ec46c6ControllerGetMyProfile: async (acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/auth/my-profile/`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication JWTAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (acceptLanguage != null) {
-                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
-                    ? acceptLanguage 
-                    : JSON.stringify(acceptLanguage);
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get user\'s token by provided credentials.  Please provide:   - **Request body**  data with credentials of user  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Obtain Token
-         * @param {LoginSchema} loginSchema 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        cec1ba17ControllerObtainToken: async (loginSchema: LoginSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'loginSchema' is not null or undefined
-            assertParamExists('cec1ba17ControllerObtainToken', 'loginSchema', loginSchema)
-            const localVarPath = `/api/auth/login`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (acceptLanguage != null) {
-                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
-                    ? acceptLanguage 
-                    : JSON.stringify(acceptLanguage);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(loginSchema, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get user\'s personal data by token.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Update My Profile
          * @param {UserUpdateSchema} userUpdateSchema 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        e27424f6ControllerUpdateMyProfile: async (userUpdateSchema: UserUpdateSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateMyProfile: async (userUpdateSchema: UserUpdateSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userUpdateSchema' is not null or undefined
-            assertParamExists('e27424f6ControllerUpdateMyProfile', 'userUpdateSchema', userUpdateSchema)
+            assertParamExists('updateMyProfile', 'userUpdateSchema', userUpdateSchema)
             const localVarPath = `/api/auth/my-profile/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -758,7 +1196,7 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication JWTAuth required
+            // authentication CustomJWTAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
@@ -793,38 +1231,16 @@ export const AuthApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = AuthApiAxiosParamCreator(configuration)
     return {
         /**
-         * Get user\'s new access token by provided refresh token.  Please provide:   - **Request body**  provide here refresh token  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Refresh Token
-         * @param {TokenRefreshInputSchema} tokenRefreshInputSchema 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async _2116e4e8ControllerRefreshToken(tokenRefreshInputSchema: TokenRefreshInputSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TokenRefreshOutputSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._2116e4e8ControllerRefreshToken(tokenRefreshInputSchema, acceptLanguage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Endpoint gets cities for user to choose. Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Cities
          * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async _3a34ec1eControllerGetCities(acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<any>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._3a34ec1eControllerGetCities(acceptLanguage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Паролі не співпадають       2) Пароль повинен бути:          * Принаймні одна велика літера          * Принаймні одна мала літера          * Принаймні одна цифра          * Принаймні один спеціальний символ із набору ?!@%^&-          * Мінімальна довжина 8 символів       3) Введено некоректний номер телефону       4) Ім\'я та прізвище повинно починатися з великої літери\"          (наступні маленькі), доступна кирилиця,          доступні спецсимволи(\'-)   - **409**: Error: Conflict.         Причини:       1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Register
-         * @param {UserRegisterSchema} userRegisterSchema 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async _6bd64293ControllerRegister(userRegisterSchema: UserRegisterSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._6bd64293ControllerRegister(userRegisterSchema, acceptLanguage, options);
+        async getCities(acceptLanguage?: any, page?: any, pageSize?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaList>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCities(acceptLanguage, page, pageSize, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -834,8 +1250,8 @@ export const AuthApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async _91ec46c6ControllerGetMyProfile(acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._91ec46c6ControllerGetMyProfile(acceptLanguage, options);
+        async getMyProfile(acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMyProfile(acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -846,8 +1262,32 @@ export const AuthApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async cec1ba17ControllerObtainToken(loginSchema: LoginSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoginResponseSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.cec1ba17ControllerObtainToken(loginSchema, acceptLanguage, options);
+        async obtainToken(loginSchema: LoginSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LoginResponseSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.obtainToken(loginSchema, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get user\'s new access token by provided refresh token.  Please provide:   - **Request body**  provide here refresh token  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Refresh Token
+         * @param {TokenRefreshInputSchema} tokenRefreshInputSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async refreshToken(tokenRefreshInputSchema: TokenRefreshInputSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TokenRefreshOutputSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.refreshToken(tokenRefreshInputSchema, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Паролі не співпадають           2) Пароль повинен бути:              * Принаймні одна велика літера              * Принаймні одна мала літера              * Принаймні одна цифра              * Принаймні один спеціальний символ із набору ?!@%^&-              * Мінімальна довжина 8 символів           3) Введено некоректний номер телефону           4) Ім\'я та прізвище повинно починатися з великої літери              (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)     - **409**: Error: Conflict.       Причини:           1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Register
+         * @param {UserRegisterSchema} userRegisterSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async register(userRegisterSchema: UserRegisterSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.register(userRegisterSchema, acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -858,8 +1298,8 @@ export const AuthApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async e27424f6ControllerUpdateMyProfile(userUpdateSchema: UserUpdateSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.e27424f6ControllerUpdateMyProfile(userUpdateSchema, acceptLanguage, options);
+        async updateMyProfile(userUpdateSchema: UserUpdateSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMyProfile(userUpdateSchema, acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -873,36 +1313,16 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
     const localVarFp = AuthApiFp(configuration)
     return {
         /**
-         * Get user\'s new access token by provided refresh token.  Please provide:   - **Request body**  provide here refresh token  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Refresh Token
-         * @param {TokenRefreshInputSchema} tokenRefreshInputSchema 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _2116e4e8ControllerRefreshToken(tokenRefreshInputSchema: TokenRefreshInputSchema, acceptLanguage?: any, options?: any): AxiosPromise<TokenRefreshOutputSchema> {
-            return localVarFp._2116e4e8ControllerRefreshToken(tokenRefreshInputSchema, acceptLanguage, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Endpoint gets cities for user to choose. Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Cities
          * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _3a34ec1eControllerGetCities(acceptLanguage?: any, options?: any): AxiosPromise<Array<any>> {
-            return localVarFp._3a34ec1eControllerGetCities(acceptLanguage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Паролі не співпадають       2) Пароль повинен бути:          * Принаймні одна велика літера          * Принаймні одна мала літера          * Принаймні одна цифра          * Принаймні один спеціальний символ із набору ?!@%^&-          * Мінімальна довжина 8 символів       3) Введено некоректний номер телефону       4) Ім\'я та прізвище повинно починатися з великої літери\"          (наступні маленькі), доступна кирилиця,          доступні спецсимволи(\'-)   - **409**: Error: Conflict.         Причини:       1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Register
-         * @param {UserRegisterSchema} userRegisterSchema 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _6bd64293ControllerRegister(userRegisterSchema: UserRegisterSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
-            return localVarFp._6bd64293ControllerRegister(userRegisterSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        getCities(acceptLanguage?: any, page?: any, pageSize?: any, options?: any): AxiosPromise<PaginatedResponseSchemaList> {
+            return localVarFp.getCities(acceptLanguage, page, pageSize, options).then((request) => request(axios, basePath));
         },
         /**
          * Get user\'s personal data by token.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
@@ -911,8 +1331,8 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _91ec46c6ControllerGetMyProfile(acceptLanguage?: any, options?: any): AxiosPromise<UserOutSchema> {
-            return localVarFp._91ec46c6ControllerGetMyProfile(acceptLanguage, options).then((request) => request(axios, basePath));
+        getMyProfile(acceptLanguage?: any, options?: any): AxiosPromise<UserOutSchema> {
+            return localVarFp.getMyProfile(acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
          * Get user\'s token by provided credentials.  Please provide:   - **Request body**  data with credentials of user  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
@@ -922,8 +1342,30 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        cec1ba17ControllerObtainToken(loginSchema: LoginSchema, acceptLanguage?: any, options?: any): AxiosPromise<LoginResponseSchema> {
-            return localVarFp.cec1ba17ControllerObtainToken(loginSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        obtainToken(loginSchema: LoginSchema, acceptLanguage?: any, options?: any): AxiosPromise<LoginResponseSchema> {
+            return localVarFp.obtainToken(loginSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get user\'s new access token by provided refresh token.  Please provide:   - **Request body**  provide here refresh token  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Refresh Token
+         * @param {TokenRefreshInputSchema} tokenRefreshInputSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        refreshToken(tokenRefreshInputSchema: TokenRefreshInputSchema, acceptLanguage?: any, options?: any): AxiosPromise<TokenRefreshOutputSchema> {
+            return localVarFp.refreshToken(tokenRefreshInputSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Паролі не співпадають           2) Пароль повинен бути:              * Принаймні одна велика літера              * Принаймні одна мала літера              * Принаймні одна цифра              * Принаймні один спеціальний символ із набору ?!@%^&-              * Мінімальна довжина 8 символів           3) Введено некоректний номер телефону           4) Ім\'я та прізвище повинно починатися з великої літери              (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)     - **409**: Error: Conflict.       Причини:           1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Register
+         * @param {UserRegisterSchema} userRegisterSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        register(userRegisterSchema: UserRegisterSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp.register(userRegisterSchema, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
          * Get user\'s personal data by token.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
@@ -933,120 +1375,134 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        e27424f6ControllerUpdateMyProfile(userUpdateSchema: UserUpdateSchema, acceptLanguage?: any, options?: any): AxiosPromise<UserOutSchema> {
-            return localVarFp.e27424f6ControllerUpdateMyProfile(userUpdateSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        updateMyProfile(userUpdateSchema: UserUpdateSchema, acceptLanguage?: any, options?: any): AxiosPromise<UserOutSchema> {
+            return localVarFp.updateMyProfile(userUpdateSchema, acceptLanguage, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for _2116e4e8ControllerRefreshToken operation in AuthApi.
+ * Request parameters for getCities operation in AuthApi.
  * @export
- * @interface AuthApi2116e4e8ControllerRefreshTokenRequest
+ * @interface AuthApiGetCitiesRequest
  */
-export interface AuthApi2116e4e8ControllerRefreshTokenRequest {
+export interface AuthApiGetCitiesRequest {
     /**
      * 
-     * @type {TokenRefreshInputSchema}
-     * @memberof AuthApi2116e4e8ControllerRefreshToken
+     * @type {any}
+     * @memberof AuthApiGetCities
      */
-    readonly tokenRefreshInputSchema: TokenRefreshInputSchema
+    readonly acceptLanguage?: any
 
     /**
      * 
      * @type {any}
-     * @memberof AuthApi2116e4e8ControllerRefreshToken
+     * @memberof AuthApiGetCities
+     */
+    readonly page?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof AuthApiGetCities
+     */
+    readonly pageSize?: any
+}
+
+/**
+ * Request parameters for getMyProfile operation in AuthApi.
+ * @export
+ * @interface AuthApiGetMyProfileRequest
+ */
+export interface AuthApiGetMyProfileRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof AuthApiGetMyProfile
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * Request parameters for _3a34ec1eControllerGetCities operation in AuthApi.
+ * Request parameters for obtainToken operation in AuthApi.
  * @export
- * @interface AuthApi3a34ec1eControllerGetCitiesRequest
+ * @interface AuthApiObtainTokenRequest
  */
-export interface AuthApi3a34ec1eControllerGetCitiesRequest {
-    /**
-     * 
-     * @type {any}
-     * @memberof AuthApi3a34ec1eControllerGetCities
-     */
-    readonly acceptLanguage?: any
-}
-
-/**
- * Request parameters for _6bd64293ControllerRegister operation in AuthApi.
- * @export
- * @interface AuthApi6bd64293ControllerRegisterRequest
- */
-export interface AuthApi6bd64293ControllerRegisterRequest {
-    /**
-     * 
-     * @type {UserRegisterSchema}
-     * @memberof AuthApi6bd64293ControllerRegister
-     */
-    readonly userRegisterSchema: UserRegisterSchema
-
-    /**
-     * 
-     * @type {any}
-     * @memberof AuthApi6bd64293ControllerRegister
-     */
-    readonly acceptLanguage?: any
-}
-
-/**
- * Request parameters for _91ec46c6ControllerGetMyProfile operation in AuthApi.
- * @export
- * @interface AuthApi91ec46c6ControllerGetMyProfileRequest
- */
-export interface AuthApi91ec46c6ControllerGetMyProfileRequest {
-    /**
-     * 
-     * @type {any}
-     * @memberof AuthApi91ec46c6ControllerGetMyProfile
-     */
-    readonly acceptLanguage?: any
-}
-
-/**
- * Request parameters for cec1ba17ControllerObtainToken operation in AuthApi.
- * @export
- * @interface AuthApiCec1ba17ControllerObtainTokenRequest
- */
-export interface AuthApiCec1ba17ControllerObtainTokenRequest {
+export interface AuthApiObtainTokenRequest {
     /**
      * 
      * @type {LoginSchema}
-     * @memberof AuthApiCec1ba17ControllerObtainToken
+     * @memberof AuthApiObtainToken
      */
     readonly loginSchema: LoginSchema
 
     /**
      * 
      * @type {any}
-     * @memberof AuthApiCec1ba17ControllerObtainToken
+     * @memberof AuthApiObtainToken
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * Request parameters for e27424f6ControllerUpdateMyProfile operation in AuthApi.
+ * Request parameters for refreshToken operation in AuthApi.
  * @export
- * @interface AuthApiE27424f6ControllerUpdateMyProfileRequest
+ * @interface AuthApiRefreshTokenRequest
  */
-export interface AuthApiE27424f6ControllerUpdateMyProfileRequest {
+export interface AuthApiRefreshTokenRequest {
+    /**
+     * 
+     * @type {TokenRefreshInputSchema}
+     * @memberof AuthApiRefreshToken
+     */
+    readonly tokenRefreshInputSchema: TokenRefreshInputSchema
+
+    /**
+     * 
+     * @type {any}
+     * @memberof AuthApiRefreshToken
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for register operation in AuthApi.
+ * @export
+ * @interface AuthApiRegisterRequest
+ */
+export interface AuthApiRegisterRequest {
+    /**
+     * 
+     * @type {UserRegisterSchema}
+     * @memberof AuthApiRegister
+     */
+    readonly userRegisterSchema: UserRegisterSchema
+
+    /**
+     * 
+     * @type {any}
+     * @memberof AuthApiRegister
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for updateMyProfile operation in AuthApi.
+ * @export
+ * @interface AuthApiUpdateMyProfileRequest
+ */
+export interface AuthApiUpdateMyProfileRequest {
     /**
      * 
      * @type {UserUpdateSchema}
-     * @memberof AuthApiE27424f6ControllerUpdateMyProfile
+     * @memberof AuthApiUpdateMyProfile
      */
     readonly userUpdateSchema: UserUpdateSchema
 
     /**
      * 
      * @type {any}
-     * @memberof AuthApiE27424f6ControllerUpdateMyProfile
+     * @memberof AuthApiUpdateMyProfile
      */
     readonly acceptLanguage?: any
 }
@@ -1059,196 +1515,98 @@ export interface AuthApiE27424f6ControllerUpdateMyProfileRequest {
  */
 export class AuthApi extends BaseAPI {
     /**
-     * Get user\'s new access token by provided refresh token.  Please provide:   - **Request body**  provide here refresh token  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Refresh Token
-     * @param {AuthApi2116e4e8ControllerRefreshTokenRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthApi
-     */
-    public _2116e4e8ControllerRefreshToken(requestParameters: AuthApi2116e4e8ControllerRefreshTokenRequest, options?: AxiosRequestConfig) {
-        return AuthApiFp(this.configuration)._2116e4e8ControllerRefreshToken(requestParameters.tokenRefreshInputSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Endpoint gets cities for user to choose. Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Get Cities
-     * @param {AuthApi3a34ec1eControllerGetCitiesRequest} requestParameters Request parameters.
+     * @param {AuthApiGetCitiesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthApi
      */
-    public _3a34ec1eControllerGetCities(requestParameters: AuthApi3a34ec1eControllerGetCitiesRequest = {}, options?: AxiosRequestConfig) {
-        return AuthApiFp(this.configuration)._3a34ec1eControllerGetCities(requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Паролі не співпадають       2) Пароль повинен бути:          * Принаймні одна велика літера          * Принаймні одна мала літера          * Принаймні одна цифра          * Принаймні один спеціальний символ із набору ?!@%^&-          * Мінімальна довжина 8 символів       3) Введено некоректний номер телефону       4) Ім\'я та прізвище повинно починатися з великої літери\"          (наступні маленькі), доступна кирилиця,          доступні спецсимволи(\'-)   - **409**: Error: Conflict.         Причини:       1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Register
-     * @param {AuthApi6bd64293ControllerRegisterRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof AuthApi
-     */
-    public _6bd64293ControllerRegister(requestParameters: AuthApi6bd64293ControllerRegisterRequest, options?: AxiosRequestConfig) {
-        return AuthApiFp(this.configuration)._6bd64293ControllerRegister(requestParameters.userRegisterSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public getCities(requestParameters: AuthApiGetCitiesRequest = {}, options?: AxiosRequestConfig) {
+        return AuthApiFp(this.configuration).getCities(requestParameters.acceptLanguage, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get user\'s personal data by token.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Get My Profile
-     * @param {AuthApi91ec46c6ControllerGetMyProfileRequest} requestParameters Request parameters.
+     * @param {AuthApiGetMyProfileRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthApi
      */
-    public _91ec46c6ControllerGetMyProfile(requestParameters: AuthApi91ec46c6ControllerGetMyProfileRequest = {}, options?: AxiosRequestConfig) {
-        return AuthApiFp(this.configuration)._91ec46c6ControllerGetMyProfile(requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public getMyProfile(requestParameters: AuthApiGetMyProfileRequest = {}, options?: AxiosRequestConfig) {
+        return AuthApiFp(this.configuration).getMyProfile(requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get user\'s token by provided credentials.  Please provide:   - **Request body**  data with credentials of user  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Obtain Token
-     * @param {AuthApiCec1ba17ControllerObtainTokenRequest} requestParameters Request parameters.
+     * @param {AuthApiObtainTokenRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthApi
      */
-    public cec1ba17ControllerObtainToken(requestParameters: AuthApiCec1ba17ControllerObtainTokenRequest, options?: AxiosRequestConfig) {
-        return AuthApiFp(this.configuration).cec1ba17ControllerObtainToken(requestParameters.loginSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public obtainToken(requestParameters: AuthApiObtainTokenRequest, options?: AxiosRequestConfig) {
+        return AuthApiFp(this.configuration).obtainToken(requestParameters.loginSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get user\'s new access token by provided refresh token.  Please provide:   - **Request body**  provide here refresh token  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Refresh Token
+     * @param {AuthApiRefreshTokenRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    public refreshToken(requestParameters: AuthApiRefreshTokenRequest, options?: AxiosRequestConfig) {
+        return AuthApiFp(this.configuration).refreshToken(requestParameters.tokenRefreshInputSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Паролі не співпадають           2) Пароль повинен бути:              * Принаймні одна велика літера              * Принаймні одна мала літера              * Принаймні одна цифра              * Принаймні один спеціальний символ із набору ?!@%^&-              * Мінімальна довжина 8 символів           3) Введено некоректний номер телефону           4) Ім\'я та прізвище повинно починатися з великої літери              (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)     - **409**: Error: Conflict.       Причини:           1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Register
+     * @param {AuthApiRegisterRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof AuthApi
+     */
+    public register(requestParameters: AuthApiRegisterRequest, options?: AxiosRequestConfig) {
+        return AuthApiFp(this.configuration).register(requestParameters.userRegisterSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get user\'s personal data by token.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **401**: Error: Unauthorized.     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Update My Profile
-     * @param {AuthApiE27424f6ControllerUpdateMyProfileRequest} requestParameters Request parameters.
+     * @param {AuthApiUpdateMyProfileRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof AuthApi
      */
-    public e27424f6ControllerUpdateMyProfile(requestParameters: AuthApiE27424f6ControllerUpdateMyProfileRequest, options?: AxiosRequestConfig) {
-        return AuthApiFp(this.configuration).e27424f6ControllerUpdateMyProfile(requestParameters.userUpdateSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public updateMyProfile(requestParameters: AuthApiUpdateMyProfileRequest, options?: AxiosRequestConfig) {
+        return AuthApiFp(this.configuration).updateMyProfile(requestParameters.userUpdateSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
 
 /**
- * GalleriesApi - axios parameter creator
+ * CinemasApi - axios parameter creator
  * @export
  */
-export const GalleriesApiAxiosParamCreator = function (configuration?: Configuration) {
+export const CinemasApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create gallery.  Please provide:   - **images**  of images ids for initial data for gallery  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Create Gallery
-         * @param {GalleryInSchema} galleryInSchema 
+         * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get By Slug
+         * @param {any} cnmSlug 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _28e65c58ControllerCreateGallery: async (galleryInSchema: GalleryInSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'galleryInSchema' is not null or undefined
-            assertParamExists('_28e65c58ControllerCreateGallery', 'galleryInSchema', galleryInSchema)
-            const localVarPath = `/api/gallery/`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication JWTAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (acceptLanguage != null) {
-                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
-                    ? acceptLanguage 
-                    : JSON.stringify(acceptLanguage);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(galleryInSchema, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Create gallery.  Please provide:   - **images**  of images ids for initial data for gallery  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Update Gallery
-         * @param {any} galleryId 
-         * @param {GalleryInSchema} galleryInSchema 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _838e915eControllerUpdateGallery: async (galleryId: any, galleryInSchema: GalleryInSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'galleryId' is not null or undefined
-            assertParamExists('_838e915eControllerUpdateGallery', 'galleryId', galleryId)
-            // verify required parameter 'galleryInSchema' is not null or undefined
-            assertParamExists('_838e915eControllerUpdateGallery', 'galleryInSchema', galleryInSchema)
-            const localVarPath = `/api/gallery/{gallery_id}/`
-                .replace(`{${"gallery_id"}}`, encodeURIComponent(String(galleryId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication JWTAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (acceptLanguage != null) {
-                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
-                    ? acceptLanguage 
-                    : JSON.stringify(acceptLanguage);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(galleryInSchema, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get minimum of gallery fields.  Please provide:   - **gallery_id**  id of gallery we want to get  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів галерей            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Min Gallery
-         * @param {any} galleryId 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _9fae94b8ControllerGetMinGallery: async (galleryId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'galleryId' is not null or undefined
-            assertParamExists('_9fae94b8ControllerGetMinGallery', 'galleryId', galleryId)
-            const localVarPath = `/api/gallery/min/{gallery_id}/`
-                .replace(`{${"gallery_id"}}`, encodeURIComponent(String(galleryId)));
+        _10b2699aControllerGetBySlug: async (cnmSlug: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'cnmSlug' is not null or undefined
+            assertParamExists('_10b2699aControllerGetBySlug', 'cnmSlug', cnmSlug)
+            const localVarPath = `/api/cinema/{cnm_slug}/`
+                .replace(`{${"cnm_slug"}}`, encodeURIComponent(String(cnmSlug)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -1278,17 +1636,543 @@ export const GalleriesApiAxiosParamCreator = function (configuration?: Configura
             };
         },
         /**
+         * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Create Cinema
+         * @param {CinemaInSchema} cinemaInSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        _4890e9a0ControllerCreateCinema: async (cinemaInSchema: CinemaInSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'cinemaInSchema' is not null or undefined
+            assertParamExists('_4890e9a0ControllerCreateCinema', 'cinemaInSchema', cinemaInSchema)
+            const localVarPath = `/api/cinema/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(cinemaInSchema, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete cinema by id.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Delete By Slug
+         * @param {any} cnmSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        _7db73c3dControllerDeleteBySlug: async (cnmSlug: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'cnmSlug' is not null or undefined
+            assertParamExists('_7db73c3dControllerDeleteBySlug', 'cnmSlug', cnmSlug)
+            const localVarPath = `/api/cinema/{cnm_slug}/`
+                .replace(`{${"cnm_slug"}}`, encodeURIComponent(String(cnmSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Update Cinema
+         * @param {any} cnmSlug 
+         * @param {CinemaUpdateSchema} cinemaUpdateSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        _93cc4991ControllerUpdateCinema: async (cnmSlug: any, cinemaUpdateSchema: CinemaUpdateSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'cnmSlug' is not null or undefined
+            assertParamExists('_93cc4991ControllerUpdateCinema', 'cnmSlug', cnmSlug)
+            // verify required parameter 'cinemaUpdateSchema' is not null or undefined
+            assertParamExists('_93cc4991ControllerUpdateCinema', 'cinemaUpdateSchema', cinemaUpdateSchema)
+            const localVarPath = `/api/cinema/{cnm_slug}/`
+                .replace(`{${"cnm_slug"}}`, encodeURIComponent(String(cnmSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(cinemaUpdateSchema, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get all cinema cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Cinema Cards
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        aca33f19ControllerGetCinemaCards: async (acceptLanguage?: any, page?: any, pageSize?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/cinema/all-cards/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * CinemasApi - functional programming interface
+ * @export
+ */
+export const CinemasApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = CinemasApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get By Slug
+         * @param {any} cnmSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async _10b2699aControllerGetBySlug(cnmSlug: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CinemaOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator._10b2699aControllerGetBySlug(cnmSlug, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Create Cinema
+         * @param {CinemaInSchema} cinemaInSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async _4890e9a0ControllerCreateCinema(cinemaInSchema: CinemaInSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator._4890e9a0ControllerCreateCinema(cinemaInSchema, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Delete cinema by id.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Delete By Slug
+         * @param {any} cnmSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async _7db73c3dControllerDeleteBySlug(cnmSlug: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator._7db73c3dControllerDeleteBySlug(cnmSlug, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Update Cinema
+         * @param {any} cnmSlug 
+         * @param {CinemaUpdateSchema} cinemaUpdateSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async _93cc4991ControllerUpdateCinema(cnmSlug: any, cinemaUpdateSchema: CinemaUpdateSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator._93cc4991ControllerUpdateCinema(cnmSlug, cinemaUpdateSchema, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get all cinema cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Cinema Cards
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async aca33f19ControllerGetCinemaCards(acceptLanguage?: any, page?: any, pageSize?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaCinemaCardOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.aca33f19ControllerGetCinemaCards(acceptLanguage, page, pageSize, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * CinemasApi - factory interface
+ * @export
+ */
+export const CinemasApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = CinemasApiFp(configuration)
+    return {
+        /**
+         * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get By Slug
+         * @param {any} cnmSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        _10b2699aControllerGetBySlug(cnmSlug: any, acceptLanguage?: any, options?: any): AxiosPromise<CinemaOutSchema> {
+            return localVarFp._10b2699aControllerGetBySlug(cnmSlug, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Create Cinema
+         * @param {CinemaInSchema} cinemaInSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        _4890e9a0ControllerCreateCinema(cinemaInSchema: CinemaInSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp._4890e9a0ControllerCreateCinema(cinemaInSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete cinema by id.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Delete By Slug
+         * @param {any} cnmSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        _7db73c3dControllerDeleteBySlug(cnmSlug: any, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp._7db73c3dControllerDeleteBySlug(cnmSlug, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Update Cinema
+         * @param {any} cnmSlug 
+         * @param {CinemaUpdateSchema} cinemaUpdateSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        _93cc4991ControllerUpdateCinema(cnmSlug: any, cinemaUpdateSchema: CinemaUpdateSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp._93cc4991ControllerUpdateCinema(cnmSlug, cinemaUpdateSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all cinema cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Cinema Cards
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        aca33f19ControllerGetCinemaCards(acceptLanguage?: any, page?: any, pageSize?: any, options?: any): AxiosPromise<PaginatedResponseSchemaCinemaCardOutSchema> {
+            return localVarFp.aca33f19ControllerGetCinemaCards(acceptLanguage, page, pageSize, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for _10b2699aControllerGetBySlug operation in CinemasApi.
+ * @export
+ * @interface CinemasApi10b2699aControllerGetBySlugRequest
+ */
+export interface CinemasApi10b2699aControllerGetBySlugRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApi10b2699aControllerGetBySlug
+     */
+    readonly cnmSlug: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApi10b2699aControllerGetBySlug
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for _4890e9a0ControllerCreateCinema operation in CinemasApi.
+ * @export
+ * @interface CinemasApi4890e9a0ControllerCreateCinemaRequest
+ */
+export interface CinemasApi4890e9a0ControllerCreateCinemaRequest {
+    /**
+     * 
+     * @type {CinemaInSchema}
+     * @memberof CinemasApi4890e9a0ControllerCreateCinema
+     */
+    readonly cinemaInSchema: CinemaInSchema
+
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApi4890e9a0ControllerCreateCinema
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for _7db73c3dControllerDeleteBySlug operation in CinemasApi.
+ * @export
+ * @interface CinemasApi7db73c3dControllerDeleteBySlugRequest
+ */
+export interface CinemasApi7db73c3dControllerDeleteBySlugRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApi7db73c3dControllerDeleteBySlug
+     */
+    readonly cnmSlug: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApi7db73c3dControllerDeleteBySlug
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for _93cc4991ControllerUpdateCinema operation in CinemasApi.
+ * @export
+ * @interface CinemasApi93cc4991ControllerUpdateCinemaRequest
+ */
+export interface CinemasApi93cc4991ControllerUpdateCinemaRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApi93cc4991ControllerUpdateCinema
+     */
+    readonly cnmSlug: any
+
+    /**
+     * 
+     * @type {CinemaUpdateSchema}
+     * @memberof CinemasApi93cc4991ControllerUpdateCinema
+     */
+    readonly cinemaUpdateSchema: CinemaUpdateSchema
+
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApi93cc4991ControllerUpdateCinema
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for aca33f19ControllerGetCinemaCards operation in CinemasApi.
+ * @export
+ * @interface CinemasApiAca33f19ControllerGetCinemaCardsRequest
+ */
+export interface CinemasApiAca33f19ControllerGetCinemaCardsRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApiAca33f19ControllerGetCinemaCards
+     */
+    readonly acceptLanguage?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApiAca33f19ControllerGetCinemaCards
+     */
+    readonly page?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApiAca33f19ControllerGetCinemaCards
+     */
+    readonly pageSize?: any
+}
+
+/**
+ * CinemasApi - object-oriented interface
+ * @export
+ * @class CinemasApi
+ * @extends {BaseAPI}
+ */
+export class CinemasApi extends BaseAPI {
+    /**
+     * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get By Slug
+     * @param {CinemasApi10b2699aControllerGetBySlugRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CinemasApi
+     */
+    public _10b2699aControllerGetBySlug(requestParameters: CinemasApi10b2699aControllerGetBySlugRequest, options?: AxiosRequestConfig) {
+        return CinemasApiFp(this.configuration)._10b2699aControllerGetBySlug(requestParameters.cnmSlug, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+     * @summary Create Cinema
+     * @param {CinemasApi4890e9a0ControllerCreateCinemaRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CinemasApi
+     */
+    public _4890e9a0ControllerCreateCinema(requestParameters: CinemasApi4890e9a0ControllerCreateCinemaRequest, options?: AxiosRequestConfig) {
+        return CinemasApiFp(this.configuration)._4890e9a0ControllerCreateCinema(requestParameters.cinemaInSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete cinema by id.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * @summary Delete By Slug
+     * @param {CinemasApi7db73c3dControllerDeleteBySlugRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CinemasApi
+     */
+    public _7db73c3dControllerDeleteBySlug(requestParameters: CinemasApi7db73c3dControllerDeleteBySlugRequest, options?: AxiosRequestConfig) {
+        return CinemasApiFp(this.configuration)._7db73c3dControllerDeleteBySlug(requestParameters.cnmSlug, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+     * @summary Update Cinema
+     * @param {CinemasApi93cc4991ControllerUpdateCinemaRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CinemasApi
+     */
+    public _93cc4991ControllerUpdateCinema(requestParameters: CinemasApi93cc4991ControllerUpdateCinemaRequest, options?: AxiosRequestConfig) {
+        return CinemasApiFp(this.configuration)._93cc4991ControllerUpdateCinema(requestParameters.cnmSlug, requestParameters.cinemaUpdateSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get all cinema cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get Cinema Cards
+     * @param {CinemasApiAca33f19ControllerGetCinemaCardsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CinemasApi
+     */
+    public aca33f19ControllerGetCinemaCards(requestParameters: CinemasApiAca33f19ControllerGetCinemaCardsRequest = {}, options?: AxiosRequestConfig) {
+        return CinemasApiFp(this.configuration).aca33f19ControllerGetCinemaCards(requestParameters.acceptLanguage, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * GalleriesApi - axios parameter creator
+ * @export
+ */
+export const GalleriesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
          * Get maximum of gallery fields.  Please provide:   - **gallery_id**  id of gallery we want to get  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів галерей            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Max Gallery
+         * @summary Get Gallery
          * @param {any} galleryId 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        ccdd1fecControllerGetMaxGallery: async (galleryId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        d81d4933ControllerGetGallery: async (galleryId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'galleryId' is not null or undefined
-            assertParamExists('ccdd1fecControllerGetMaxGallery', 'galleryId', galleryId)
-            const localVarPath = `/api/gallery/max/{gallery_id}/`
+            assertParamExists('d81d4933ControllerGetGallery', 'galleryId', galleryId)
+            const localVarPath = `/api/gallery/{gallery_id}/`
                 .replace(`{${"gallery_id"}}`, encodeURIComponent(String(galleryId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1329,52 +2213,15 @@ export const GalleriesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = GalleriesApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create gallery.  Please provide:   - **images**  of images ids for initial data for gallery  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Create Gallery
-         * @param {GalleryInSchema} galleryInSchema 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async _28e65c58ControllerCreateGallery(galleryInSchema: GalleryInSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GalleryMinOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._28e65c58ControllerCreateGallery(galleryInSchema, acceptLanguage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Create gallery.  Please provide:   - **images**  of images ids for initial data for gallery  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Update Gallery
-         * @param {any} galleryId 
-         * @param {GalleryInSchema} galleryInSchema 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async _838e915eControllerUpdateGallery(galleryId: any, galleryInSchema: GalleryInSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GalleryMinOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._838e915eControllerUpdateGallery(galleryId, galleryInSchema, acceptLanguage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get minimum of gallery fields.  Please provide:   - **gallery_id**  id of gallery we want to get  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів галерей            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Min Gallery
-         * @param {any} galleryId 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async _9fae94b8ControllerGetMinGallery(galleryId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GalleryMinOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._9fae94b8ControllerGetMinGallery(galleryId, acceptLanguage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Get maximum of gallery fields.  Please provide:   - **gallery_id**  id of gallery we want to get  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів галерей            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Max Gallery
+         * @summary Get Gallery
          * @param {any} galleryId 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async ccdd1fecControllerGetMaxGallery(galleryId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GalleryMaxOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.ccdd1fecControllerGetMaxGallery(galleryId, acceptLanguage, options);
+        async d81d4933ControllerGetGallery(galleryId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GalleryItemOutSchema>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.d81d4933ControllerGetGallery(galleryId, acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -1388,140 +2235,36 @@ export const GalleriesApiFactory = function (configuration?: Configuration, base
     const localVarFp = GalleriesApiFp(configuration)
     return {
         /**
-         * Create gallery.  Please provide:   - **images**  of images ids for initial data for gallery  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Create Gallery
-         * @param {GalleryInSchema} galleryInSchema 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _28e65c58ControllerCreateGallery(galleryInSchema: GalleryInSchema, acceptLanguage?: any, options?: any): AxiosPromise<GalleryMinOutSchema> {
-            return localVarFp._28e65c58ControllerCreateGallery(galleryInSchema, acceptLanguage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Create gallery.  Please provide:   - **images**  of images ids for initial data for gallery  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Update Gallery
-         * @param {any} galleryId 
-         * @param {GalleryInSchema} galleryInSchema 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _838e915eControllerUpdateGallery(galleryId: any, galleryInSchema: GalleryInSchema, acceptLanguage?: any, options?: any): AxiosPromise<GalleryMinOutSchema> {
-            return localVarFp._838e915eControllerUpdateGallery(galleryId, galleryInSchema, acceptLanguage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get minimum of gallery fields.  Please provide:   - **gallery_id**  id of gallery we want to get  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів галерей            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Min Gallery
-         * @param {any} galleryId 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _9fae94b8ControllerGetMinGallery(galleryId: any, acceptLanguage?: any, options?: any): AxiosPromise<GalleryMinOutSchema> {
-            return localVarFp._9fae94b8ControllerGetMinGallery(galleryId, acceptLanguage, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Get maximum of gallery fields.  Please provide:   - **gallery_id**  id of gallery we want to get  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів галерей            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Max Gallery
+         * @summary Get Gallery
          * @param {any} galleryId 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        ccdd1fecControllerGetMaxGallery(galleryId: any, acceptLanguage?: any, options?: any): AxiosPromise<GalleryMaxOutSchema> {
-            return localVarFp.ccdd1fecControllerGetMaxGallery(galleryId, acceptLanguage, options).then((request) => request(axios, basePath));
+        d81d4933ControllerGetGallery(galleryId: any, acceptLanguage?: any, options?: any): AxiosPromise<Array<GalleryItemOutSchema>> {
+            return localVarFp.d81d4933ControllerGetGallery(galleryId, acceptLanguage, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for _28e65c58ControllerCreateGallery operation in GalleriesApi.
+ * Request parameters for d81d4933ControllerGetGallery operation in GalleriesApi.
  * @export
- * @interface GalleriesApi28e65c58ControllerCreateGalleryRequest
+ * @interface GalleriesApiD81d4933ControllerGetGalleryRequest
  */
-export interface GalleriesApi28e65c58ControllerCreateGalleryRequest {
-    /**
-     * 
-     * @type {GalleryInSchema}
-     * @memberof GalleriesApi28e65c58ControllerCreateGallery
-     */
-    readonly galleryInSchema: GalleryInSchema
-
+export interface GalleriesApiD81d4933ControllerGetGalleryRequest {
     /**
      * 
      * @type {any}
-     * @memberof GalleriesApi28e65c58ControllerCreateGallery
-     */
-    readonly acceptLanguage?: any
-}
-
-/**
- * Request parameters for _838e915eControllerUpdateGallery operation in GalleriesApi.
- * @export
- * @interface GalleriesApi838e915eControllerUpdateGalleryRequest
- */
-export interface GalleriesApi838e915eControllerUpdateGalleryRequest {
-    /**
-     * 
-     * @type {any}
-     * @memberof GalleriesApi838e915eControllerUpdateGallery
-     */
-    readonly galleryId: any
-
-    /**
-     * 
-     * @type {GalleryInSchema}
-     * @memberof GalleriesApi838e915eControllerUpdateGallery
-     */
-    readonly galleryInSchema: GalleryInSchema
-
-    /**
-     * 
-     * @type {any}
-     * @memberof GalleriesApi838e915eControllerUpdateGallery
-     */
-    readonly acceptLanguage?: any
-}
-
-/**
- * Request parameters for _9fae94b8ControllerGetMinGallery operation in GalleriesApi.
- * @export
- * @interface GalleriesApi9fae94b8ControllerGetMinGalleryRequest
- */
-export interface GalleriesApi9fae94b8ControllerGetMinGalleryRequest {
-    /**
-     * 
-     * @type {any}
-     * @memberof GalleriesApi9fae94b8ControllerGetMinGallery
+     * @memberof GalleriesApiD81d4933ControllerGetGallery
      */
     readonly galleryId: any
 
     /**
      * 
      * @type {any}
-     * @memberof GalleriesApi9fae94b8ControllerGetMinGallery
-     */
-    readonly acceptLanguage?: any
-}
-
-/**
- * Request parameters for ccdd1fecControllerGetMaxGallery operation in GalleriesApi.
- * @export
- * @interface GalleriesApiCcdd1fecControllerGetMaxGalleryRequest
- */
-export interface GalleriesApiCcdd1fecControllerGetMaxGalleryRequest {
-    /**
-     * 
-     * @type {any}
-     * @memberof GalleriesApiCcdd1fecControllerGetMaxGallery
-     */
-    readonly galleryId: any
-
-    /**
-     * 
-     * @type {any}
-     * @memberof GalleriesApiCcdd1fecControllerGetMaxGallery
+     * @memberof GalleriesApiD81d4933ControllerGetGallery
      */
     readonly acceptLanguage?: any
 }
@@ -1534,421 +2277,15 @@ export interface GalleriesApiCcdd1fecControllerGetMaxGalleryRequest {
  */
 export class GalleriesApi extends BaseAPI {
     /**
-     * Create gallery.  Please provide:   - **images**  of images ids for initial data for gallery  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Create Gallery
-     * @param {GalleriesApi28e65c58ControllerCreateGalleryRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GalleriesApi
-     */
-    public _28e65c58ControllerCreateGallery(requestParameters: GalleriesApi28e65c58ControllerCreateGalleryRequest, options?: AxiosRequestConfig) {
-        return GalleriesApiFp(this.configuration)._28e65c58ControllerCreateGallery(requestParameters.galleryInSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Create gallery.  Please provide:   - **images**  of images ids for initial data for gallery  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Update Gallery
-     * @param {GalleriesApi838e915eControllerUpdateGalleryRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GalleriesApi
-     */
-    public _838e915eControllerUpdateGallery(requestParameters: GalleriesApi838e915eControllerUpdateGalleryRequest, options?: AxiosRequestConfig) {
-        return GalleriesApiFp(this.configuration)._838e915eControllerUpdateGallery(requestParameters.galleryId, requestParameters.galleryInSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get minimum of gallery fields.  Please provide:   - **gallery_id**  id of gallery we want to get  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів галерей            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Get Min Gallery
-     * @param {GalleriesApi9fae94b8ControllerGetMinGalleryRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof GalleriesApi
-     */
-    public _9fae94b8ControllerGetMinGallery(requestParameters: GalleriesApi9fae94b8ControllerGetMinGalleryRequest, options?: AxiosRequestConfig) {
-        return GalleriesApiFp(this.configuration)._9fae94b8ControllerGetMinGallery(requestParameters.galleryId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Get maximum of gallery fields.  Please provide:   - **gallery_id**  id of gallery we want to get  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів галерей            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Get Max Gallery
-     * @param {GalleriesApiCcdd1fecControllerGetMaxGalleryRequest} requestParameters Request parameters.
+     * @summary Get Gallery
+     * @param {GalleriesApiD81d4933ControllerGetGalleryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GalleriesApi
      */
-    public ccdd1fecControllerGetMaxGallery(requestParameters: GalleriesApiCcdd1fecControllerGetMaxGalleryRequest, options?: AxiosRequestConfig) {
-        return GalleriesApiFp(this.configuration).ccdd1fecControllerGetMaxGallery(requestParameters.galleryId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
-    }
-}
-
-
-/**
- * ImagesApi - axios parameter creator
- * @export
- */
-export const ImagesApiAxiosParamCreator = function (configuration?: Configuration) {
-    return {
-        /**
-         * Create image for some entity.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Максимально дозволений розмір файлу 1MB       Причини:       2) Максимально дозволена довжина поля alt 60 символів   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Upload Image
-         * @param {any} image 
-         * @param {any} alt 
-         * @param {any} [imgId] 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _27b53e9cControllerUploadImage: async (image: any, alt: any, imgId?: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'image' is not null or undefined
-            assertParamExists('_27b53e9cControllerUploadImage', 'image', image)
-            // verify required parameter 'alt' is not null or undefined
-            assertParamExists('_27b53e9cControllerUploadImage', 'alt', alt)
-            const localVarPath = `/api/image/upload/`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-            const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
-
-            if (imgId !== undefined) {
-                localVarQueryParameter['img_id'] = imgId;
-            }
-
-            if (acceptLanguage != null) {
-                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
-                    ? acceptLanguage 
-                    : JSON.stringify(acceptLanguage);
-            }
-
-
-            if (image !== undefined) { 
-                localVarFormParams.append('image', new Blob([JSON.stringify(image)], { type: "application/json", }));
-            }
-    
-            if (alt !== undefined) { 
-                localVarFormParams.append('alt', new Blob([JSON.stringify(alt)], { type: "application/json", }));
-            }
-    
-    
-            localVarHeaderParameter['Content-Type'] = 'multipart/form-data';
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = localVarFormParams;
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Ger image by id.  Please provide:   - **img_id**  id for image  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Image
-         * @param {any} imgId 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _5f5ac29dControllerGetImage: async (imgId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'imgId' is not null or undefined
-            assertParamExists('_5f5ac29dControllerGetImage', 'imgId', imgId)
-            const localVarPath = `/api/image/{img_id}/`
-                .replace(`{${"img_id"}}`, encodeURIComponent(String(imgId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (acceptLanguage != null) {
-                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
-                    ? acceptLanguage 
-                    : JSON.stringify(acceptLanguage);
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Create image for some entity.  Please provide:   - **img_id**  id for image for deleting  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Delete Image
-         * @param {any} imgId 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _7243761bControllerDeleteImage: async (imgId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'imgId' is not null or undefined
-            assertParamExists('_7243761bControllerDeleteImage', 'imgId', imgId)
-            const localVarPath = `/api/image/{img_id}/`
-                .replace(`{${"img_id"}}`, encodeURIComponent(String(imgId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication JWTAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (acceptLanguage != null) {
-                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
-                    ? acceptLanguage 
-                    : JSON.stringify(acceptLanguage);
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-    }
-};
-
-/**
- * ImagesApi - functional programming interface
- * @export
- */
-export const ImagesApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = ImagesApiAxiosParamCreator(configuration)
-    return {
-        /**
-         * Create image for some entity.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Максимально дозволений розмір файлу 1MB       Причини:       2) Максимально дозволена довжина поля alt 60 символів   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Upload Image
-         * @param {any} image 
-         * @param {any} alt 
-         * @param {any} [imgId] 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async _27b53e9cControllerUploadImage(image: any, alt: any, imgId?: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ImageOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._27b53e9cControllerUploadImage(image, alt, imgId, acceptLanguage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Ger image by id.  Please provide:   - **img_id**  id for image  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Image
-         * @param {any} imgId 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async _5f5ac29dControllerGetImage(imgId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ImageOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._5f5ac29dControllerGetImage(imgId, acceptLanguage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Create image for some entity.  Please provide:   - **img_id**  id for image for deleting  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Delete Image
-         * @param {any} imgId 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async _7243761bControllerDeleteImage(imgId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._7243761bControllerDeleteImage(imgId, acceptLanguage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-    }
-};
-
-/**
- * ImagesApi - factory interface
- * @export
- */
-export const ImagesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = ImagesApiFp(configuration)
-    return {
-        /**
-         * Create image for some entity.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Максимально дозволений розмір файлу 1MB       Причини:       2) Максимально дозволена довжина поля alt 60 символів   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Upload Image
-         * @param {any} image 
-         * @param {any} alt 
-         * @param {any} [imgId] 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _27b53e9cControllerUploadImage(image: any, alt: any, imgId?: any, acceptLanguage?: any, options?: any): AxiosPromise<ImageOutSchema> {
-            return localVarFp._27b53e9cControllerUploadImage(image, alt, imgId, acceptLanguage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Ger image by id.  Please provide:   - **img_id**  id for image  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Image
-         * @param {any} imgId 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _5f5ac29dControllerGetImage(imgId: any, acceptLanguage?: any, options?: any): AxiosPromise<ImageOutSchema> {
-            return localVarFp._5f5ac29dControllerGetImage(imgId, acceptLanguage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Create image for some entity.  Please provide:   - **img_id**  id for image for deleting  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Delete Image
-         * @param {any} imgId 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _7243761bControllerDeleteImage(imgId: any, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
-            return localVarFp._7243761bControllerDeleteImage(imgId, acceptLanguage, options).then((request) => request(axios, basePath));
-        },
-    };
-};
-
-/**
- * Request parameters for _27b53e9cControllerUploadImage operation in ImagesApi.
- * @export
- * @interface ImagesApi27b53e9cControllerUploadImageRequest
- */
-export interface ImagesApi27b53e9cControllerUploadImageRequest {
-    /**
-     * 
-     * @type {any}
-     * @memberof ImagesApi27b53e9cControllerUploadImage
-     */
-    readonly image: any
-
-    /**
-     * 
-     * @type {any}
-     * @memberof ImagesApi27b53e9cControllerUploadImage
-     */
-    readonly alt: any
-
-    /**
-     * 
-     * @type {any}
-     * @memberof ImagesApi27b53e9cControllerUploadImage
-     */
-    readonly imgId?: any
-
-    /**
-     * 
-     * @type {any}
-     * @memberof ImagesApi27b53e9cControllerUploadImage
-     */
-    readonly acceptLanguage?: any
-}
-
-/**
- * Request parameters for _5f5ac29dControllerGetImage operation in ImagesApi.
- * @export
- * @interface ImagesApi5f5ac29dControllerGetImageRequest
- */
-export interface ImagesApi5f5ac29dControllerGetImageRequest {
-    /**
-     * 
-     * @type {any}
-     * @memberof ImagesApi5f5ac29dControllerGetImage
-     */
-    readonly imgId: any
-
-    /**
-     * 
-     * @type {any}
-     * @memberof ImagesApi5f5ac29dControllerGetImage
-     */
-    readonly acceptLanguage?: any
-}
-
-/**
- * Request parameters for _7243761bControllerDeleteImage operation in ImagesApi.
- * @export
- * @interface ImagesApi7243761bControllerDeleteImageRequest
- */
-export interface ImagesApi7243761bControllerDeleteImageRequest {
-    /**
-     * 
-     * @type {any}
-     * @memberof ImagesApi7243761bControllerDeleteImage
-     */
-    readonly imgId: any
-
-    /**
-     * 
-     * @type {any}
-     * @memberof ImagesApi7243761bControllerDeleteImage
-     */
-    readonly acceptLanguage?: any
-}
-
-/**
- * ImagesApi - object-oriented interface
- * @export
- * @class ImagesApi
- * @extends {BaseAPI}
- */
-export class ImagesApi extends BaseAPI {
-    /**
-     * Create image for some entity.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Максимально дозволений розмір файлу 1MB       Причини:       2) Максимально дозволена довжина поля alt 60 символів   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Upload Image
-     * @param {ImagesApi27b53e9cControllerUploadImageRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ImagesApi
-     */
-    public _27b53e9cControllerUploadImage(requestParameters: ImagesApi27b53e9cControllerUploadImageRequest, options?: AxiosRequestConfig) {
-        return ImagesApiFp(this.configuration)._27b53e9cControllerUploadImage(requestParameters.image, requestParameters.alt, requestParameters.imgId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Ger image by id.  Please provide:   - **img_id**  id for image  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Get Image
-     * @param {ImagesApi5f5ac29dControllerGetImageRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ImagesApi
-     */
-    public _5f5ac29dControllerGetImage(requestParameters: ImagesApi5f5ac29dControllerGetImageRequest, options?: AxiosRequestConfig) {
-        return ImagesApiFp(this.configuration)._5f5ac29dControllerGetImage(requestParameters.imgId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Create image for some entity.  Please provide:   - **img_id**  id for image for deleting  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.         Причини:         1) Не знайдено: немає збігів картинок            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Delete Image
-     * @param {ImagesApi7243761bControllerDeleteImageRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof ImagesApi
-     */
-    public _7243761bControllerDeleteImage(requestParameters: ImagesApi7243761bControllerDeleteImageRequest, options?: AxiosRequestConfig) {
-        return ImagesApiFp(this.configuration)._7243761bControllerDeleteImage(requestParameters.imgId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public d81d4933ControllerGetGallery(requestParameters: GalleriesApiD81d4933ControllerGetGalleryRequest, options?: AxiosRequestConfig) {
+        return GalleriesApiFp(this.configuration).d81d4933ControllerGetGallery(requestParameters.galleryId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -1960,16 +2297,16 @@ export class ImagesApi extends BaseAPI {
 export const MailingApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Дозволено відправляти тільки html       2) Максимально дозволений розмір файлу 1MB   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Дозволено відправляти тільки html           2) Максимально дозволений розмір файлу 1MB     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Create Template
          * @param {any} file 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _07e9499bControllerCreateTemplate: async (file: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createTemplate: async (file: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'file' is not null or undefined
-            assertParamExists('_07e9499bControllerCreateTemplate', 'file', file)
+            assertParamExists('createTemplate', 'file', file)
             const localVarPath = `/api/mailing/template/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1983,7 +2320,7 @@ export const MailingApiAxiosParamCreator = function (configuration?: Configurati
             const localVarQueryParameter = {} as any;
             const localVarFormParams = new ((configuration && configuration.formDataCtor) || FormData)();
 
-            // authentication JWTAuth required
+            // authentication CustomJWTAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
@@ -2012,16 +2349,16 @@ export const MailingApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:       1) Не знайдено: немає збігів шаблонів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **403**: Error: Not Found.      Причини:           1) Не можна видаляти шаблони поки йде розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Template
          * @param {any} tempId 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _07f0c107ControllerDeleteTemplate: async (tempId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteTemplate: async (tempId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'tempId' is not null or undefined
-            assertParamExists('_07f0c107ControllerDeleteTemplate', 'tempId', tempId)
+            assertParamExists('deleteTemplate', 'tempId', tempId)
             const localVarPath = `/api/mailing/template/{temp_id}/`
                 .replace(`{${"temp_id"}}`, encodeURIComponent(String(tempId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2035,7 +2372,7 @@ export const MailingApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication JWTAuth required
+            // authentication CustomJWTAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
@@ -2057,16 +2394,57 @@ export const MailingApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:       1) Не знайдено: немає збігів шаблонів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Get last 5 templates for mailing.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Templates
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTemplates: async (acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/mailing/templates/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Треба зачекати поки закінчиться поточне розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Start Mailing
          * @param {MailingInSchema} mailingInSchema 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _174fe1f3ControllerStartMailing: async (mailingInSchema: MailingInSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        startMailing: async (mailingInSchema: MailingInSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'mailingInSchema' is not null or undefined
-            assertParamExists('_174fe1f3ControllerStartMailing', 'mailingInSchema', mailingInSchema)
+            assertParamExists('startMailing', 'mailingInSchema', mailingInSchema)
             const localVarPath = `/api/mailing/start/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2079,7 +2457,7 @@ export const MailingApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication JWTAuth required
+            // authentication CustomJWTAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
@@ -2104,54 +2482,13 @@ export const MailingApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Get last 5 templates for mailing.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Templates
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _3b50d48cControllerGetTemplates: async (acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            const localVarPath = `/api/mailing/templates/`;
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication JWTAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (acceptLanguage != null) {
-                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
-                    ? acceptLanguage 
-                    : JSON.stringify(acceptLanguage);
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:       1) Не знайдено: немає збігів шаблонів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **201**: Success mailing completed.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Status Mailing
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        d1633d3bControllerStatusMailing: async (acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        statusMailing: async (acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/mailing/status/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2164,7 +2501,7 @@ export const MailingApiAxiosParamCreator = function (configuration?: Configurati
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication JWTAuth required
+            // authentication CustomJWTAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
@@ -2196,39 +2533,27 @@ export const MailingApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MailingApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Дозволено відправляти тільки html       2) Максимально дозволений розмір файлу 1MB   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Дозволено відправляти тільки html           2) Максимально дозволений розмір файлу 1MB     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Create Template
          * @param {any} file 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async _07e9499bControllerCreateTemplate(file: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MailTemplateOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._07e9499bControllerCreateTemplate(file, acceptLanguage, options);
+        async createTemplate(file: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MailTemplateOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createTemplate(file, acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:       1) Не знайдено: немає збігів шаблонів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **403**: Error: Not Found.      Причини:           1) Не можна видаляти шаблони поки йде розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Template
          * @param {any} tempId 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async _07f0c107ControllerDeleteTemplate(tempId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._07f0c107ControllerDeleteTemplate(tempId, acceptLanguage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:       1) Не знайдено: немає збігів шаблонів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Start Mailing
-         * @param {MailingInSchema} mailingInSchema 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async _174fe1f3ControllerStartMailing(mailingInSchema: MailingInSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._174fe1f3ControllerStartMailing(mailingInSchema, acceptLanguage, options);
+        async deleteTemplate(tempId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteTemplate(tempId, acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -2238,19 +2563,31 @@ export const MailingApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async _3b50d48cControllerGetTemplates(acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MailTemplateOutSchema>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._3b50d48cControllerGetTemplates(acceptLanguage, options);
+        async getTemplates(acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MailTemplateOutSchema>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTemplates(acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:       1) Не знайдено: немає збігів шаблонів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Треба зачекати поки закінчиться поточне розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Start Mailing
+         * @param {MailingInSchema} mailingInSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async startMailing(mailingInSchema: MailingInSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.startMailing(mailingInSchema, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **201**: Success mailing completed.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Status Mailing
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async d1633d3bControllerStatusMailing(acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskInfoOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.d1633d3bControllerStatusMailing(acceptLanguage, options);
+        async statusMailing(acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TaskInfoOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.statusMailing(acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -2264,37 +2601,26 @@ export const MailingApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = MailingApiFp(configuration)
     return {
         /**
-         * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Дозволено відправляти тільки html       2) Максимально дозволений розмір файлу 1MB   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Дозволено відправляти тільки html           2) Максимально дозволений розмір файлу 1MB     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Create Template
          * @param {any} file 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _07e9499bControllerCreateTemplate(file: any, acceptLanguage?: any, options?: any): AxiosPromise<MailTemplateOutSchema> {
-            return localVarFp._07e9499bControllerCreateTemplate(file, acceptLanguage, options).then((request) => request(axios, basePath));
+        createTemplate(file: any, acceptLanguage?: any, options?: any): AxiosPromise<MailTemplateOutSchema> {
+            return localVarFp.createTemplate(file, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:       1) Не знайдено: немає збігів шаблонів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **403**: Error: Not Found.      Причини:           1) Не можна видаляти шаблони поки йде розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Template
          * @param {any} tempId 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _07f0c107ControllerDeleteTemplate(tempId: any, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
-            return localVarFp._07f0c107ControllerDeleteTemplate(tempId, acceptLanguage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:       1) Не знайдено: немає збігів шаблонів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Start Mailing
-         * @param {MailingInSchema} mailingInSchema 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _174fe1f3ControllerStartMailing(mailingInSchema: MailingInSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
-            return localVarFp._174fe1f3ControllerStartMailing(mailingInSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        deleteTemplate(tempId: any, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp.deleteTemplate(tempId, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
          * Get last 5 templates for mailing.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
@@ -2303,109 +2629,120 @@ export const MailingApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _3b50d48cControllerGetTemplates(acceptLanguage?: any, options?: any): AxiosPromise<Array<MailTemplateOutSchema>> {
-            return localVarFp._3b50d48cControllerGetTemplates(acceptLanguage, options).then((request) => request(axios, basePath));
+        getTemplates(acceptLanguage?: any, options?: any): AxiosPromise<Array<MailTemplateOutSchema>> {
+            return localVarFp.getTemplates(acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:       1) Не знайдено: немає збігів шаблонів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Треба зачекати поки закінчиться поточне розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Start Mailing
+         * @param {MailingInSchema} mailingInSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        startMailing(mailingInSchema: MailingInSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp.startMailing(mailingInSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **201**: Success mailing completed.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Status Mailing
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        d1633d3bControllerStatusMailing(acceptLanguage?: any, options?: any): AxiosPromise<TaskInfoOutSchema> {
-            return localVarFp.d1633d3bControllerStatusMailing(acceptLanguage, options).then((request) => request(axios, basePath));
+        statusMailing(acceptLanguage?: any, options?: any): AxiosPromise<TaskInfoOutSchema> {
+            return localVarFp.statusMailing(acceptLanguage, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for _07e9499bControllerCreateTemplate operation in MailingApi.
+ * Request parameters for createTemplate operation in MailingApi.
  * @export
- * @interface MailingApi07e9499bControllerCreateTemplateRequest
+ * @interface MailingApiCreateTemplateRequest
  */
-export interface MailingApi07e9499bControllerCreateTemplateRequest {
+export interface MailingApiCreateTemplateRequest {
     /**
      * 
      * @type {any}
-     * @memberof MailingApi07e9499bControllerCreateTemplate
+     * @memberof MailingApiCreateTemplate
      */
     readonly file: any
 
     /**
      * 
      * @type {any}
-     * @memberof MailingApi07e9499bControllerCreateTemplate
+     * @memberof MailingApiCreateTemplate
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * Request parameters for _07f0c107ControllerDeleteTemplate operation in MailingApi.
+ * Request parameters for deleteTemplate operation in MailingApi.
  * @export
- * @interface MailingApi07f0c107ControllerDeleteTemplateRequest
+ * @interface MailingApiDeleteTemplateRequest
  */
-export interface MailingApi07f0c107ControllerDeleteTemplateRequest {
+export interface MailingApiDeleteTemplateRequest {
     /**
      * 
      * @type {any}
-     * @memberof MailingApi07f0c107ControllerDeleteTemplate
+     * @memberof MailingApiDeleteTemplate
      */
     readonly tempId: any
 
     /**
      * 
      * @type {any}
-     * @memberof MailingApi07f0c107ControllerDeleteTemplate
+     * @memberof MailingApiDeleteTemplate
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * Request parameters for _174fe1f3ControllerStartMailing operation in MailingApi.
+ * Request parameters for getTemplates operation in MailingApi.
  * @export
- * @interface MailingApi174fe1f3ControllerStartMailingRequest
+ * @interface MailingApiGetTemplatesRequest
  */
-export interface MailingApi174fe1f3ControllerStartMailingRequest {
+export interface MailingApiGetTemplatesRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof MailingApiGetTemplates
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for startMailing operation in MailingApi.
+ * @export
+ * @interface MailingApiStartMailingRequest
+ */
+export interface MailingApiStartMailingRequest {
     /**
      * 
      * @type {MailingInSchema}
-     * @memberof MailingApi174fe1f3ControllerStartMailing
+     * @memberof MailingApiStartMailing
      */
     readonly mailingInSchema: MailingInSchema
 
     /**
      * 
      * @type {any}
-     * @memberof MailingApi174fe1f3ControllerStartMailing
+     * @memberof MailingApiStartMailing
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * Request parameters for _3b50d48cControllerGetTemplates operation in MailingApi.
+ * Request parameters for statusMailing operation in MailingApi.
  * @export
- * @interface MailingApi3b50d48cControllerGetTemplatesRequest
+ * @interface MailingApiStatusMailingRequest
  */
-export interface MailingApi3b50d48cControllerGetTemplatesRequest {
+export interface MailingApiStatusMailingRequest {
     /**
      * 
      * @type {any}
-     * @memberof MailingApi3b50d48cControllerGetTemplates
-     */
-    readonly acceptLanguage?: any
-}
-
-/**
- * Request parameters for d1633d3bControllerStatusMailing operation in MailingApi.
- * @export
- * @interface MailingApiD1633d3bControllerStatusMailingRequest
- */
-export interface MailingApiD1633d3bControllerStatusMailingRequest {
-    /**
-     * 
-     * @type {any}
-     * @memberof MailingApiD1633d3bControllerStatusMailing
+     * @memberof MailingApiStatusMailing
      */
     readonly acceptLanguage?: any
 }
@@ -2418,63 +2755,63 @@ export interface MailingApiD1633d3bControllerStatusMailingRequest {
  */
 export class MailingApi extends BaseAPI {
     /**
-     * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Дозволено відправляти тільки html       2) Максимально дозволений розмір файлу 1MB   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Дозволено відправляти тільки html           2) Максимально дозволений розмір файлу 1MB     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Create Template
-     * @param {MailingApi07e9499bControllerCreateTemplateRequest} requestParameters Request parameters.
+     * @param {MailingApiCreateTemplateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MailingApi
      */
-    public _07e9499bControllerCreateTemplate(requestParameters: MailingApi07e9499bControllerCreateTemplateRequest, options?: AxiosRequestConfig) {
-        return MailingApiFp(this.configuration)._07e9499bControllerCreateTemplate(requestParameters.file, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public createTemplate(requestParameters: MailingApiCreateTemplateRequest, options?: AxiosRequestConfig) {
+        return MailingApiFp(this.configuration).createTemplate(requestParameters.file, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:       1) Не знайдено: немає збігів шаблонів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **403**: Error: Not Found.      Причини:           1) Не можна видаляти шаблони поки йде розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Delete Template
-     * @param {MailingApi07f0c107ControllerDeleteTemplateRequest} requestParameters Request parameters.
+     * @param {MailingApiDeleteTemplateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MailingApi
      */
-    public _07f0c107ControllerDeleteTemplate(requestParameters: MailingApi07f0c107ControllerDeleteTemplateRequest, options?: AxiosRequestConfig) {
-        return MailingApiFp(this.configuration)._07f0c107ControllerDeleteTemplate(requestParameters.tempId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:       1) Не знайдено: немає збігів шаблонів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Start Mailing
-     * @param {MailingApi174fe1f3ControllerStartMailingRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof MailingApi
-     */
-    public _174fe1f3ControllerStartMailing(requestParameters: MailingApi174fe1f3ControllerStartMailingRequest, options?: AxiosRequestConfig) {
-        return MailingApiFp(this.configuration)._174fe1f3ControllerStartMailing(requestParameters.mailingInSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public deleteTemplate(requestParameters: MailingApiDeleteTemplateRequest, options?: AxiosRequestConfig) {
+        return MailingApiFp(this.configuration).deleteTemplate(requestParameters.tempId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get last 5 templates for mailing.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Get Templates
-     * @param {MailingApi3b50d48cControllerGetTemplatesRequest} requestParameters Request parameters.
+     * @param {MailingApiGetTemplatesRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MailingApi
      */
-    public _3b50d48cControllerGetTemplates(requestParameters: MailingApi3b50d48cControllerGetTemplatesRequest = {}, options?: AxiosRequestConfig) {
-        return MailingApiFp(this.configuration)._3b50d48cControllerGetTemplates(requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public getTemplates(requestParameters: MailingApiGetTemplatesRequest = {}, options?: AxiosRequestConfig) {
+        return MailingApiFp(this.configuration).getTemplates(requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:       1) Не знайдено: немає збігів шаблонів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Status Mailing
-     * @param {MailingApiD1633d3bControllerStatusMailingRequest} requestParameters Request parameters.
+     * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Треба зачекати поки закінчиться поточне розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Start Mailing
+     * @param {MailingApiStartMailingRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MailingApi
      */
-    public d1633d3bControllerStatusMailing(requestParameters: MailingApiD1633d3bControllerStatusMailingRequest = {}, options?: AxiosRequestConfig) {
-        return MailingApiFp(this.configuration).d1633d3bControllerStatusMailing(requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public startMailing(requestParameters: MailingApiStartMailingRequest, options?: AxiosRequestConfig) {
+        return MailingApiFp(this.configuration).startMailing(requestParameters.mailingInSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **201**: Success mailing completed.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Status Mailing
+     * @param {MailingApiStatusMailingRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MailingApi
+     */
+    public statusMailing(requestParameters: MailingApiStatusMailingRequest = {}, options?: AxiosRequestConfig) {
+        return MailingApiFp(this.configuration).statusMailing(requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -2486,67 +2823,18 @@ export class MailingApi extends BaseAPI {
 export const UsersApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.         Причини:       1) Не знайдено: немає збігів користувачів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get By Id
-         * @param {any} userId 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _1d6697e5ControllerGetById: async (userId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'userId' is not null or undefined
-            assertParamExists('_1d6697e5ControllerGetById', 'userId', userId)
-            const localVarPath = `/api/users/detail/{user_id}/`
-                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication JWTAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (acceptLanguage != null) {
-                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
-                    ? acceptLanguage 
-                    : JSON.stringify(acceptLanguage);
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * Endpoint gets all users.  Makes pagination, search and sorting of records.  Please provide:  - **page**  number of page we want to get  - **page_size**  length of records per page  - **search_line**  helps to find rows which contains search line  - **sort**  define by which field sort rows  - **ascendig**  determines in which direction to sort  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Endpoint gets all users.  Makes pagination, search and sorting of records.  Please provide:  - **page**  number of page we want to get  - **page_size**  length of records per page  - **search_line**  helps to find rows which contains search line  - **sort**  define by which field sort rows  - **direction**  determines in which direction to sort  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Datatable
-         * @param {any} page 
-         * @param {any} pageSize 
          * @param {any} [searchLine] 
          * @param {any} [sort] 
-         * @param {any} [ascending] 
+         * @param {any} [direction] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _627e9c95ControllerDatatable: async (page: any, pageSize: any, searchLine?: any, sort?: any, ascending?: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'page' is not null or undefined
-            assertParamExists('_627e9c95ControllerDatatable', 'page', page)
-            // verify required parameter 'pageSize' is not null or undefined
-            assertParamExists('_627e9c95ControllerDatatable', 'pageSize', pageSize)
+        datatable: async (searchLine?: any, sort?: any, direction?: any, page?: any, pageSize?: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/users/datable/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -2559,17 +2847,9 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication JWTAuth required
+            // authentication CustomJWTAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (page !== undefined) {
-                localVarQueryParameter['page'] = page;
-            }
-
-            if (pageSize !== undefined) {
-                localVarQueryParameter['page_size'] = pageSize;
-            }
 
             if (searchLine !== undefined) {
                 localVarQueryParameter['search_line'] = searchLine;
@@ -2579,8 +2859,16 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['sort'] = sort;
             }
 
-            if (ascending !== undefined) {
-                localVarQueryParameter['ascending'] = ascending;
+            if (direction !== undefined) {
+                localVarQueryParameter['direction'] = direction;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
             }
 
             if (acceptLanguage != null) {
@@ -2601,16 +2889,16 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.         Причини:       1) Не знайдено: немає збігів користувачів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete By Id
          * @param {any} userId 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _6814f588ControllerDeleteById: async (userId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteById: async (userId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
-            assertParamExists('_6814f588ControllerDeleteById', 'userId', userId)
+            assertParamExists('deleteById', 'userId', userId)
             const localVarPath = `/api/users/detail/{user_id}/`
                 .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2624,7 +2912,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication JWTAuth required
+            // authentication CustomJWTAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
@@ -2646,7 +2934,52 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Введено некоректний номер телефону       2) Ім\'я та прізвище повинно починатися з великої літери          (наступні маленькі), доступна кирилиця,          доступні спецсимволи(\'-)   - **404**: Error: Conflict.         Причини:       1) Не знайдено: немає збігів користувачів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get By Id
+         * @param {any} userId 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getById: async (userId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'userId' is not null or undefined
+            assertParamExists('getById', 'userId', userId)
+            const localVarPath = `/api/users/detail/{user_id}/`
+                .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Введено некоректний номер телефону           2) Ім\'я та прізвище повинно починатися з великої літери            (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Update By Id
          * @param {any} userId 
          * @param {UserUpdateSchema} userUpdateSchema 
@@ -2654,11 +2987,11 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        a3247699ControllerUpdateById: async (userId: any, userUpdateSchema: UserUpdateSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateById: async (userId: any, userUpdateSchema: UserUpdateSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'userId' is not null or undefined
-            assertParamExists('a3247699ControllerUpdateById', 'userId', userId)
+            assertParamExists('updateById', 'userId', userId)
             // verify required parameter 'userUpdateSchema' is not null or undefined
-            assertParamExists('a3247699ControllerUpdateById', 'userUpdateSchema', userUpdateSchema)
+            assertParamExists('updateById', 'userUpdateSchema', userUpdateSchema)
             const localVarPath = `/api/users/detail/{user_id}/`
                 .replace(`{${"user_id"}}`, encodeURIComponent(String(userId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2672,7 +3005,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication JWTAuth required
+            // authentication CustomJWTAuth required
             // http bearer authentication required
             await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
@@ -2707,47 +3040,47 @@ export const UsersApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = UsersApiAxiosParamCreator(configuration)
     return {
         /**
-         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.         Причини:       1) Не знайдено: немає збігів користувачів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get By Id
-         * @param {any} userId 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async _1d6697e5ControllerGetById(userId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._1d6697e5ControllerGetById(userId, acceptLanguage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Endpoint gets all users.  Makes pagination, search and sorting of records.  Please provide:  - **page**  number of page we want to get  - **page_size**  length of records per page  - **search_line**  helps to find rows which contains search line  - **sort**  define by which field sort rows  - **ascendig**  determines in which direction to sort  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Endpoint gets all users.  Makes pagination, search and sorting of records.  Please provide:  - **page**  number of page we want to get  - **page_size**  length of records per page  - **search_line**  helps to find rows which contains search line  - **sort**  define by which field sort rows  - **direction**  determines in which direction to sort  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Datatable
-         * @param {any} page 
-         * @param {any} pageSize 
          * @param {any} [searchLine] 
          * @param {any} [sort] 
-         * @param {any} [ascending] 
+         * @param {any} [direction] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async _627e9c95ControllerDatatable(page: any, pageSize: any, searchLine?: any, sort?: any, ascending?: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UsersAllSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._627e9c95ControllerDatatable(page, pageSize, searchLine, sort, ascending, acceptLanguage, options);
+        async datatable(searchLine?: any, sort?: any, direction?: any, page?: any, pageSize?: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaUserOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.datatable(searchLine, sort, direction, page, pageSize, acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.         Причини:       1) Не знайдено: немає збігів користувачів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete By Id
          * @param {any} userId 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async _6814f588ControllerDeleteById(userId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._6814f588ControllerDeleteById(userId, acceptLanguage, options);
+        async deleteById(userId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteById(userId, acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Введено некоректний номер телефону       2) Ім\'я та прізвище повинно починатися з великої літери          (наступні маленькі), доступна кирилиця,          доступні спецсимволи(\'-)   - **404**: Error: Conflict.         Причини:       1) Не знайдено: немає збігів користувачів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get By Id
+         * @param {any} userId 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getById(userId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getById(userId, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Введено некоректний номер телефону           2) Ім\'я та прізвище повинно починатися з великої літери            (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Update By Id
          * @param {any} userId 
          * @param {UserUpdateSchema} userUpdateSchema 
@@ -2755,8 +3088,8 @@ export const UsersApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async a3247699ControllerUpdateById(userId: any, userUpdateSchema: UserUpdateSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.a3247699ControllerUpdateById(userId, userUpdateSchema, acceptLanguage, options);
+        async updateById(userId: any, userUpdateSchema: UserUpdateSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<UserOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateById(userId, userUpdateSchema, acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -2770,44 +3103,44 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = UsersApiFp(configuration)
     return {
         /**
-         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.         Причини:       1) Не знайдено: немає збігів користувачів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get By Id
-         * @param {any} userId 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _1d6697e5ControllerGetById(userId: any, acceptLanguage?: any, options?: any): AxiosPromise<UserOutSchema> {
-            return localVarFp._1d6697e5ControllerGetById(userId, acceptLanguage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Endpoint gets all users.  Makes pagination, search and sorting of records.  Please provide:  - **page**  number of page we want to get  - **page_size**  length of records per page  - **search_line**  helps to find rows which contains search line  - **sort**  define by which field sort rows  - **ascendig**  determines in which direction to sort  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Endpoint gets all users.  Makes pagination, search and sorting of records.  Please provide:  - **page**  number of page we want to get  - **page_size**  length of records per page  - **search_line**  helps to find rows which contains search line  - **sort**  define by which field sort rows  - **direction**  determines in which direction to sort  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Datatable
-         * @param {any} page 
-         * @param {any} pageSize 
          * @param {any} [searchLine] 
          * @param {any} [sort] 
-         * @param {any} [ascending] 
+         * @param {any} [direction] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _627e9c95ControllerDatatable(page: any, pageSize: any, searchLine?: any, sort?: any, ascending?: any, acceptLanguage?: any, options?: any): AxiosPromise<UsersAllSchema> {
-            return localVarFp._627e9c95ControllerDatatable(page, pageSize, searchLine, sort, ascending, acceptLanguage, options).then((request) => request(axios, basePath));
+        datatable(searchLine?: any, sort?: any, direction?: any, page?: any, pageSize?: any, acceptLanguage?: any, options?: any): AxiosPromise<PaginatedResponseSchemaUserOutSchema> {
+            return localVarFp.datatable(searchLine, sort, direction, page, pageSize, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.         Причини:       1) Не знайдено: немає збігів користувачів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete By Id
          * @param {any} userId 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _6814f588ControllerDeleteById(userId: any, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
-            return localVarFp._6814f588ControllerDeleteById(userId, acceptLanguage, options).then((request) => request(axios, basePath));
+        deleteById(userId: any, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp.deleteById(userId, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Введено некоректний номер телефону       2) Ім\'я та прізвище повинно починатися з великої літери          (наступні маленькі), доступна кирилиця,          доступні спецсимволи(\'-)   - **404**: Error: Conflict.         Причини:       1) Не знайдено: немає збігів користувачів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get By Id
+         * @param {any} userId 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getById(userId: any, acceptLanguage?: any, options?: any): AxiosPromise<UserOutSchema> {
+            return localVarFp.getById(userId, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Введено некоректний номер телефону           2) Ім\'я та прізвище повинно починатися з великої літери            (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Update By Id
          * @param {any} userId 
          * @param {UserUpdateSchema} userUpdateSchema 
@@ -2815,127 +3148,127 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        a3247699ControllerUpdateById(userId: any, userUpdateSchema: UserUpdateSchema, acceptLanguage?: any, options?: any): AxiosPromise<UserOutSchema> {
-            return localVarFp.a3247699ControllerUpdateById(userId, userUpdateSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        updateById(userId: any, userUpdateSchema: UserUpdateSchema, acceptLanguage?: any, options?: any): AxiosPromise<UserOutSchema> {
+            return localVarFp.updateById(userId, userUpdateSchema, acceptLanguage, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for _1d6697e5ControllerGetById operation in UsersApi.
+ * Request parameters for datatable operation in UsersApi.
  * @export
- * @interface UsersApi1d6697e5ControllerGetByIdRequest
+ * @interface UsersApiDatatableRequest
  */
-export interface UsersApi1d6697e5ControllerGetByIdRequest {
+export interface UsersApiDatatableRequest {
     /**
      * 
      * @type {any}
-     * @memberof UsersApi1d6697e5ControllerGetById
-     */
-    readonly userId: any
-
-    /**
-     * 
-     * @type {any}
-     * @memberof UsersApi1d6697e5ControllerGetById
-     */
-    readonly acceptLanguage?: any
-}
-
-/**
- * Request parameters for _627e9c95ControllerDatatable operation in UsersApi.
- * @export
- * @interface UsersApi627e9c95ControllerDatatableRequest
- */
-export interface UsersApi627e9c95ControllerDatatableRequest {
-    /**
-     * 
-     * @type {any}
-     * @memberof UsersApi627e9c95ControllerDatatable
-     */
-    readonly page: any
-
-    /**
-     * 
-     * @type {any}
-     * @memberof UsersApi627e9c95ControllerDatatable
-     */
-    readonly pageSize: any
-
-    /**
-     * 
-     * @type {any}
-     * @memberof UsersApi627e9c95ControllerDatatable
+     * @memberof UsersApiDatatable
      */
     readonly searchLine?: any
 
     /**
      * 
      * @type {any}
-     * @memberof UsersApi627e9c95ControllerDatatable
+     * @memberof UsersApiDatatable
      */
     readonly sort?: any
 
     /**
      * 
      * @type {any}
-     * @memberof UsersApi627e9c95ControllerDatatable
+     * @memberof UsersApiDatatable
      */
-    readonly ascending?: any
+    readonly direction?: any
 
     /**
      * 
      * @type {any}
-     * @memberof UsersApi627e9c95ControllerDatatable
+     * @memberof UsersApiDatatable
+     */
+    readonly page?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof UsersApiDatatable
+     */
+    readonly pageSize?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof UsersApiDatatable
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * Request parameters for _6814f588ControllerDeleteById operation in UsersApi.
+ * Request parameters for deleteById operation in UsersApi.
  * @export
- * @interface UsersApi6814f588ControllerDeleteByIdRequest
+ * @interface UsersApiDeleteByIdRequest
  */
-export interface UsersApi6814f588ControllerDeleteByIdRequest {
+export interface UsersApiDeleteByIdRequest {
     /**
      * 
      * @type {any}
-     * @memberof UsersApi6814f588ControllerDeleteById
+     * @memberof UsersApiDeleteById
      */
     readonly userId: any
 
     /**
      * 
      * @type {any}
-     * @memberof UsersApi6814f588ControllerDeleteById
+     * @memberof UsersApiDeleteById
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * Request parameters for a3247699ControllerUpdateById operation in UsersApi.
+ * Request parameters for getById operation in UsersApi.
  * @export
- * @interface UsersApiA3247699ControllerUpdateByIdRequest
+ * @interface UsersApiGetByIdRequest
  */
-export interface UsersApiA3247699ControllerUpdateByIdRequest {
+export interface UsersApiGetByIdRequest {
     /**
      * 
      * @type {any}
-     * @memberof UsersApiA3247699ControllerUpdateById
+     * @memberof UsersApiGetById
+     */
+    readonly userId: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof UsersApiGetById
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for updateById operation in UsersApi.
+ * @export
+ * @interface UsersApiUpdateByIdRequest
+ */
+export interface UsersApiUpdateByIdRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof UsersApiUpdateById
      */
     readonly userId: any
 
     /**
      * 
      * @type {UserUpdateSchema}
-     * @memberof UsersApiA3247699ControllerUpdateById
+     * @memberof UsersApiUpdateById
      */
     readonly userUpdateSchema: UserUpdateSchema
 
     /**
      * 
      * @type {any}
-     * @memberof UsersApiA3247699ControllerUpdateById
+     * @memberof UsersApiUpdateById
      */
     readonly acceptLanguage?: any
 }
@@ -2948,51 +3281,51 @@ export interface UsersApiA3247699ControllerUpdateByIdRequest {
  */
 export class UsersApi extends BaseAPI {
     /**
-     * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.         Причини:       1) Не знайдено: немає збігів користувачів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Get By Id
-     * @param {UsersApi1d6697e5ControllerGetByIdRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof UsersApi
-     */
-    public _1d6697e5ControllerGetById(requestParameters: UsersApi1d6697e5ControllerGetByIdRequest, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration)._1d6697e5ControllerGetById(requestParameters.userId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Endpoint gets all users.  Makes pagination, search and sorting of records.  Please provide:  - **page**  number of page we want to get  - **page_size**  length of records per page  - **search_line**  helps to find rows which contains search line  - **sort**  define by which field sort rows  - **ascendig**  determines in which direction to sort  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * Endpoint gets all users.  Makes pagination, search and sorting of records.  Please provide:  - **page**  number of page we want to get  - **page_size**  length of records per page  - **search_line**  helps to find rows which contains search line  - **sort**  define by which field sort rows  - **direction**  determines in which direction to sort  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Datatable
-     * @param {UsersApi627e9c95ControllerDatatableRequest} requestParameters Request parameters.
+     * @param {UsersApiDatatableRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public _627e9c95ControllerDatatable(requestParameters: UsersApi627e9c95ControllerDatatableRequest, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration)._627e9c95ControllerDatatable(requestParameters.page, requestParameters.pageSize, requestParameters.searchLine, requestParameters.sort, requestParameters.ascending, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public datatable(requestParameters: UsersApiDatatableRequest = {}, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).datatable(requestParameters.searchLine, requestParameters.sort, requestParameters.direction, requestParameters.page, requestParameters.pageSize, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.         Причини:       1) Не знайдено: немає збігів користувачів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Delete By Id
-     * @param {UsersApi6814f588ControllerDeleteByIdRequest} requestParameters Request parameters.
+     * @param {UsersApiDeleteByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public _6814f588ControllerDeleteById(requestParameters: UsersApi6814f588ControllerDeleteByIdRequest, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration)._6814f588ControllerDeleteById(requestParameters.userId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public deleteById(requestParameters: UsersApiDeleteByIdRequest, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).deleteById(requestParameters.userId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.         Причини:       1) Введено некоректний номер телефону       2) Ім\'я та прізвище повинно починатися з великої літери          (наступні маленькі), доступна кирилиця,          доступні спецсимволи(\'-)   - **404**: Error: Conflict.         Причини:       1) Не знайдено: немає збігів користувачів       на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Update By Id
-     * @param {UsersApiA3247699ControllerUpdateByIdRequest} requestParameters Request parameters.
+     * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get By Id
+     * @param {UsersApiGetByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof UsersApi
      */
-    public a3247699ControllerUpdateById(requestParameters: UsersApiA3247699ControllerUpdateByIdRequest, options?: AxiosRequestConfig) {
-        return UsersApiFp(this.configuration).a3247699ControllerUpdateById(requestParameters.userId, requestParameters.userUpdateSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public getById(requestParameters: UsersApiGetByIdRequest, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).getById(requestParameters.userId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Введено некоректний номер телефону           2) Ім\'я та прізвище повинно починатися з великої літери            (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Update By Id
+     * @param {UsersApiUpdateByIdRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof UsersApi
+     */
+    public updateById(requestParameters: UsersApiUpdateByIdRequest, options?: AxiosRequestConfig) {
+        return UsersApiFp(this.configuration).updateById(requestParameters.userId, requestParameters.userUpdateSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
