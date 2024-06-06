@@ -5,28 +5,50 @@
       <span v-else>Реєстрація</span>
     </h1>
 
-    <div v-if="place === 'registration'" class="auth-component__input auth-component__name">
-      <label for="">Имя</label>
+    <div v-if="place === 'registration'" class="auth-component__registration">
+      <div class="auth-component__input">
+        <label for="">Ім'я</label>
 
-      <BaseInput v-model="name" />
+        <BaseInput v-model="name" />
+      </div>
+
+      <div class="auth-component__input">
+        <label for="">Прізвище</label>
+
+        <BaseInput v-model="lastName" />
+      </div>
+
+      <div class="auth-component__input">
+        <label for="">Email</label>
+
+        <BaseInput v-model="email" />
+      </div>
+
+      <div v-if="place === 'registration'" class="auth-component__input">
+        <label for="">Пароль</label>
+
+        <BaseInput v-model="createPass" />
+      </div>
+
+      <div v-if="place === 'registration'" class="auth-component__input">
+        <label for="">Повторіть пароль</label>
+
+        <BaseInput v-model="confirmPass" />
+      </div>
     </div>
 
-    <div v-if="place === 'registration'" class="auth-component__input auth-component__email">
-      <label for="">Email</label>
+    <div v-if="place === 'auth'" class="auth-component__auth">
+      <div class="auth-component__input">
+        <label for="">Логін</label>
 
-      <BaseInput v-model="email" />
-    </div>
+        <BaseInput v-model="login" />
+      </div>
 
-    <div v-if="place === 'auth'" class="auth-component__input auth-component__login">
-      <label for="">Логін</label>
+      <div class="auth-component__input">
+        <label for="">Пароль</label>
 
-      <BaseInput v-model="login" />
-    </div>
-
-    <div class="auth-component__input auth-component__password">
-      <label for="">Пароль</label>
-
-      <BaseInput v-model="pass" />
+        <BaseInput v-model="pass" />
+      </div>
     </div>
 
     <div class="auth-component__input auth-component__btn">
@@ -39,14 +61,20 @@
 <script setup lang="ts">
 import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
 import { ref } from 'vue'
-import { authFunc } from '@/shared/api'
+import { authFunc, regisFunc } from '@/shared/api'
 import { useRouter } from 'vue-router'
+import { checkAdmin } from '@/shared/api/useApiOptions/auth/checkAdmin'
+
+checkAdmin()
 defineProps(['place'])
 
 const router = useRouter()
 
 const name = ref<string>('')
+const lastName = ref<string>('')
 const email = ref<string>('')
+const createPass = ref<string>('')
+const confirmPass = ref<string>('')
 const login = ref<string>('')
 const pass = ref<string>('')
 
@@ -61,7 +89,15 @@ async function authentication() {
   }
 }
 
-function registration() {}
+function registration() {
+  regisFunc({
+    first_name: name.value,
+    last_name: lastName.value,
+    email: email.value,
+    password1: createPass.value,
+    password2: confirmPass.value
+  })
+}
 </script>
 
 <style lang="scss" scoped>

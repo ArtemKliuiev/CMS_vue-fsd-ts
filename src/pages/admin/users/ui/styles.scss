@@ -1,0 +1,14 @@
+.users{
+  &__search{
+    max-width: 25%;
+    margin: 20px 0 0;
+  }
+
+  &__table{
+    margin: 50px 0;
+  }
+
+  &__pagination{
+    margin-bottom: 30px;
+  }
+}

@@ -1,0 +1,33 @@
+@import "@/shared/scss-variables/index";
+
+.banners-section{
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid $white-one;
+
+  &__top-line{
+    display: flex;
+    justify-content: space-between;
+
+    .v-input__details{
+      display: none;
+    }
+  }
+
+  &__btn{
+    margin-bottom: 10px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  &__checkbox{
+    margin-right: 15px;
+  }
+
+  &__input-file{
+    display: grid;
+    grid-template: repeat(2, 1fr) /repeat(4, 1fr);
+    gap: 20px;
+  }
+}

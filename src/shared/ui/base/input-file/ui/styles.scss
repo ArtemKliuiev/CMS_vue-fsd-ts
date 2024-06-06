@@ -1,0 +1,24 @@
+@import "@/shared/scss-variables/index";
+
+.input-file{
+  background: $next-color;
+  border: 1px solid $white-one;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+
+  &__inputs{
+    input{
+      &:first-child{
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .v-field{
+    &__field{
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}

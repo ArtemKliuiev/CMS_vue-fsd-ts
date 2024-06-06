@@ -166,13 +166,25 @@ export interface CinemaOutSchema {
      * @type {any}
      * @memberof CinemaOutSchema
      */
-    'name'?: any;
+    'name_uk'?: any;
     /**
      * 
      * @type {any}
      * @memberof CinemaOutSchema
      */
-    'description'?: any;
+    'name_ru'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaOutSchema
+     */
+    'description_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaOutSchema
+     */
+    'description_ru'?: any;
     /**
      * 
      * @type {any}
@@ -317,6 +329,13 @@ export interface CityEnum {
 /**
  * 
  * @export
+ * @interface CountryEnum
+ */
+export interface CountryEnum {
+}
+/**
+ * 
+ * @export
  * @interface DirectionEnum
  */
 export interface DirectionEnum {
@@ -409,6 +428,233 @@ export interface GalleryItemSchema {
     'filename'?: any;
 }
 /**
+ * 
+ * @export
+ * @interface GenresEnum
+ */
+export interface GenresEnum {
+}
+/**
+ * Pydantic schema for showing hall card.
+ * @export
+ * @interface HallCardOutSchema
+ */
+export interface HallCardOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof HallCardOutSchema
+     */
+    'number': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallCardOutSchema
+     */
+    'date_created': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallCardOutSchema
+     */
+    'id'?: any;
+}
+/**
+ * Pydantic schema for creating halls to server side.
+ * @export
+ * @interface HallInSchema
+ */
+export interface HallInSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof HallInSchema
+     */
+    'seo_title'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallInSchema
+     */
+    'seo_description'?: any;
+    /**
+     * 
+     * @type {ImageInSchema}
+     * @memberof HallInSchema
+     */
+    'seo_image': ImageInSchema;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallInSchema
+     */
+    'number': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallInSchema
+     */
+    'description_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallInSchema
+     */
+    'description_ru'?: any;
+    /**
+     * 
+     * @type {ImageInSchema}
+     * @memberof HallInSchema
+     */
+    'banner': ImageInSchema;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallInSchema
+     */
+    'gallery'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallInSchema
+     */
+    'tech'?: any;
+}
+/**
+ * Pydantic schema for showing hall full data.
+ * @export
+ * @interface HallOutSchema
+ */
+export interface HallOutSchema {
+    /**
+     * 
+     * @type {ImageOutSchema}
+     * @memberof HallOutSchema
+     */
+    'banner': ImageOutSchema;
+    /**
+     * 
+     * @type {ImageOutSchema}
+     * @memberof HallOutSchema
+     */
+    'seo_image': ImageOutSchema;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallOutSchema
+     */
+    'tech_display': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallOutSchema
+     */
+    'number': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallOutSchema
+     */
+    'description_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallOutSchema
+     */
+    'description_ru'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallOutSchema
+     */
+    'gallery'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallOutSchema
+     */
+    'id'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallOutSchema
+     */
+    'tech'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallOutSchema
+     */
+    'seo_title'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallOutSchema
+     */
+    'seo_description'?: any;
+}
+/**
+ * Pydantic schema for updating hall.
+ * @export
+ * @interface HallUpdateSchema
+ */
+export interface HallUpdateSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof HallUpdateSchema
+     */
+    'seo_title'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallUpdateSchema
+     */
+    'seo_description'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallUpdateSchema
+     */
+    'seo_image'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallUpdateSchema
+     */
+    'number': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallUpdateSchema
+     */
+    'description_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallUpdateSchema
+     */
+    'description_ru'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallUpdateSchema
+     */
+    'banner'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallUpdateSchema
+     */
+    'gallery'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof HallUpdateSchema
+     */
+    'tech'?: any;
+}
+/**
  * Pydantic schema for uploading image to server side.
  * @export
  * @interface ImageInSchema
@@ -489,6 +735,13 @@ export interface ImageUpdateSchema {
  * @interface LangEnum
  */
 export interface LangEnum {
+}
+/**
+ * 
+ * @export
+ * @interface LegalAgeEnum
+ */
+export interface LegalAgeEnum {
 }
 /**
  * Pydantic schema for return message to client side.  Purpose of this schema just say that operation has been successful or failed
@@ -592,6 +845,431 @@ export interface MessageOutSchema {
     'detail': any;
 }
 /**
+ * Pydantic schema for showing Movie card.
+ * @export
+ * @interface MovieCardOutSchema
+ */
+export interface MovieCardOutSchema {
+    /**
+     * 
+     * @type {ImageOutSchema}
+     * @memberof MovieCardOutSchema
+     */
+    'card_img': ImageOutSchema;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieCardOutSchema
+     */
+    'name': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieCardOutSchema
+     */
+    'legal_age'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieCardOutSchema
+     */
+    'slug'?: any;
+}
+/**
+ * Pydantic schema for creating Movies to server side.
+ * @export
+ * @interface MovieInSchema
+ */
+export interface MovieInSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'seo_title'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'seo_description'?: any;
+    /**
+     * 
+     * @type {ImageInSchema}
+     * @memberof MovieInSchema
+     */
+    'seo_image': ImageInSchema;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'name_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'name_ru'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'description_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'description_ru'?: any;
+    /**
+     * 
+     * @type {ImageInSchema}
+     * @memberof MovieInSchema
+     */
+    'card_img': ImageInSchema;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'trailer_link'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'year'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'budget'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'legal_age'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'duration'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'released'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'techs': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'genres': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'countries': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'gallery'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'participants': any;
+}
+/**
+ * Pydantic schema for showing Movie full data.
+ * @export
+ * @interface MovieOutSchema
+ */
+export interface MovieOutSchema {
+    /**
+     * 
+     * @type {ImageOutSchema}
+     * @memberof MovieOutSchema
+     */
+    'card_img': ImageOutSchema;
+    /**
+     * 
+     * @type {ImageOutSchema}
+     * @memberof MovieOutSchema
+     */
+    'seo_image': ImageOutSchema;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'genres_display': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'genres': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'techs': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'countries': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'countries_display': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'techs_display': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'name_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'name_ru'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'description_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'description_ru'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'gallery'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'slug'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'duration'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'legal_age'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'year'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'released'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'participants': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'seo_title'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'seo_description'?: any;
+}
+/**
+ * Pydantic schema for getting all movie participants in system.
+ * @export
+ * @interface MovieParticipantOutSchema
+ */
+export interface MovieParticipantOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieParticipantOutSchema
+     */
+    'display': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieParticipantOutSchema
+     */
+    'id'?: any;
+}
+/**
+ * Pydantic schema for updating Movie.
+ * @export
+ * @interface MovieUpdateSchema
+ */
+export interface MovieUpdateSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'seo_title'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'seo_description'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'seo_image'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'name_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'name_ru'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'description_uk'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'description_ru'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'card_img'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'trailer_link'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'year'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'budget'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'legal_age'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'duration'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'released'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'techs'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'genres'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'countries'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'gallery'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieUpdateSchema
+     */
+    'participants'?: any;
+}
+/**
  * 
  * @export
  * @interface PaginatedResponseSchemaCinemaCardOutSchema
@@ -619,6 +1297,37 @@ export interface PaginatedResponseSchemaCinemaCardOutSchema {
      * 
      * @type {any}
      * @memberof PaginatedResponseSchemaCinemaCardOutSchema
+     */
+    'results': any;
+}
+/**
+ * 
+ * @export
+ * @interface PaginatedResponseSchemaHallCardOutSchema
+ */
+export interface PaginatedResponseSchemaHallCardOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaHallCardOutSchema
+     */
+    'count': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaHallCardOutSchema
+     */
+    'next': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaHallCardOutSchema
+     */
+    'previous': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaHallCardOutSchema
      */
     'results': any;
 }
@@ -656,6 +1365,68 @@ export interface PaginatedResponseSchemaList {
 /**
  * 
  * @export
+ * @interface PaginatedResponseSchemaMovieCardOutSchema
+ */
+export interface PaginatedResponseSchemaMovieCardOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaMovieCardOutSchema
+     */
+    'count': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaMovieCardOutSchema
+     */
+    'next': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaMovieCardOutSchema
+     */
+    'previous': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaMovieCardOutSchema
+     */
+    'results': any;
+}
+/**
+ * 
+ * @export
+ * @interface PaginatedResponseSchemaMovieParticipantOutSchema
+ */
+export interface PaginatedResponseSchemaMovieParticipantOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaMovieParticipantOutSchema
+     */
+    'count': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaMovieParticipantOutSchema
+     */
+    'next': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaMovieParticipantOutSchema
+     */
+    'previous': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaMovieParticipantOutSchema
+     */
+    'results': any;
+}
+/**
+ * 
+ * @export
  * @interface PaginatedResponseSchemaUserOutSchema
  */
 export interface PaginatedResponseSchemaUserOutSchema {
@@ -685,6 +1456,13 @@ export interface PaginatedResponseSchemaUserOutSchema {
     'results': any;
 }
 /**
+ * 
+ * @export
+ * @interface ReleaseEnum
+ */
+export interface ReleaseEnum {
+}
+/**
  * Pydantic schema for getting task info.  Purpose of this schema to get task info
  * @export
  * @interface TaskInfoOutSchema
@@ -696,6 +1474,20 @@ export interface TaskInfoOutSchema {
      * @memberof TaskInfoOutSchema
      */
     'progress': any;
+}
+/**
+ * 
+ * @export
+ * @interface TechEnum
+ */
+export interface TechEnum {
+}
+/**
+ * 
+ * @export
+ * @interface TechsEnum
+ */
+export interface TechsEnum {
 }
 /**
  * 
@@ -1595,47 +2387,6 @@ export class AuthApi extends BaseAPI {
 export const CinemasApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get By Slug
-         * @param {any} cnmSlug 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _10b2699aControllerGetBySlug: async (cnmSlug: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'cnmSlug' is not null or undefined
-            assertParamExists('_10b2699aControllerGetBySlug', 'cnmSlug', cnmSlug)
-            const localVarPath = `/api/cinema/{cnm_slug}/`
-                .replace(`{${"cnm_slug"}}`, encodeURIComponent(String(cnmSlug)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (acceptLanguage != null) {
-                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
-                    ? acceptLanguage 
-                    : JSON.stringify(acceptLanguage);
-            }
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
          * @summary Create Cinema
          * @param {CinemaInSchema} cinemaInSchema 
@@ -1643,9 +2394,9 @@ export const CinemasApiAxiosParamCreator = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _4890e9a0ControllerCreateCinema: async (cinemaInSchema: CinemaInSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createCinema: async (cinemaInSchema: CinemaInSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'cinemaInSchema' is not null or undefined
-            assertParamExists('_4890e9a0ControllerCreateCinema', 'cinemaInSchema', cinemaInSchema)
+            assertParamExists('createCinema', 'cinemaInSchema', cinemaInSchema)
             const localVarPath = `/api/cinema/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1684,15 +2435,15 @@ export const CinemasApiAxiosParamCreator = function (configuration?: Configurati
         },
         /**
          * Delete cinema by id.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
-         * @summary Delete By Slug
+         * @summary Delete Cinema By Slug
          * @param {any} cnmSlug 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _7db73c3dControllerDeleteBySlug: async (cnmSlug: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteCinemaBySlug: async (cnmSlug: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'cnmSlug' is not null or undefined
-            assertParamExists('_7db73c3dControllerDeleteBySlug', 'cnmSlug', cnmSlug)
+            assertParamExists('deleteCinemaBySlug', 'cnmSlug', cnmSlug)
             const localVarPath = `/api/cinema/{cnm_slug}/`
                 .replace(`{${"cnm_slug"}}`, encodeURIComponent(String(cnmSlug)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -1728,66 +2479,15 @@ export const CinemasApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
-         * @summary Update Cinema
-         * @param {any} cnmSlug 
-         * @param {CinemaUpdateSchema} cinemaUpdateSchema 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _93cc4991ControllerUpdateCinema: async (cnmSlug: any, cinemaUpdateSchema: CinemaUpdateSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'cnmSlug' is not null or undefined
-            assertParamExists('_93cc4991ControllerUpdateCinema', 'cnmSlug', cnmSlug)
-            // verify required parameter 'cinemaUpdateSchema' is not null or undefined
-            assertParamExists('_93cc4991ControllerUpdateCinema', 'cinemaUpdateSchema', cinemaUpdateSchema)
-            const localVarPath = `/api/cinema/{cnm_slug}/`
-                .replace(`{${"cnm_slug"}}`, encodeURIComponent(String(cnmSlug)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication CustomJWTAuth required
-            // http bearer authentication required
-            await setBearerAuthToObject(localVarHeaderParameter, configuration)
-
-            if (acceptLanguage != null) {
-                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
-                    ? acceptLanguage 
-                    : JSON.stringify(acceptLanguage);
-            }
-
-
-    
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(cinemaUpdateSchema, localVarRequestOptions, configuration)
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
          * Get all cinema cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Cinema Cards
+         * @summary Get All Cinema Cards
          * @param {any} [acceptLanguage] 
          * @param {any} [page] 
          * @param {any} [pageSize] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        aca33f19ControllerGetCinemaCards: async (acceptLanguage?: any, page?: any, pageSize?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getAllCinemaCards: async (acceptLanguage?: any, page?: any, pageSize?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             const localVarPath = `/api/cinema/all-cards/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -1825,6 +2525,98 @@ export const CinemasApiAxiosParamCreator = function (configuration?: Configurati
                 options: localVarRequestOptions,
             };
         },
+        /**
+         * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Cinema By Slug
+         * @param {any} cnmSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCinemaBySlug: async (cnmSlug: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'cnmSlug' is not null or undefined
+            assertParamExists('getCinemaBySlug', 'cnmSlug', cnmSlug)
+            const localVarPath = `/api/cinema/{cnm_slug}/`
+                .replace(`{${"cnm_slug"}}`, encodeURIComponent(String(cnmSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Update Cinema
+         * @param {any} cnmSlug 
+         * @param {CinemaUpdateSchema} cinemaUpdateSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateCinema: async (cnmSlug: any, cinemaUpdateSchema: CinemaUpdateSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'cnmSlug' is not null or undefined
+            assertParamExists('updateCinema', 'cnmSlug', cnmSlug)
+            // verify required parameter 'cinemaUpdateSchema' is not null or undefined
+            assertParamExists('updateCinema', 'cinemaUpdateSchema', cinemaUpdateSchema)
+            const localVarPath = `/api/cinema/{cnm_slug}/`
+                .replace(`{${"cnm_slug"}}`, encodeURIComponent(String(cnmSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(cinemaUpdateSchema, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
     }
 };
 
@@ -1836,18 +2628,6 @@ export const CinemasApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CinemasApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get By Slug
-         * @param {any} cnmSlug 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async _10b2699aControllerGetBySlug(cnmSlug: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CinemaOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._10b2699aControllerGetBySlug(cnmSlug, acceptLanguage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
          * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
          * @summary Create Cinema
          * @param {CinemaInSchema} cinemaInSchema 
@@ -1855,20 +2635,45 @@ export const CinemasApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async _4890e9a0ControllerCreateCinema(cinemaInSchema: CinemaInSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._4890e9a0ControllerCreateCinema(cinemaInSchema, acceptLanguage, options);
+        async createCinema(cinemaInSchema: CinemaInSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createCinema(cinemaInSchema, acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
          * Delete cinema by id.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
-         * @summary Delete By Slug
+         * @summary Delete Cinema By Slug
          * @param {any} cnmSlug 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async _7db73c3dControllerDeleteBySlug(cnmSlug: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._7db73c3dControllerDeleteBySlug(cnmSlug, acceptLanguage, options);
+        async deleteCinemaBySlug(cnmSlug: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCinemaBySlug(cnmSlug, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get all cinema cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get All Cinema Cards
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAllCinemaCards(acceptLanguage?: any, page?: any, pageSize?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaCinemaCardOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllCinemaCards(acceptLanguage, page, pageSize, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Cinema By Slug
+         * @param {any} cnmSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCinemaBySlug(cnmSlug: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CinemaOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCinemaBySlug(cnmSlug, acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
@@ -1880,21 +2685,8 @@ export const CinemasApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async _93cc4991ControllerUpdateCinema(cnmSlug: any, cinemaUpdateSchema: CinemaUpdateSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator._93cc4991ControllerUpdateCinema(cnmSlug, cinemaUpdateSchema, acceptLanguage, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
-        },
-        /**
-         * Get all cinema cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Cinema Cards
-         * @param {any} [acceptLanguage] 
-         * @param {any} [page] 
-         * @param {any} [pageSize] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async aca33f19ControllerGetCinemaCards(acceptLanguage?: any, page?: any, pageSize?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaCinemaCardOutSchema>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.aca33f19ControllerGetCinemaCards(acceptLanguage, page, pageSize, options);
+        async updateCinema(cnmSlug: any, cinemaUpdateSchema: CinemaUpdateSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateCinema(cnmSlug, cinemaUpdateSchema, acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -1908,17 +2700,6 @@ export const CinemasApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = CinemasApiFp(configuration)
     return {
         /**
-         * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get By Slug
-         * @param {any} cnmSlug 
-         * @param {any} [acceptLanguage] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        _10b2699aControllerGetBySlug(cnmSlug: any, acceptLanguage?: any, options?: any): AxiosPromise<CinemaOutSchema> {
-            return localVarFp._10b2699aControllerGetBySlug(cnmSlug, acceptLanguage, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
          * @summary Create Cinema
          * @param {CinemaInSchema} cinemaInSchema 
@@ -1926,19 +2707,42 @@ export const CinemasApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _4890e9a0ControllerCreateCinema(cinemaInSchema: CinemaInSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
-            return localVarFp._4890e9a0ControllerCreateCinema(cinemaInSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        createCinema(cinemaInSchema: CinemaInSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp.createCinema(cinemaInSchema, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
          * Delete cinema by id.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
-         * @summary Delete By Slug
+         * @summary Delete Cinema By Slug
          * @param {any} cnmSlug 
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _7db73c3dControllerDeleteBySlug(cnmSlug: any, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
-            return localVarFp._7db73c3dControllerDeleteBySlug(cnmSlug, acceptLanguage, options).then((request) => request(axios, basePath));
+        deleteCinemaBySlug(cnmSlug: any, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp.deleteCinemaBySlug(cnmSlug, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all cinema cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get All Cinema Cards
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAllCinemaCards(acceptLanguage?: any, page?: any, pageSize?: any, options?: any): AxiosPromise<PaginatedResponseSchemaCinemaCardOutSchema> {
+            return localVarFp.getAllCinemaCards(acceptLanguage, page, pageSize, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Cinema By Slug
+         * @param {any} cnmSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCinemaBySlug(cnmSlug: any, acceptLanguage?: any, options?: any): AxiosPromise<CinemaOutSchema> {
+            return localVarFp.getCinemaBySlug(cnmSlug, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
          * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
@@ -1949,141 +2753,129 @@ export const CinemasApiFactory = function (configuration?: Configuration, basePa
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        _93cc4991ControllerUpdateCinema(cnmSlug: any, cinemaUpdateSchema: CinemaUpdateSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
-            return localVarFp._93cc4991ControllerUpdateCinema(cnmSlug, cinemaUpdateSchema, acceptLanguage, options).then((request) => request(axios, basePath));
-        },
-        /**
-         * Get all cinema cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Get Cinema Cards
-         * @param {any} [acceptLanguage] 
-         * @param {any} [page] 
-         * @param {any} [pageSize] 
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        aca33f19ControllerGetCinemaCards(acceptLanguage?: any, page?: any, pageSize?: any, options?: any): AxiosPromise<PaginatedResponseSchemaCinemaCardOutSchema> {
-            return localVarFp.aca33f19ControllerGetCinemaCards(acceptLanguage, page, pageSize, options).then((request) => request(axios, basePath));
+        updateCinema(cnmSlug: any, cinemaUpdateSchema: CinemaUpdateSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp.updateCinema(cnmSlug, cinemaUpdateSchema, acceptLanguage, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for _10b2699aControllerGetBySlug operation in CinemasApi.
+ * Request parameters for createCinema operation in CinemasApi.
  * @export
- * @interface CinemasApi10b2699aControllerGetBySlugRequest
+ * @interface CinemasApiCreateCinemaRequest
  */
-export interface CinemasApi10b2699aControllerGetBySlugRequest {
-    /**
-     * 
-     * @type {any}
-     * @memberof CinemasApi10b2699aControllerGetBySlug
-     */
-    readonly cnmSlug: any
-
-    /**
-     * 
-     * @type {any}
-     * @memberof CinemasApi10b2699aControllerGetBySlug
-     */
-    readonly acceptLanguage?: any
-}
-
-/**
- * Request parameters for _4890e9a0ControllerCreateCinema operation in CinemasApi.
- * @export
- * @interface CinemasApi4890e9a0ControllerCreateCinemaRequest
- */
-export interface CinemasApi4890e9a0ControllerCreateCinemaRequest {
+export interface CinemasApiCreateCinemaRequest {
     /**
      * 
      * @type {CinemaInSchema}
-     * @memberof CinemasApi4890e9a0ControllerCreateCinema
+     * @memberof CinemasApiCreateCinema
      */
     readonly cinemaInSchema: CinemaInSchema
 
     /**
      * 
      * @type {any}
-     * @memberof CinemasApi4890e9a0ControllerCreateCinema
+     * @memberof CinemasApiCreateCinema
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * Request parameters for _7db73c3dControllerDeleteBySlug operation in CinemasApi.
+ * Request parameters for deleteCinemaBySlug operation in CinemasApi.
  * @export
- * @interface CinemasApi7db73c3dControllerDeleteBySlugRequest
+ * @interface CinemasApiDeleteCinemaBySlugRequest
  */
-export interface CinemasApi7db73c3dControllerDeleteBySlugRequest {
+export interface CinemasApiDeleteCinemaBySlugRequest {
     /**
      * 
      * @type {any}
-     * @memberof CinemasApi7db73c3dControllerDeleteBySlug
+     * @memberof CinemasApiDeleteCinemaBySlug
      */
     readonly cnmSlug: any
 
     /**
      * 
      * @type {any}
-     * @memberof CinemasApi7db73c3dControllerDeleteBySlug
+     * @memberof CinemasApiDeleteCinemaBySlug
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * Request parameters for _93cc4991ControllerUpdateCinema operation in CinemasApi.
+ * Request parameters for getAllCinemaCards operation in CinemasApi.
  * @export
- * @interface CinemasApi93cc4991ControllerUpdateCinemaRequest
+ * @interface CinemasApiGetAllCinemaCardsRequest
  */
-export interface CinemasApi93cc4991ControllerUpdateCinemaRequest {
+export interface CinemasApiGetAllCinemaCardsRequest {
     /**
      * 
      * @type {any}
-     * @memberof CinemasApi93cc4991ControllerUpdateCinema
-     */
-    readonly cnmSlug: any
-
-    /**
-     * 
-     * @type {CinemaUpdateSchema}
-     * @memberof CinemasApi93cc4991ControllerUpdateCinema
-     */
-    readonly cinemaUpdateSchema: CinemaUpdateSchema
-
-    /**
-     * 
-     * @type {any}
-     * @memberof CinemasApi93cc4991ControllerUpdateCinema
-     */
-    readonly acceptLanguage?: any
-}
-
-/**
- * Request parameters for aca33f19ControllerGetCinemaCards operation in CinemasApi.
- * @export
- * @interface CinemasApiAca33f19ControllerGetCinemaCardsRequest
- */
-export interface CinemasApiAca33f19ControllerGetCinemaCardsRequest {
-    /**
-     * 
-     * @type {any}
-     * @memberof CinemasApiAca33f19ControllerGetCinemaCards
+     * @memberof CinemasApiGetAllCinemaCards
      */
     readonly acceptLanguage?: any
 
     /**
      * 
      * @type {any}
-     * @memberof CinemasApiAca33f19ControllerGetCinemaCards
+     * @memberof CinemasApiGetAllCinemaCards
      */
     readonly page?: any
 
     /**
      * 
      * @type {any}
-     * @memberof CinemasApiAca33f19ControllerGetCinemaCards
+     * @memberof CinemasApiGetAllCinemaCards
      */
     readonly pageSize?: any
+}
+
+/**
+ * Request parameters for getCinemaBySlug operation in CinemasApi.
+ * @export
+ * @interface CinemasApiGetCinemaBySlugRequest
+ */
+export interface CinemasApiGetCinemaBySlugRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApiGetCinemaBySlug
+     */
+    readonly cnmSlug: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApiGetCinemaBySlug
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for updateCinema operation in CinemasApi.
+ * @export
+ * @interface CinemasApiUpdateCinemaRequest
+ */
+export interface CinemasApiUpdateCinemaRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApiUpdateCinema
+     */
+    readonly cnmSlug: any
+
+    /**
+     * 
+     * @type {CinemaUpdateSchema}
+     * @memberof CinemasApiUpdateCinema
+     */
+    readonly cinemaUpdateSchema: CinemaUpdateSchema
+
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemasApiUpdateCinema
+     */
+    readonly acceptLanguage?: any
 }
 
 /**
@@ -2094,63 +2886,63 @@ export interface CinemasApiAca33f19ControllerGetCinemaCardsRequest {
  */
 export class CinemasApi extends BaseAPI {
     /**
-     * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
-     * @summary Get By Slug
-     * @param {CinemasApi10b2699aControllerGetBySlugRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CinemasApi
-     */
-    public _10b2699aControllerGetBySlug(requestParameters: CinemasApi10b2699aControllerGetBySlugRequest, options?: AxiosRequestConfig) {
-        return CinemasApiFp(this.configuration)._10b2699aControllerGetBySlug(requestParameters.cnmSlug, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
      * @summary Create Cinema
-     * @param {CinemasApi4890e9a0ControllerCreateCinemaRequest} requestParameters Request parameters.
+     * @param {CinemasApiCreateCinemaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CinemasApi
      */
-    public _4890e9a0ControllerCreateCinema(requestParameters: CinemasApi4890e9a0ControllerCreateCinemaRequest, options?: AxiosRequestConfig) {
-        return CinemasApiFp(this.configuration)._4890e9a0ControllerCreateCinema(requestParameters.cinemaInSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public createCinema(requestParameters: CinemasApiCreateCinemaRequest, options?: AxiosRequestConfig) {
+        return CinemasApiFp(this.configuration).createCinema(requestParameters.cinemaInSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Delete cinema by id.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
-     * @summary Delete By Slug
-     * @param {CinemasApi7db73c3dControllerDeleteBySlugRequest} requestParameters Request parameters.
+     * @summary Delete Cinema By Slug
+     * @param {CinemasApiDeleteCinemaBySlugRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CinemasApi
      */
-    public _7db73c3dControllerDeleteBySlug(requestParameters: CinemasApi7db73c3dControllerDeleteBySlugRequest, options?: AxiosRequestConfig) {
-        return CinemasApiFp(this.configuration)._7db73c3dControllerDeleteBySlug(requestParameters.cnmSlug, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public deleteCinemaBySlug(requestParameters: CinemasApiDeleteCinemaBySlugRequest, options?: AxiosRequestConfig) {
+        return CinemasApiFp(this.configuration).deleteCinemaBySlug(requestParameters.cnmSlug, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get all cinema cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get All Cinema Cards
+     * @param {CinemasApiGetAllCinemaCardsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CinemasApi
+     */
+    public getAllCinemaCards(requestParameters: CinemasApiGetAllCinemaCardsRequest = {}, options?: AxiosRequestConfig) {
+        return CinemasApiFp(this.configuration).getAllCinemaCards(requestParameters.acceptLanguage, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get Cinema By Slug
+     * @param {CinemasApiGetCinemaBySlugRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof CinemasApi
+     */
+    public getCinemaBySlug(requestParameters: CinemasApiGetCinemaBySlugRequest, options?: AxiosRequestConfig) {
+        return CinemasApiFp(this.configuration).getCinemaBySlug(requestParameters.cnmSlug, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
      * @summary Update Cinema
-     * @param {CinemasApi93cc4991ControllerUpdateCinemaRequest} requestParameters Request parameters.
+     * @param {CinemasApiUpdateCinemaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CinemasApi
      */
-    public _93cc4991ControllerUpdateCinema(requestParameters: CinemasApi93cc4991ControllerUpdateCinemaRequest, options?: AxiosRequestConfig) {
-        return CinemasApiFp(this.configuration)._93cc4991ControllerUpdateCinema(requestParameters.cnmSlug, requestParameters.cinemaUpdateSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
-     * Get all cinema cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Get Cinema Cards
-     * @param {CinemasApiAca33f19ControllerGetCinemaCardsRequest} requestParameters Request parameters.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof CinemasApi
-     */
-    public aca33f19ControllerGetCinemaCards(requestParameters: CinemasApiAca33f19ControllerGetCinemaCardsRequest = {}, options?: AxiosRequestConfig) {
-        return CinemasApiFp(this.configuration).aca33f19ControllerGetCinemaCards(requestParameters.acceptLanguage, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
+    public updateCinema(requestParameters: CinemasApiUpdateCinemaRequest, options?: AxiosRequestConfig) {
+        return CinemasApiFp(this.configuration).updateCinema(requestParameters.cnmSlug, requestParameters.cinemaUpdateSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -2169,9 +2961,9 @@ export const GalleriesApiAxiosParamCreator = function (configuration?: Configura
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        d81d4933ControllerGetGallery: async (galleryId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        e9e372a1ControllerGetGallery: async (galleryId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'galleryId' is not null or undefined
-            assertParamExists('d81d4933ControllerGetGallery', 'galleryId', galleryId)
+            assertParamExists('e9e372a1ControllerGetGallery', 'galleryId', galleryId)
             const localVarPath = `/api/gallery/{gallery_id}/`
                 .replace(`{${"gallery_id"}}`, encodeURIComponent(String(galleryId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -2220,8 +3012,8 @@ export const GalleriesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async d81d4933ControllerGetGallery(galleryId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GalleryItemOutSchema>>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.d81d4933ControllerGetGallery(galleryId, acceptLanguage, options);
+        async e9e372a1ControllerGetGallery(galleryId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<GalleryItemOutSchema>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.e9e372a1ControllerGetGallery(galleryId, acceptLanguage, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
     }
@@ -2242,29 +3034,29 @@ export const GalleriesApiFactory = function (configuration?: Configuration, base
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        d81d4933ControllerGetGallery(galleryId: any, acceptLanguage?: any, options?: any): AxiosPromise<Array<GalleryItemOutSchema>> {
-            return localVarFp.d81d4933ControllerGetGallery(galleryId, acceptLanguage, options).then((request) => request(axios, basePath));
+        e9e372a1ControllerGetGallery(galleryId: any, acceptLanguage?: any, options?: any): AxiosPromise<Array<GalleryItemOutSchema>> {
+            return localVarFp.e9e372a1ControllerGetGallery(galleryId, acceptLanguage, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
- * Request parameters for d81d4933ControllerGetGallery operation in GalleriesApi.
+ * Request parameters for e9e372a1ControllerGetGallery operation in GalleriesApi.
  * @export
- * @interface GalleriesApiD81d4933ControllerGetGalleryRequest
+ * @interface GalleriesApiE9e372a1ControllerGetGalleryRequest
  */
-export interface GalleriesApiD81d4933ControllerGetGalleryRequest {
+export interface GalleriesApiE9e372a1ControllerGetGalleryRequest {
     /**
      * 
      * @type {any}
-     * @memberof GalleriesApiD81d4933ControllerGetGallery
+     * @memberof GalleriesApiE9e372a1ControllerGetGallery
      */
     readonly galleryId: any
 
     /**
      * 
      * @type {any}
-     * @memberof GalleriesApiD81d4933ControllerGetGallery
+     * @memberof GalleriesApiE9e372a1ControllerGetGallery
      */
     readonly acceptLanguage?: any
 }
@@ -2279,13 +3071,612 @@ export class GalleriesApi extends BaseAPI {
     /**
      * Get maximum of gallery fields.  Please provide:   - **gallery_id**  id of gallery we want to get  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.         Причини:         1) Не знайдено: немає збігів галерей            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Get Gallery
-     * @param {GalleriesApiD81d4933ControllerGetGalleryRequest} requestParameters Request parameters.
+     * @param {GalleriesApiE9e372a1ControllerGetGalleryRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof GalleriesApi
      */
-    public d81d4933ControllerGetGallery(requestParameters: GalleriesApiD81d4933ControllerGetGalleryRequest, options?: AxiosRequestConfig) {
-        return GalleriesApiFp(this.configuration).d81d4933ControllerGetGallery(requestParameters.galleryId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public e9e372a1ControllerGetGallery(requestParameters: GalleriesApiE9e372a1ControllerGetGalleryRequest, options?: AxiosRequestConfig) {
+        return GalleriesApiFp(this.configuration).e9e372a1ControllerGetGallery(requestParameters.galleryId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * HallsApi - axios parameter creator
+ * @export
+ */
+export const HallsApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Create Hall
+         * @param {any} cnmSlug 
+         * @param {HallInSchema} hallInSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createHall: async (cnmSlug: any, hallInSchema: HallInSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'cnmSlug' is not null or undefined
+            assertParamExists('createHall', 'cnmSlug', cnmSlug)
+            // verify required parameter 'hallInSchema' is not null or undefined
+            assertParamExists('createHall', 'hallInSchema', hallInSchema)
+            const localVarPath = `/api/hall/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (cnmSlug !== undefined) {
+                localVarQueryParameter['cnm_slug'] = cnmSlug;
+            }
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(hallInSchema, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete hall by id.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Delete Hall By Slug
+         * @param {any} hallId 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteHallBySlug: async (hallId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'hallId' is not null or undefined
+            assertParamExists('deleteHallBySlug', 'hallId', hallId)
+            const localVarPath = `/api/hall/{hall_id}/`
+                .replace(`{${"hall_id"}}`, encodeURIComponent(String(hallId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get all hall cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get All Hall Cards
+         * @param {any} cnmSlug 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAllHallCards: async (cnmSlug: any, page?: any, pageSize?: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'cnmSlug' is not null or undefined
+            assertParamExists('getAllHallCards', 'cnmSlug', cnmSlug)
+            const localVarPath = `/api/hall/all-cards/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (cnmSlug !== undefined) {
+                localVarQueryParameter['cnm_slug'] = cnmSlug;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Create hall.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Hall By Id
+         * @param {any} hallId 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getHallById: async (hallId: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'hallId' is not null or undefined
+            assertParamExists('getHallById', 'hallId', hallId)
+            const localVarPath = `/api/hall/{hall_id}/`
+                .replace(`{${"hall_id"}}`, encodeURIComponent(String(hallId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Update Hall
+         * @param {any} hallId 
+         * @param {HallUpdateSchema} hallUpdateSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateHall: async (hallId: any, hallUpdateSchema: HallUpdateSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'hallId' is not null or undefined
+            assertParamExists('updateHall', 'hallId', hallId)
+            // verify required parameter 'hallUpdateSchema' is not null or undefined
+            assertParamExists('updateHall', 'hallUpdateSchema', hallUpdateSchema)
+            const localVarPath = `/api/hall/{hall_id}/`
+                .replace(`{${"hall_id"}}`, encodeURIComponent(String(hallId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(hallUpdateSchema, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * HallsApi - functional programming interface
+ * @export
+ */
+export const HallsApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = HallsApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Create Hall
+         * @param {any} cnmSlug 
+         * @param {HallInSchema} hallInSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createHall(cnmSlug: any, hallInSchema: HallInSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createHall(cnmSlug, hallInSchema, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Delete hall by id.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Delete Hall By Slug
+         * @param {any} hallId 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteHallBySlug(hallId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteHallBySlug(hallId, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get all hall cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get All Hall Cards
+         * @param {any} cnmSlug 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAllHallCards(cnmSlug: any, page?: any, pageSize?: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaHallCardOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllHallCards(cnmSlug, page, pageSize, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Create hall.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Hall By Id
+         * @param {any} hallId 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getHallById(hallId: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<HallOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getHallById(hallId, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Update Hall
+         * @param {any} hallId 
+         * @param {HallUpdateSchema} hallUpdateSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateHall(hallId: any, hallUpdateSchema: HallUpdateSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateHall(hallId, hallUpdateSchema, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * HallsApi - factory interface
+ * @export
+ */
+export const HallsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = HallsApiFp(configuration)
+    return {
+        /**
+         * Create hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Create Hall
+         * @param {any} cnmSlug 
+         * @param {HallInSchema} hallInSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createHall(cnmSlug: any, hallInSchema: HallInSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp.createHall(cnmSlug, hallInSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete hall by id.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Delete Hall By Slug
+         * @param {any} hallId 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteHallBySlug(hallId: any, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp.deleteHallBySlug(hallId, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all hall cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get All Hall Cards
+         * @param {any} cnmSlug 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAllHallCards(cnmSlug: any, page?: any, pageSize?: any, acceptLanguage?: any, options?: any): AxiosPromise<PaginatedResponseSchemaHallCardOutSchema> {
+            return localVarFp.getAllHallCards(cnmSlug, page, pageSize, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Create hall.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Hall By Id
+         * @param {any} hallId 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getHallById(hallId: any, acceptLanguage?: any, options?: any): AxiosPromise<HallOutSchema> {
+            return localVarFp.getHallById(hallId, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Update Hall
+         * @param {any} hallId 
+         * @param {HallUpdateSchema} hallUpdateSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateHall(hallId: any, hallUpdateSchema: HallUpdateSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp.updateHall(hallId, hallUpdateSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createHall operation in HallsApi.
+ * @export
+ * @interface HallsApiCreateHallRequest
+ */
+export interface HallsApiCreateHallRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof HallsApiCreateHall
+     */
+    readonly cnmSlug: any
+
+    /**
+     * 
+     * @type {HallInSchema}
+     * @memberof HallsApiCreateHall
+     */
+    readonly hallInSchema: HallInSchema
+
+    /**
+     * 
+     * @type {any}
+     * @memberof HallsApiCreateHall
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for deleteHallBySlug operation in HallsApi.
+ * @export
+ * @interface HallsApiDeleteHallBySlugRequest
+ */
+export interface HallsApiDeleteHallBySlugRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof HallsApiDeleteHallBySlug
+     */
+    readonly hallId: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof HallsApiDeleteHallBySlug
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for getAllHallCards operation in HallsApi.
+ * @export
+ * @interface HallsApiGetAllHallCardsRequest
+ */
+export interface HallsApiGetAllHallCardsRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof HallsApiGetAllHallCards
+     */
+    readonly cnmSlug: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof HallsApiGetAllHallCards
+     */
+    readonly page?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof HallsApiGetAllHallCards
+     */
+    readonly pageSize?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof HallsApiGetAllHallCards
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for getHallById operation in HallsApi.
+ * @export
+ * @interface HallsApiGetHallByIdRequest
+ */
+export interface HallsApiGetHallByIdRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof HallsApiGetHallById
+     */
+    readonly hallId: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof HallsApiGetHallById
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for updateHall operation in HallsApi.
+ * @export
+ * @interface HallsApiUpdateHallRequest
+ */
+export interface HallsApiUpdateHallRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof HallsApiUpdateHall
+     */
+    readonly hallId: any
+
+    /**
+     * 
+     * @type {HallUpdateSchema}
+     * @memberof HallsApiUpdateHall
+     */
+    readonly hallUpdateSchema: HallUpdateSchema
+
+    /**
+     * 
+     * @type {any}
+     * @memberof HallsApiUpdateHall
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * HallsApi - object-oriented interface
+ * @export
+ * @class HallsApi
+ * @extends {BaseAPI}
+ */
+export class HallsApi extends BaseAPI {
+    /**
+     * Create hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+     * @summary Create Hall
+     * @param {HallsApiCreateHallRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HallsApi
+     */
+    public createHall(requestParameters: HallsApiCreateHallRequest, options?: AxiosRequestConfig) {
+        return HallsApiFp(this.configuration).createHall(requestParameters.cnmSlug, requestParameters.hallInSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete hall by id.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * @summary Delete Hall By Slug
+     * @param {HallsApiDeleteHallBySlugRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HallsApi
+     */
+    public deleteHallBySlug(requestParameters: HallsApiDeleteHallBySlugRequest, options?: AxiosRequestConfig) {
+        return HallsApiFp(this.configuration).deleteHallBySlug(requestParameters.hallId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get all hall cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get All Hall Cards
+     * @param {HallsApiGetAllHallCardsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HallsApi
+     */
+    public getAllHallCards(requestParameters: HallsApiGetAllHallCardsRequest, options?: AxiosRequestConfig) {
+        return HallsApiFp(this.configuration).getAllHallCards(requestParameters.cnmSlug, requestParameters.page, requestParameters.pageSize, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Create hall.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get Hall By Id
+     * @param {HallsApiGetHallByIdRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HallsApi
+     */
+    public getHallById(requestParameters: HallsApiGetHallByIdRequest, options?: AxiosRequestConfig) {
+        return HallsApiFp(this.configuration).getHallById(requestParameters.hallId, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+     * @summary Update Hall
+     * @param {HallsApiUpdateHallRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof HallsApi
+     */
+    public updateHall(requestParameters: HallsApiUpdateHallRequest, options?: AxiosRequestConfig) {
+        return HallsApiFp(this.configuration).updateHall(requestParameters.hallId, requestParameters.hallUpdateSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -2812,6 +4203,1035 @@ export class MailingApi extends BaseAPI {
      */
     public statusMailing(requestParameters: MailingApiStatusMailingRequest = {}, options?: AxiosRequestConfig) {
         return MailingApiFp(this.configuration).statusMailing(requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * MoviesApi - axios parameter creator
+ * @export
+ */
+export const MoviesApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Create movie.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Create Movie
+         * @param {MovieInSchema} movieInSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMovie: async (movieInSchema: MovieInSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'movieInSchema' is not null or undefined
+            assertParamExists('createMovie', 'movieInSchema', movieInSchema)
+            const localVarPath = `/api/movie/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(movieInSchema, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Delete movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Delete Movie By Slug
+         * @param {any} mvSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMovieBySlug: async (mvSlug: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'mvSlug' is not null or undefined
+            assertParamExists('deleteMovieBySlug', 'mvSlug', mvSlug)
+            const localVarPath = `/api/movie/{mv_slug}/`
+                .replace(`{${"mv_slug"}}`, encodeURIComponent(String(mvSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get all movie cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get All Movie Cards
+         * @param {any} [release] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAllMovieCards: async (release?: any, page?: any, pageSize?: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/movie/all-cards/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (release !== undefined) {
+                localVarQueryParameter['release'] = release;
+            }
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get genres for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Cinema Genres
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCinemaGenres: async (acceptLanguage?: any, page?: any, pageSize?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/movie/genres/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get countries for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Countries
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCountries: async (acceptLanguage?: any, page?: any, pageSize?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/movie/countries/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Movie By Slug
+         * @param {any} mvSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMovieBySlug: async (mvSlug: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'mvSlug' is not null or undefined
+            assertParamExists('getMovieBySlug', 'mvSlug', mvSlug)
+            const localVarPath = `/api/movie/{mv_slug}/`
+                .replace(`{${"mv_slug"}}`, encodeURIComponent(String(mvSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get participants for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Participants
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getParticipants: async (acceptLanguage?: any, page?: any, pageSize?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/movie/participants/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get techs for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Techs
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTechs: async (acceptLanguage?: any, page?: any, pageSize?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/movie/techs/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Update movie by slug.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Update Movie
+         * @param {any} mvSlug 
+         * @param {MovieUpdateSchema} movieUpdateSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMovie: async (mvSlug: any, movieUpdateSchema: MovieUpdateSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'mvSlug' is not null or undefined
+            assertParamExists('updateMovie', 'mvSlug', mvSlug)
+            // verify required parameter 'movieUpdateSchema' is not null or undefined
+            assertParamExists('updateMovie', 'movieUpdateSchema', movieUpdateSchema)
+            const localVarPath = `/api/movie/{mv_slug}/`
+                .replace(`{${"mv_slug"}}`, encodeURIComponent(String(mvSlug)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'PATCH', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(movieUpdateSchema, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * MoviesApi - functional programming interface
+ * @export
+ */
+export const MoviesApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = MoviesApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Create movie.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Create Movie
+         * @param {MovieInSchema} movieInSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async createMovie(movieInSchema: MovieInSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createMovie(movieInSchema, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Delete movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Delete Movie By Slug
+         * @param {any} mvSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteMovieBySlug(mvSlug: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMovieBySlug(mvSlug, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get all movie cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get All Movie Cards
+         * @param {any} [release] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAllMovieCards(release?: any, page?: any, pageSize?: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaMovieCardOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllMovieCards(release, page, pageSize, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get genres for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Cinema Genres
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCinemaGenres(acceptLanguage?: any, page?: any, pageSize?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaList>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCinemaGenres(acceptLanguage, page, pageSize, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get countries for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Countries
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getCountries(acceptLanguage?: any, page?: any, pageSize?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaList>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getCountries(acceptLanguage, page, pageSize, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Movie By Slug
+         * @param {any} mvSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMovieBySlug(mvSlug: any, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MovieOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMovieBySlug(mvSlug, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get participants for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Participants
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getParticipants(acceptLanguage?: any, page?: any, pageSize?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaMovieParticipantOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getParticipants(acceptLanguage, page, pageSize, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get techs for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Techs
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getTechs(acceptLanguage?: any, page?: any, pageSize?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaList>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getTechs(acceptLanguage, page, pageSize, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Update movie by slug.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Update Movie
+         * @param {any} mvSlug 
+         * @param {MovieUpdateSchema} movieUpdateSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async updateMovie(mvSlug: any, movieUpdateSchema: MovieUpdateSchema, acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessageOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.updateMovie(mvSlug, movieUpdateSchema, acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * MoviesApi - factory interface
+ * @export
+ */
+export const MoviesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = MoviesApiFp(configuration)
+    return {
+        /**
+         * Create movie.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Create Movie
+         * @param {MovieInSchema} movieInSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createMovie(movieInSchema: MovieInSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp.createMovie(movieInSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Delete movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Delete Movie By Slug
+         * @param {any} mvSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteMovieBySlug(mvSlug: any, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp.deleteMovieBySlug(mvSlug, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get all movie cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get All Movie Cards
+         * @param {any} [release] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAllMovieCards(release?: any, page?: any, pageSize?: any, acceptLanguage?: any, options?: any): AxiosPromise<PaginatedResponseSchemaMovieCardOutSchema> {
+            return localVarFp.getAllMovieCards(release, page, pageSize, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get genres for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Cinema Genres
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCinemaGenres(acceptLanguage?: any, page?: any, pageSize?: any, options?: any): AxiosPromise<PaginatedResponseSchemaList> {
+            return localVarFp.getCinemaGenres(acceptLanguage, page, pageSize, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get countries for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Countries
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getCountries(acceptLanguage?: any, page?: any, pageSize?: any, options?: any): AxiosPromise<PaginatedResponseSchemaList> {
+            return localVarFp.getCountries(acceptLanguage, page, pageSize, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Movie By Slug
+         * @param {any} mvSlug 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMovieBySlug(mvSlug: any, acceptLanguage?: any, options?: any): AxiosPromise<MovieOutSchema> {
+            return localVarFp.getMovieBySlug(mvSlug, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get participants for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Participants
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getParticipants(acceptLanguage?: any, page?: any, pageSize?: any, options?: any): AxiosPromise<PaginatedResponseSchemaMovieParticipantOutSchema> {
+            return localVarFp.getParticipants(acceptLanguage, page, pageSize, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get techs for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Techs
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getTechs(acceptLanguage?: any, page?: any, pageSize?: any, options?: any): AxiosPromise<PaginatedResponseSchemaList> {
+            return localVarFp.getTechs(acceptLanguage, page, pageSize, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Update movie by slug.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+         * @summary Update Movie
+         * @param {any} mvSlug 
+         * @param {MovieUpdateSchema} movieUpdateSchema 
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        updateMovie(mvSlug: any, movieUpdateSchema: MovieUpdateSchema, acceptLanguage?: any, options?: any): AxiosPromise<MessageOutSchema> {
+            return localVarFp.updateMovie(mvSlug, movieUpdateSchema, acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for createMovie operation in MoviesApi.
+ * @export
+ * @interface MoviesApiCreateMovieRequest
+ */
+export interface MoviesApiCreateMovieRequest {
+    /**
+     * 
+     * @type {MovieInSchema}
+     * @memberof MoviesApiCreateMovie
+     */
+    readonly movieInSchema: MovieInSchema
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiCreateMovie
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for deleteMovieBySlug operation in MoviesApi.
+ * @export
+ * @interface MoviesApiDeleteMovieBySlugRequest
+ */
+export interface MoviesApiDeleteMovieBySlugRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiDeleteMovieBySlug
+     */
+    readonly mvSlug: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiDeleteMovieBySlug
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for getAllMovieCards operation in MoviesApi.
+ * @export
+ * @interface MoviesApiGetAllMovieCardsRequest
+ */
+export interface MoviesApiGetAllMovieCardsRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetAllMovieCards
+     */
+    readonly release?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetAllMovieCards
+     */
+    readonly page?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetAllMovieCards
+     */
+    readonly pageSize?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetAllMovieCards
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for getCinemaGenres operation in MoviesApi.
+ * @export
+ * @interface MoviesApiGetCinemaGenresRequest
+ */
+export interface MoviesApiGetCinemaGenresRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetCinemaGenres
+     */
+    readonly acceptLanguage?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetCinemaGenres
+     */
+    readonly page?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetCinemaGenres
+     */
+    readonly pageSize?: any
+}
+
+/**
+ * Request parameters for getCountries operation in MoviesApi.
+ * @export
+ * @interface MoviesApiGetCountriesRequest
+ */
+export interface MoviesApiGetCountriesRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetCountries
+     */
+    readonly acceptLanguage?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetCountries
+     */
+    readonly page?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetCountries
+     */
+    readonly pageSize?: any
+}
+
+/**
+ * Request parameters for getMovieBySlug operation in MoviesApi.
+ * @export
+ * @interface MoviesApiGetMovieBySlugRequest
+ */
+export interface MoviesApiGetMovieBySlugRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetMovieBySlug
+     */
+    readonly mvSlug: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetMovieBySlug
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for getParticipants operation in MoviesApi.
+ * @export
+ * @interface MoviesApiGetParticipantsRequest
+ */
+export interface MoviesApiGetParticipantsRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetParticipants
+     */
+    readonly acceptLanguage?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetParticipants
+     */
+    readonly page?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetParticipants
+     */
+    readonly pageSize?: any
+}
+
+/**
+ * Request parameters for getTechs operation in MoviesApi.
+ * @export
+ * @interface MoviesApiGetTechsRequest
+ */
+export interface MoviesApiGetTechsRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetTechs
+     */
+    readonly acceptLanguage?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetTechs
+     */
+    readonly page?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetTechs
+     */
+    readonly pageSize?: any
+}
+
+/**
+ * Request parameters for updateMovie operation in MoviesApi.
+ * @export
+ * @interface MoviesApiUpdateMovieRequest
+ */
+export interface MoviesApiUpdateMovieRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiUpdateMovie
+     */
+    readonly mvSlug: any
+
+    /**
+     * 
+     * @type {MovieUpdateSchema}
+     * @memberof MoviesApiUpdateMovie
+     */
+    readonly movieUpdateSchema: MovieUpdateSchema
+
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiUpdateMovie
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * MoviesApi - object-oriented interface
+ * @export
+ * @class MoviesApi
+ * @extends {BaseAPI}
+ */
+export class MoviesApi extends BaseAPI {
+    /**
+     * Create movie.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+     * @summary Create Movie
+     * @param {MoviesApiCreateMovieRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MoviesApi
+     */
+    public createMovie(requestParameters: MoviesApiCreateMovieRequest, options?: AxiosRequestConfig) {
+        return MoviesApiFp(this.configuration).createMovie(requestParameters.movieInSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * @summary Delete Movie By Slug
+     * @param {MoviesApiDeleteMovieBySlugRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MoviesApi
+     */
+    public deleteMovieBySlug(requestParameters: MoviesApiDeleteMovieBySlugRequest, options?: AxiosRequestConfig) {
+        return MoviesApiFp(this.configuration).deleteMovieBySlug(requestParameters.mvSlug, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get all movie cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get All Movie Cards
+     * @param {MoviesApiGetAllMovieCardsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MoviesApi
+     */
+    public getAllMovieCards(requestParameters: MoviesApiGetAllMovieCardsRequest = {}, options?: AxiosRequestConfig) {
+        return MoviesApiFp(this.configuration).getAllMovieCards(requestParameters.release, requestParameters.page, requestParameters.pageSize, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get genres for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get Cinema Genres
+     * @param {MoviesApiGetCinemaGenresRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MoviesApi
+     */
+    public getCinemaGenres(requestParameters: MoviesApiGetCinemaGenresRequest = {}, options?: AxiosRequestConfig) {
+        return MoviesApiFp(this.configuration).getCinemaGenres(requestParameters.acceptLanguage, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get countries for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get Countries
+     * @param {MoviesApiGetCountriesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MoviesApi
+     */
+    public getCountries(requestParameters: MoviesApiGetCountriesRequest = {}, options?: AxiosRequestConfig) {
+        return MoviesApiFp(this.configuration).getCountries(requestParameters.acceptLanguage, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get Movie By Slug
+     * @param {MoviesApiGetMovieBySlugRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MoviesApi
+     */
+    public getMovieBySlug(requestParameters: MoviesApiGetMovieBySlugRequest, options?: AxiosRequestConfig) {
+        return MoviesApiFp(this.configuration).getMovieBySlug(requestParameters.mvSlug, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get participants for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get Participants
+     * @param {MoviesApiGetParticipantsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MoviesApi
+     */
+    public getParticipants(requestParameters: MoviesApiGetParticipantsRequest = {}, options?: AxiosRequestConfig) {
+        return MoviesApiFp(this.configuration).getParticipants(requestParameters.acceptLanguage, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get techs for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get Techs
+     * @param {MoviesApiGetTechsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MoviesApi
+     */
+    public getTechs(requestParameters: MoviesApiGetTechsRequest = {}, options?: AxiosRequestConfig) {
+        return MoviesApiFp(this.configuration).getTechs(requestParameters.acceptLanguage, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Update movie by slug.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 2000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.
+     * @summary Update Movie
+     * @param {MoviesApiUpdateMovieRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MoviesApi
+     */
+    public updateMovie(requestParameters: MoviesApiUpdateMovieRequest, options?: AxiosRequestConfig) {
+        return MoviesApiFp(this.configuration).updateMovie(requestParameters.mvSlug, requestParameters.movieUpdateSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -22,7 +22,7 @@ import { defineProps } from 'vue'
 
 interface Table {
   headers: string[]
-  rows: Record<string, string | number | boolean>[]
+  rows: Record<string | number | boolean>[]
   showDeleteIcon?: boolean
 }
 
