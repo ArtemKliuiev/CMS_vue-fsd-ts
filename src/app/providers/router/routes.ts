@@ -19,6 +19,7 @@ import {
   StockPage,
   StockCreate,
   UsersPage,
+  OneUser,
   AuthPage,
   RegistrationPage,
   NewsCreate,
@@ -156,6 +157,11 @@ export const routes = [
         path: 'users',
         name: 'users',
         component: UsersPage
+      },
+      {
+        path: 'user/:id',
+        name: 'user',
+        component: OneUser
       }
     ]
   }

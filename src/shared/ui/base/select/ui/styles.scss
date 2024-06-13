@@ -1,0 +1,19 @@
+@import "@/shared/scss-variables/index";
+
+select{
+  color: $white-one;
+  padding: 0 15px;
+  text-align: center;
+  border: 1px solid $white-one;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:focus{
+    outline: none;
+  }
+
+  option{
+    background: $next-color;
+  }
+}

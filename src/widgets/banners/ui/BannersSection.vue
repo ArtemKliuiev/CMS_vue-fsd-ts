@@ -12,7 +12,9 @@
     </div>
 
     <div class="banners-section__input-file">
-      <InputFile v-for="n in current" :key="n" />
+      <InputFile v-for="(item, index) in items" :key="index" :imgInfo="item" />
+
+      <div class="banners-section__add-input"></div>
     </div>
   </div>
 </template>
@@ -20,21 +22,9 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { InputFile } from '@/shared/ui'
+defineProps(['items'])
 
-const current = ref<number>(1)
 const selected = ref<boolean>(true)
-
-function addCurrent(condition: boolean) {
-  if (condition) {
-    if (current.value < 8) {
-      current.value++
-    }
-  } else {
-    if (current.value > 1) {
-      current.value--
-    }
-  }
-}
 </script>
 
 <style lang="scss">

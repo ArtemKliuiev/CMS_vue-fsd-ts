@@ -1,11 +1,23 @@
 @import "@/shared/scss-variables/index";
 
 .input-file{
+  position: relative;
   background: $next-color;
   border: 1px solid $white-one;
   padding: 10px;
   border-radius: 5px;
   width: 100%;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+
+
+  &:hover{
+    .input-file{
+      &__close{
+        opacity: 1;
+      }
+    }
+  }
 
   &__inputs{
     input{
@@ -15,10 +27,55 @@
     }
   }
 
-  .v-field{
-    &__field{
-      white-space: nowrap;
-      overflow: hidden;
+  &__close{
+    opacity: 0;
+    position: absolute;
+    top: -17px;
+    right: -17px;
+    background: $bg-color;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid $text-hover-bg;
+    transition: opacity 300ms ease, border 300ms ease;
+    cursor: pointer;
+
+    &:before, &:after{
+      content: '';
+      position: absolute;
+      top: 4px;
+      left: 13px;
+      background-color: $text-hover-bg;
+      transition: background-color 300ms ease;
+      width: 2px;
+      border-radius: 2px;
+      height: 20px;
     }
+
+    &:before{
+      transform: rotate(45deg);
+    }
+
+    &:after{
+      transform: rotate(-45deg);
+    }
+
+    &:hover{
+      border: 1px solid $white-one;
+
+      &:before, &:after{
+        background-color: $white-one;
+      }
+    }
+
   }
+
+
+
+  //.v-field{
+  //  &__field{
+  //    white-space: nowrap;
+  //    overflow: hidden;
+  //  }
+  //}
 }

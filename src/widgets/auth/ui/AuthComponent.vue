@@ -70,6 +70,7 @@ defineProps(['place'])
 
 const router = useRouter()
 
+//todo Рефакторинг
 const name = ref<string>('')
 const lastName = ref<string>('')
 const email = ref<string>('')
@@ -77,6 +78,7 @@ const createPass = ref<string>('')
 const confirmPass = ref<string>('')
 const login = ref<string>('')
 const pass = ref<string>('')
+//todo Рефакторинг
 
 async function authentication() {
   const request = await authFunc(login.value, pass.value)

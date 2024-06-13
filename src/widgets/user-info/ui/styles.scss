@@ -1,0 +1,57 @@
+@import "@/shared/scss-variables/index";
+
+.user-info{
+  padding: 10px 15px;
+
+  &__main{
+    display: flex;
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  &__column{
+    flex: 1 1 49%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__item{
+    label{
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__radio{
+    display: flex;
+    max-width: 40%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    div{
+      display: flex;
+    }
+
+    label{
+      padding-left: 10px;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    input{
+      cursor: pointer;
+      width: 15px;
+    }
+  }
+
+  &__btn{
+    button{
+      display: block;
+      margin: 0 auto;
+      width: 30%;
+    }
+  }
+}
+

@@ -70,13 +70,13 @@ const breadcrumbs = [
 ]
 
 watch(curPage, () => {
-  getInfo(curPage.value)
+  getInfo()
 })
 
 watch(search, () => {
   setTimeout(() => {
-    getInfo(1, search.value)
-  }, 1000)
+    getInfo(search.value)
+  }, 500)
 })
 
 const quantityPage = computed(() => {
@@ -98,58 +98,47 @@ const rows = computed(() => {
     })
   })
 
-  console.log(changeFormatUsers)
-
   return changeFormatUsers
 })
 
-async function getInfo(page: number, search: string = '') {
-  const response = await api.datatable({
+async function getInfo(search: string = '') {
+  const response = await api.usersDatatable({
     searchLine: search,
-    page: page,
+    page: curPage.value,
     pageSize: 15
   })
 
   currentUsers.length = 0
   currentUsers.push(...response.data.results)
 }
-getInfo(1)
+getInfo()
 
 async function getAllUsers() {
-  const response = await api.datatable()
+  const response = await api.usersDatatable()
 
   allUsers.value = response.data.results
 }
 getAllUsers()
 
-////////////////////////////////////////////////////////////
-
 const handleEditRow = (index: number) => {
-  console.log('Редактировать строку', index)
-  switch (index) {
-    case 0:
-      router.push('/admin/pages/home-page')
-      break
-    case 1:
-      router.push('/admin/pages/about-cinema-page')
-      break
-    case 2:
-      router.push('/admin/pages/cafe-bar')
-      break
-    case 3:
-      router.push('/admin/pages/vip-hall')
-      break
-    case 4:
-      router.push('/admin/pages/advertising')
-      break
-    case 5:
-      router.push('/admin/pages/children-room')
-      break
-  }
+  router.push(`/admin/user/${currentUsers[index].id}`)
 }
 
-const handleDeleteRow = (index: number) => {
-  console.log('Удалить строку', index)
+const handleDeleteRow = async (index: number) => {
+  const user = currentUsers[index]
+
+  const info = confirm(`Видалити користувача ${user.first_name} ${user.last_name}`)
+
+  if (info) {
+    const deleteUser = await api.deleteById({
+      userId: user.id
+    })
+
+    if (deleteUser.status === 200) {
+      await getInfo()
+      alert(`Користувач ${user.first_name} ${user.last_name} видалений`)
+    }
+  }
 }
 </script>
 
