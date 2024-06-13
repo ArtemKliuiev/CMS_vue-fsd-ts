@@ -2,23 +2,16 @@
 
 .banners-section{
   border-radius: 5px;
-  padding: 10px;
+  padding: 20px;
   border: 1px solid $white-one;
 
   &__top-line{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 
     .v-input__details{
       display: none;
     }
-  }
-
-  &__btn{
-    margin-bottom: 10px;
-    display: flex;
-    gap: 15px;
-    align-items: center;
   }
 
   &__checkbox{
@@ -27,7 +20,32 @@
 
   &__input-file{
     display: grid;
-    grid-template: repeat(2, 1fr) /repeat(6, 1fr);
+    grid-template: repeat(2, 1fr) /repeat(7, 1fr);
     gap: 20px;
+  }
+
+  &__add-input{
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg{
+      fill: $white-one;
+      width: 100px;
+      height: 100px;
+    }
+
+    &:hover{
+      background-color: $dark-color-2;
+
+      svg{
+        fill: $white-two;
+
+      }
+    }
   }
 }

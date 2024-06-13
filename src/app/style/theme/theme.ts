@@ -3,7 +3,7 @@ export const customTheme = {
   colors: {
     background: '#444',
     surface: '#555',
-    'surface-bright': '#444',
+    'surface-bright': '#777',
     'surface-light': '#333',
     'surface-variant': '#333',
     'on-surface-variant': '#333',
