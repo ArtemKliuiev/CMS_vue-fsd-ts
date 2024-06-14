@@ -3,6 +3,7 @@
     <div class="user-info__main">
       <div class="user-info__column">
         <div class="user-info__item">
+          //рефакторинг (v-for)
           <label for="name">Ім'я</label>
 
           <BaseInput id="name" v-model="userSchema.first_name" />
@@ -118,6 +119,7 @@ const userSchema = ref<UserOutSchema>({
   birthday: ''
 })
 
+//Убрать watch (onMunted)
 watch(sex, () => {
   if (sex.value === 'woman') {
     userSchema.value.man = false
@@ -145,6 +147,7 @@ async function getCities() {
   })
 }
 
+//вызов функций вынести в onMounted
 getCities()
 
 async function getData() {

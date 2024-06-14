@@ -1,3 +1,5 @@
 export * from './base'
 export * from './layouts'
 export * from './navigation'
+export * from './add-image'
+export * from './image-card'

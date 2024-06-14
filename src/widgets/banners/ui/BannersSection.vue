@@ -6,10 +6,13 @@
       </div>
     </div>
 
-    <div class="banners-section__input-file">
-      <InputFile v-for="(item, index) in items" :key="index" :imgInfo="item" />
+    <div class="banners-section__image-card">
+      <ImageCard v-for="(item, index) in items" :key="index" :imgInfo="item" />
 
-      <div class="banners-section__add-input">
+      <div @click="dialog = true" class="banners-section__add-input">
+        <v-dialog v-model="dialog" width="auto">
+          <AddImage />
+        </v-dialog>
         <BaseSvg id="plus" />
       </div>
     </div>
@@ -18,11 +21,13 @@
 
 <script lang="ts" setup>
 import { ref, watch } from 'vue'
-import { BaseSvg, InputFile } from '@/shared/ui'
+import { BaseSvg, ImageCard } from '@/shared/ui'
+import { AddImage } from '@/shared/ui'
 defineProps(['items'])
 
 const switchInfo = ref<string>('Увімкнено')
 const selected = ref<boolean>(true)
+const dialog = ref<boolean>(false)
 
 watch(selected, () => {
   if (selected.value) {
