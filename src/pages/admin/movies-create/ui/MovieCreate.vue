@@ -10,7 +10,7 @@
       @update:modelValue="handleModelValue"
     />
 
-    <p>Описание</p>
+    <p class="text">Описание</p>
     <BaseTextarea
       class="movie-create__block"
       placeholder="Текст"
@@ -18,21 +18,21 @@
       @update:modelValue="handleModelValueText"
     />
 
-    <p>Главная картинка</p>
+    <p class="text">Главная картинка</p>
     <v-file-input
       accept="image/png, image/jpeg"
       show-size
       label="Добавить главную картинку"
     ></v-file-input>
 
-    <p>Галерея картинок</p>
+    <p class="text">Галерея картинок</p>
     <v-file-input
       accept="image/png, image/jpeg"
       show-size
       label="Добавить картинку в галерею"
     ></v-file-input>
 
-    <p>Ссылка на трейлер</p>
+    <p class="text">Ссылка на трейлер</p>
     <BaseInput
       class="movie-create__block"
       placeholder="Ссылка на видео в youtube"
@@ -40,7 +40,7 @@
       @update:modelValue="handleModelValueYoutube"
     />
 
-    <p>Тип кино</p>
+    <p class="text">Тип кино</p>
     <v-select multiple label="Тип кино" :items="['3D', '2D', 'IMAX']"></v-select>
 
     <Seo

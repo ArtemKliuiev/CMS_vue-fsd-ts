@@ -36,7 +36,8 @@ defineProps({
   valueTitle: String,
   placeholderInput: String,
   valueDescription: String,
-  placeholderDescription: String
+  placeholderDescription: String,
+  SeoTitleName: String
 })
 </script>
 

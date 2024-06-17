@@ -9,30 +9,32 @@
       :value="valueInput"
       @update:modelValue="handleModelValue"
     />
+    <p class="error">{{ errors.numberCardHall }}</p>
 
-    <p>Описание зала</p>
+    <p class="text">Описание зала</p>
     <BaseTextarea
       class="movie-create__block"
       :placeholder="'Текст'"
       :value="valueTextArea"
       @update:modelValue="handleModelValueText"
     />
+    <p class="error">{{ errors.cardHallSeoDescription }}</p>
 
-    <p>Схема зала</p>
+    <p class="text">Схема зала</p>
     <v-file-input
       accept="image/png, image/jpeg"
       show-size
       label="Добавить схему зала"
     ></v-file-input>
 
-    <p>Верхний баннер</p>
+    <p class="text">Верхний баннер</p>
     <v-file-input
       accept="image/png, image/jpeg"
       show-size
       label="Добавить верхний баннер"
     ></v-file-input>
 
-    <p>Галерея картинок</p>
+    <p class="text">Галерея картинок</p>
     <v-file-input
       accept="image/png, image/jpeg"
       show-size
@@ -45,12 +47,14 @@
       :valueDescription="description"
       :placeholderInput="'Title'"
       :placeholderDescription="'Description'"
+      :errorTitle="errors.cardHallSeoTitle"
+      :errorDescription="errors.cardHallSeoDescription"
       @update:valueTitle="handleInput"
       @update:valueDescription="handleDescription"
     />
 
     <div class="movie-create__buttons">
-      <v-btn>Сохранить</v-btn>
+      <v-btn @click="validateForm">Сохранить</v-btn>
     </div>
   </div>
 </template>
@@ -61,6 +65,7 @@ import BaseTextarea from '@/shared/ui/base/text-area/ui/BaseTextarea.vue'
 import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
 import { ref } from 'vue'
 import '@mdi/font/css/materialdesignicons.css'
+import { cardHallCinemaSchema } from '@/entities'
 
 const title = ref('')
 const description = ref('')
@@ -83,6 +88,45 @@ const breadcrumbs = [
     disabled: true
   }
 ]
+
+const errors = ref({
+  numberCardHall: '',
+  description: '',
+  cardHallSeoTitle: '',
+  cardHallSeoDescription: ''
+})
+
+const validateForm = async () => {
+  errors.value = {
+    numberCardHall: '',
+    description: '',
+    cardHallSeoTitle: '',
+    cardHallSeoDescription: ''
+  }
+
+  try {
+    await cardHallCinemaSchema.validate(
+      {
+        numberCardHall: valueInput.value,
+        description: valueTextArea.value,
+        cardHallSeoTitle: title.value,
+        cardHallSeoDescription: description.value
+      },
+      { abortEarly: false }
+    )
+    errors.value.numberCardHall = ''
+    errors.value.description = ''
+    errors.value.cardHallSeoTitle = ''
+    errors.value.cardHallSeoDescription = ''
+
+    console.log('Форма валидна')
+  } catch (error) {
+    error.inner.forEach((err) => {
+      errors.value[err.path] = err.message
+    })
+    console.log('Форма не валидна')
+  }
+}
 
 const handleInput = (value: string) => {
   title.value = value
