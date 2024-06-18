@@ -123,7 +123,7 @@ const breadcrumbs = [
 ]
 
 const tableData = {
-  headers: ['Название', 'Дата создания'],
+  headers: [{ name: 'Название' }, { name: 'Дата создания' }],
   rows: [
     { name: '13 зал', date: '12.06.2020' },
     { name: '15зал', date: '14.06.2020' },

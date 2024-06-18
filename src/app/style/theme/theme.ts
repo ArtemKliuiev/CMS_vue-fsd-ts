@@ -6,7 +6,7 @@ export const customTheme = {
     'surface-bright': '#777',
     'surface-light': '#333',
     'surface-variant': '#333',
-    'on-surface-variant': '#333',
+    'on-surface-variant': '#eee',
     primary: '#1867C0',
     'primary-darken-1': '#1F5592',
     secondary: '#48A9A6',

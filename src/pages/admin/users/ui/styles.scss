@@ -1,3 +1,5 @@
+@import "@/shared/scss-variables/index";
+
 .users{
   &__search{
     max-width: 25%;
@@ -11,4 +13,25 @@
   &__pagination{
     margin-bottom: 30px;
   }
+
+  &__dialog{
+    background: $bg-color;
+    border: 1px solid $white-one;
+    border-radius: 5px;
+    width: 25vw;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    &__buttons{
+      margin-top: 30px;
+      width: 150px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }
+

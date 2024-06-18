@@ -1,24 +1,39 @@
 <template>
-  <div class="input-file">
-    <div class="input-file__image">
+  <div class="image-card" :class="{ 'image-card_new': addNewImage }">
+    <div @click.stop="dialog = true" class="image-card__image">
       <BasePicture
-        :srcset="'https://kinocms-panel.demodev.cc/media/Image/1718210770.084514.png'"
+        v-if="addNewImage"
+        @click="$emit('changeImage', imgInfo)"
+        :srcset="imgInfo.image"
+      />
+
+      <BasePicture
+        v-else
+        @click="$emit('changeImage', imgInfo)"
+        :srcset="imgInfo.image.webp"
         :src="imgInfo.image.image"
         :lazy="true"
       />
     </div>
 
-    <div class="input-file__close"></div>
+    <div @click="$emit('delete', imgInfo)" class="image-card__close"></div>
   </div>
+
+  <v-dialog v-model="dialog" width="auto">
+    <AddImage :info="imgInfo" @addImage="changeImage" @closeModal="dialog = false" />
+  </v-dialog>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
-import { BasePicture } from '@/shared/ui'
-const props = defineProps(['imgInfo'])
+import { AddImage, BasePicture } from '@/shared/ui'
+import { ref } from 'vue'
+defineProps(['imgInfo', 'addNewImage'])
 
-console.log(props.imgInfo.image)
+const dialog = ref<boolean>(false)
+
+function changeImage(e) {
+  console.log(e)
+}
 </script>
 
 <style lang="scss">

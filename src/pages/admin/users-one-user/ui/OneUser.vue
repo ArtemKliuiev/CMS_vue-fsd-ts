@@ -1,14 +1,13 @@
 <template>
   <div class="user">
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
+
     <UserInfo :id="id" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import { useApi } from '@/shared/api'
-import { UsersApi } from '@/shared/api/gen'
 import { UserInfo } from '@/widgets/user-info'
 
 const router = useRouter()

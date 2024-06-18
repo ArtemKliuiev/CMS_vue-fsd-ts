@@ -1,3 +1,5 @@
+@import "@/shared/scss-variables/index";
+
 .table-container {
   overflow-x: auto;
 }
@@ -17,6 +19,7 @@ thead {
 }
 
 tr {
+
   svg {
     width: 40px;
     height: 40px;
@@ -28,4 +31,46 @@ tr {
   margin-right: 10px;
   margin-left: 6px;
 }
+
+
+.headers{
+  display: flex;
+  align-items: center;
+
+  &__sort {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+
+    &-arrow{
+      cursor: pointer;
+      width: 15px;
+      height: 15px;
+      transition: fill 300ms ease;
+
+      &:hover{
+        fill: $dark-color-2;
+      }
+
+      &:active{
+        transform: scale(0.9);
+      }
+
+      &-top{
+
+      }
+
+      &-bottom{
+        transform: rotate(180deg);
+
+        &:active{
+          transform:  rotate(180deg) scale(0.9);
+        }
+      }
+    }
+  }
+}
+
+
 

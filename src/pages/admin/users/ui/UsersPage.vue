@@ -3,7 +3,7 @@
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
     <div class="users__search">
-      <BaseInput v-model="search" placeholder="Пошук користувача" />
+      <BaseInput v-model="search" @changeValue="setSearch" placeholder="Пошук користувача" />
     </div>
 
     <div class="users__table">
@@ -13,18 +13,39 @@
         :show-delete-icon="true"
         @edit-row="handleEditRow"
         @delete-row="handleDeleteRow"
+        @sort="sort"
       />
     </div>
 
     <div class="users__pagination">
       <v-pagination v-model="curPage" :total-visible="10" :length="quantityPage"></v-pagination>
     </div>
+
+    <v-dialog v-model="dialog" width="auto">
+      <div class="users__dialog">
+        <h3>Видалити користувача?</h3>
+
+        <div class="users__dialog__buttons">
+          <v-btn @click="deleteRow">Так</v-btn>
+
+          <v-btn @click="dialog = false">Ні</v-btn>
+        </div>
+      </div>
+    </v-dialog>
+
+    <v-snackbar v-model="snackbar" :timeout="2000">
+      Корисувач видалений
+
+      <template v-slot:actions>
+        <v-btn color="blue" variant="text" @click="snackbar = false"> Закрити </v-btn>
+      </template>
+    </v-snackbar>
   </div>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
+import { onMounted, reactive, ref, watch } from 'vue'
+import { type LocationQuery, useRouter } from 'vue-router'
 import { UsersApi } from '@/shared/api/gen'
 import type { UserOutSchema } from '@/shared/api/gen'
 import { useApi } from '@/shared/api'
@@ -42,20 +63,39 @@ interface userInfo {
   city: string
 }
 
+interface sortObj extends LocationQuery {
+  name: string
+  type: string
+}
+
+interface queryObj {
+  name: string
+  type: string
+  search: string
+}
+
+const snackbar = ref<boolean>(false)
+const delUser = ref<number | null>(null)
+const dialog = ref<boolean>(false)
 const router = useRouter()
 const api = useApi(UsersApi)
 const search = ref<string>('')
 const curPage = ref<number>(1)
 const allUsers = ref<UserOutSchema[]>([])
 const currentUsers = reactive<UserOutSchema[]>([])
-const headers: Array<string> = [
-  'ID',
-  'День народження',
-  'Email',
-  'Телефон',
-  'ПІБ',
-  'Nickname',
-  'Місто'
+const query = ref<queryObj>({
+  name: '',
+  type: '',
+  search: ''
+})
+const headers: Array<Object> = [
+  { name: 'ID', sortName: 'id' },
+  { name: 'День народження', sortName: 'birthday' },
+  { name: 'Email', sortName: 'email' },
+  { name: 'Телефон', sortName: 'phone_number' },
+  { name: 'ПІБ', sortName: 'fio' },
+  { name: 'Nickname', sortName: 'nickname' },
+  { name: 'Місто', sortName: 'city' }
 ]
 const breadcrumbs = [
   {
@@ -69,15 +109,51 @@ const breadcrumbs = [
   }
 ]
 
+onMounted(() => {
+  const query = router.currentRoute.value.query as sortObj
+  if (query) {
+    search.value = query.search as string
+
+    sort(query)
+    console.log(query)
+  } else {
+    getInfo()
+  }
+
+  getAllUsers()
+})
+
 watch(curPage, () => {
   getInfo()
 })
 
-watch(search, () => {
+function setSearch() {
   setTimeout(() => {
-    getInfo(search.value)
+    query.value.search = search.value
+    queryReplace()
+
+    getInfo()
   }, 500)
-})
+}
+
+function sort(e: sortObj) {
+  if (e.type === 'top') {
+    getInfo('descending', e.name)
+  } else {
+    getInfo('ascending', e.name)
+  }
+
+  query.value.name = e.name
+  query.value.type = e.type
+
+  queryReplace()
+}
+
+function queryReplace() {
+  router.replace({
+    query: { name: query.value.name, type: query.value.type, search: search.value }
+  })
+}
 
 const quantityPage = computed(() => {
   return Math.ceil(allUsers.value.length / 15)
@@ -101,43 +177,47 @@ const rows = computed(() => {
   return changeFormatUsers
 })
 
-async function getInfo(search: string = '') {
+async function getInfo(direction: string = 'descending', sort?: string) {
   const response = await api.usersDatatable({
-    searchLine: search,
+    searchLine: search.value,
     page: curPage.value,
-    pageSize: 15
+    pageSize: 15,
+    sort: sort,
+    direction: direction
   })
 
   currentUsers.length = 0
   currentUsers.push(...response.data.results)
 }
-getInfo()
 
 async function getAllUsers() {
   const response = await api.usersDatatable()
 
   allUsers.value = response.data.results
 }
-getAllUsers()
 
 const handleEditRow = (index: number) => {
   router.push(`/admin/user/${currentUsers[index].id}`)
 }
 
-const handleDeleteRow = async (index: number) => {
-  const user = currentUsers[index]
+function handleDeleteRow(index: number) {
+  delUser.value = index
+  dialog.value = true
+}
 
-  const info = confirm(`Видалити користувача ${user.first_name} ${user.last_name}`)
+const deleteRow = async () => {
+  if (delUser.value !== null) {
+    const user = currentUsers[delUser.value]
 
-  if (info) {
-    const deleteUser = await api.deleteById({
+    const deleteUser = await api.deleteUserById({
       userId: user.id
     })
-
     if (deleteUser.status === 200) {
       await getInfo()
-      alert(`Користувач ${user.first_name} ${user.last_name} видалений`)
+      snackbar.value = true
     }
+
+    dialog.value = false
   }
 }
 </script>

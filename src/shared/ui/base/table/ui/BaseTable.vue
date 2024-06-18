@@ -3,7 +3,25 @@
     <table>
       <thead>
         <tr>
-          <th v-for="(header, index) in headers" :key="index">{{ header }}</th>
+          <th v-for="(header, index) in headers" :key="index">
+            <div class="headers">
+              <div v-if="header.sortName" class="headers__sort">
+                <BaseSvg
+                  @click="$emit('sort', { name: header.sortName, type: 'top' })"
+                  class="headers__sort-arrow headers__sort-arrow-top"
+                  id="arrow"
+                />
+
+                <BaseSvg
+                  @click="$emit('sort', { name: header.sortName, type: 'bottom' })"
+                  class="headers__sort-arrow headers__sort-arrow-bottom"
+                  id="arrow"
+                />
+              </div>
+
+              {{ header.name }}
+            </div>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -18,15 +36,9 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { BaseSvg } from '@/shared/ui'
 
-interface Table {
-  headers: string[]
-  rows: Record<string | number | boolean>[]
-  showDeleteIcon?: boolean
-}
-
-defineProps<Table>()
+defineProps(['headers', 'rows', 'showDeleteIcon'])
 </script>
 
 <style lang="scss">

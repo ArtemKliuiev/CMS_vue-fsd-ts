@@ -5,13 +5,18 @@
     :id="id"
     autocomplete="off"
     :value="$props.modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
+    @input="changeValue"
   />
 </template>
 
 <script setup>
 defineProps(['modelValue', 'placeholder', 'id'])
-defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue', 'changeValue'])
+
+function changeValue(e) {
+  emit('update:modelValue', e.target.value)
+  emit('changeValue')
+}
 </script>
 
 <style lang="scss">

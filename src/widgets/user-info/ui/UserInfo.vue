@@ -3,7 +3,7 @@
     <div class="user-info__main">
       <div class="user-info__column">
         <div class="user-info__item">
-          //рефакторинг (v-for)
+          <!--          рефакторинг (v-for)-->
           <label for="name">Ім'я</label>
 
           <BaseInput id="name" v-model="userSchema.first_name" />
@@ -94,7 +94,7 @@ import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
 import { useApi } from '@/shared/api'
 import { UsersApi } from '@/shared/api/gen'
 import { AuthApi } from '@/shared/api/gen'
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { BaseSelect } from '@/shared/ui'
 import type { UserOutSchema } from '@/shared/api/gen'
 
@@ -119,21 +119,9 @@ const userSchema = ref<UserOutSchema>({
   birthday: ''
 })
 
-//Убрать watch (onMunted)
-watch(sex, () => {
-  if (sex.value === 'woman') {
-    userSchema.value.man = false
-  } else {
-    userSchema.value.man = true
-  }
-})
-
-watch(selectDate, () => {
-  userSchema.value.birthday = selectDate.value
-})
-
-watch(city, () => {
-  userSchema.value.city = city.value
+onMounted(() => {
+  getCities()
+  getData()
 })
 
 async function getCities() {
@@ -148,7 +136,6 @@ async function getCities() {
 }
 
 //вызов функций вынести в onMounted
-getCities()
 
 async function getData() {
   const response = await userApi.getUserById({
@@ -158,8 +145,6 @@ async function getData() {
   userSchema.value = response.data
   updates()
 }
-
-getData()
 
 function updates() {
   if (!userSchema.value.man) {
@@ -171,7 +156,21 @@ function updates() {
   selectDate.value = userSchema.value.birthday
 }
 
+function changeData() {
+  if (sex.value === 'woman') {
+    userSchema.value.man = false
+  } else {
+    userSchema.value.man = true
+  }
+
+  userSchema.value.birthday = selectDate.value
+
+  userSchema.value.city = city.value
+}
+
 async function setData() {
+  changeData()
+
   const response = await userApi.updateUserById({
     userId: props.id,
     userUpdateSchema: userSchema.value

@@ -1,0 +1,27 @@
+@import "@/shared/scss-variables/index";
+
+.language-selection{
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  span{
+    margin-right: 10px;
+  }
+
+  select{
+    color: $white-one;
+    border: 1px solid $white-one;
+    padding: 2px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:focus{
+      outline: none;
+    }
+  }
+  option{
+    background: $bg-color;
+  }
+}

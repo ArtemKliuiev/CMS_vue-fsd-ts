@@ -3,19 +3,75 @@
 .add-image{
   background-color: $bg-color;
   position: relative;
-  width: 50vw;
-  height: 50vh;
   border-radius: 10px;
   border: 1px solid $white-one;
 
   &__close{
+    cursor: pointer;
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    background-color: red;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
 
 
+    &:before, &:after{
+      content: '';
+      background-color: $text-hover-bg;
+      transition: background-color 300ms ease;
+      width: 2px;
+      border-radius: 2px;
+      height: 30px;
+      position: absolute;
+      top: 0;
+      left: 14px;
+
+    }
+
+    &:before{
+      transform: rotate(45deg);
+    }
+
+    &:after{
+      transform: rotate(-45deg);
+    }
+
+    &:hover{
+      &:before, &:after{
+        background-color: $white-one;
+      }
+    }
+
+  }
+
+  &__main{
+    margin: 60px 20px 40px;
+    height: 60%;
+    min-width: 40vw;
+
+    gap: 30px;
+
+    .v-field{
+      &__field{
+
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+  }
+
+  &__column{
+    flex: 1 0 auto;
+  }
+
+  &__add{
+
+
+  }
+
+
+  button{
+    display: block;
+    margin: 0 auto;
   }
 }
