@@ -7,20 +7,10 @@
       <BaseInput class="movie-create__block" placeholder="Название кинотеатра" name="nameCinema" />
 
       <p class="text">Описание</p>
-      <BaseTextarea
-        class="movie-create__block"
-        placeholder="Текст"
-        :value="valueTextArea"
-        @update:modelValue="handleModelValueText"
-      />
+      <BaseTextarea class="movie-create__block" placeholder="Текст" name="descriptionCinema" />
 
       <p class="text">Условия</p>
-      <BaseTextarea
-        class="movie-create__block"
-        placeholder="Текст"
-        :value="valueConditionsArea"
-        @update:modelValue="handleModelValueConditions"
-      />
+      <BaseTextarea class="movie-create__block" placeholder="Текст" name="conditions" />
 
       <p class="text">Логотип</p>
       <v-file-input
@@ -45,8 +35,7 @@
         Бронирование билетов: (048) 746-32-33, (048) 746-32-20
         e-mail: gоldduke@kino.odessa.ua
         "
-        :value="valueAddress"
-        @update:modelValue="handleModelValueAddress"
+        name="address"
       />
 
       <p class="text">Координаты для карты</p>
@@ -78,15 +67,7 @@
         </router-link>
       </div>
 
-      <Seo
-        class="movie-create__block"
-        :valueTitle="title"
-        :valueDescription="description"
-        placeholderInput="Title"
-        placeholderDescription="Description"
-        @update:valueTitle="handleInput"
-        @update:valueDescription="handleDescription"
-      />
+      <Seo class="movie-create__block" />
 
       <div class="movie-create__buttons">
         <v-btn type="submit">Сохранить</v-btn>
@@ -104,12 +85,6 @@ import '@mdi/font/css/materialdesignicons.css'
 import BaseTable from '@/shared/ui/base/table/ui/BaseTable.vue'
 import { CinemasApi, useApi } from '@/shared'
 import { useCinemasCardCinemaForm } from '@/entities'
-
-const title = ref('')
-const description = ref('')
-const valueTextArea = ref('')
-const valueConditionsArea = ref('')
-const valueAddress = ref('')
 
 const api = useApi(CinemasApi)
 
@@ -146,41 +121,6 @@ const handleEditRow = (index: number) => {
 
 const handleDeleteRow = (index: number) => {
   console.log('Удалить строку', index)
-}
-
-const handleInput = (value: string) => {
-  title.value = value
-  console.log(value)
-}
-
-const handleDescription = (value: string) => {
-  description.value = value
-  console.log(value)
-}
-
-// const handleModelValue = (value: string) => {
-//   valueInput.value = value
-//   console.log(value)
-// }
-
-const handleModelValueText = (value: string) => {
-  valueTextArea.value = value
-  console.log(value)
-}
-
-const handleModelValueAddress = (value: string) => {
-  valueAddress.value = value
-  console.log(value)
-}
-
-// const handleModelValueMap = (value: string) => {
-//   valueInputMap.value = value
-//   console.log(value)
-// }
-
-const handleModelValueConditions = (value: string) => {
-  valueConditionsArea.value = value
-  console.log(value)
 }
 
 async function onSubmit() {

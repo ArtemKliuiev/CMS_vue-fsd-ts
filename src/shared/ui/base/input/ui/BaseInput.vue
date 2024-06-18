@@ -75,6 +75,7 @@ const inputValue = computed({
 function onInput(event: Event) {
   const input = event.target as HTMLInputElement
   inputValue.value = input.value
+  console.log(input.value)
 }
 
 function onBlur(event: FocusEvent) {
