@@ -2,7 +2,7 @@
   <div>
     <h2 class="stock-page__title">Список Страниц</h2>
     <div class="stock-page__button">
-      <router-link to="stock-create">
+      <router-link to="page-create">
         <v-btn>Создать новую</v-btn>
       </router-link>
     </div>

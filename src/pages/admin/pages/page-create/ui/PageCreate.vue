@@ -3,19 +3,19 @@
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
     <form @submit.prevent="onSubmit">
-      <div class="news-create__contents">
-        <div class="news-create__content">
-          <p>Название новости</p>
-          <BaseInput class="movie-create__block" placeholder="Название новости" name="nameNews" />
+      <div class="page-create__contents">
+        <div class="page-create__content">
+          <p>Название страницы</p>
+          <BaseInput class="page-create__block" placeholder="Название страницы" name="namePage" />
         </div>
-        <div class="news-create__content">
+        <div class="page-create__content">
           <p>Дата публикации</p>
           <input type="date" v-model="valueInputDate" @change="handleInputDate" />
         </div>
       </div>
 
       <p class="text">Описание</p>
-      <BaseTextarea class="movie-create__block" placeholder="Текст" name="descriptionNews" />
+      <BaseTextarea class="page-create__block" placeholder="Текст" name="descriptionPage" />
 
       <p class="text">Главная картинка</p>
       <v-file-input
@@ -38,7 +38,7 @@
         name="linkOnVideo"
       />
 
-      <Seo class="movie-create__block" />
+      <Seo class="page-create__block" />
 
       <div class="movie-create__buttons">
         <v-btn type="submit">Сохранить</v-btn>
@@ -53,22 +53,22 @@ import BaseTextarea from '@/shared/ui/base/text-area/ui/BaseTextarea.vue'
 import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
 import { computed, ref } from 'vue'
 import '@mdi/font/css/materialdesignicons.css'
-import { useNewsCreateForm } from '@/entities'
+import { usePageCreateForm } from '@/entities'
 
 const valueInputDate = ref('')
 const isLoading = ref<boolean>(false)
 
-const form = useNewsCreateForm()
+const form = usePageCreateForm()
 const formValues = computed(() => form.values)
 
 const breadcrumbs = [
   {
-    title: 'News',
+    title: 'Pages',
     disabled: false,
-    href: 'news'
+    href: 'pages'
   },
   {
-    title: 'News create',
+    title: 'Page create',
     disabled: true
   }
 ]
@@ -88,5 +88,5 @@ async function onSubmit() {
 </script>
 
 <style lang="scss">
-@import 'styles';
+@import 'page-create';
 </style>
