@@ -86,7 +86,7 @@ import BaseTable from '@/shared/ui/base/table/ui/BaseTable.vue'
 import { CinemasApi, useApi } from '@/shared'
 import { useCinemasCardCinemaForm } from '@/entities'
 
-const api = useApi(CinemasApi)
+// const api = useApi(CinemasApi)
 
 const isLoading = ref<boolean>(false)
 

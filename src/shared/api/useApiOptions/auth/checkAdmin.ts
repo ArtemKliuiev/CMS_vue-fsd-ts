@@ -2,7 +2,7 @@ import { AuthApi } from '@/shared/api/gen'
 import { useApi } from '@/shared/api'
 
 export async function checkAdmin() {
-  const api = useApi(AuthApi)
+  const api = await useApi(AuthApi)
 
   try {
     const myProfile = await api.getMyProfile()

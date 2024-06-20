@@ -1,4 +1,4 @@
-import { tokenStore } from '../token'
+import { setTokenFromCookies } from '@/shared/data/cookies'
 import { AuthApi } from '@/shared/api/gen'
 import { config } from '../config'
 import { axiosInstance } from '../axiosInst'
@@ -14,7 +14,8 @@ export async function authFunc(log: string, pass: string) {
       }
     })
 
-    tokenStore().setToken(response.data.access)
+    setTokenFromCookies('accessToken', response.data.access, 1)
+    setTokenFromCookies('refreshToken', response.data.refresh, 60)
 
     console.log(response.data)
 
@@ -33,5 +34,5 @@ export async function authFunc(log: string, pass: string) {
 }
 
 export function logOut() {
-  tokenStore().setToken('')
+  // tokenStore().setToken('')
 }

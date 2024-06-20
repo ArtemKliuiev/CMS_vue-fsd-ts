@@ -7,7 +7,6 @@
   border-radius: 5px;
   width: 100%;
   height: 100%;
-  aspect-ratio: 1/1;
   cursor: pointer;
 
 
@@ -23,9 +22,41 @@
     border: 1px solid $error-color;
   }
 
-  &__image{
+  &__new-image{
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg{
+      fill: $white-one;
+      width: 120px;
+      height: 120px;
+    }
+
+    &:hover{
+      background-color: $dark-color-2;
+
+      svg{
+        fill: $white-two;
+
+      }
+    }
+  }
+
+  &__add{
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &__main{
+    padding: 15px 10px 0;
+  }
+
+  &__image{
+    aspect-ratio: 1/1;
     border-radius: 5px;
     overflow: hidden;
 
@@ -43,6 +74,7 @@
       }
     }
   }
+
 
   &__close{
     opacity: 0;

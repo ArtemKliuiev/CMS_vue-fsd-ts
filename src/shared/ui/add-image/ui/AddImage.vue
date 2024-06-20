@@ -13,8 +13,6 @@
 
       <v-text-field v-model="objInfo.url" label="URL"></v-text-field>
 
-      <v-text-field v-model="objInfo.alt" label="Alt"></v-text-field>
-
       <v-textarea v-model="objInfo.textUk" label="Текст (укр)"></v-textarea>
 
       <v-textarea v-model="objInfo.textRu" label="Текст (рос)"></v-textarea>
@@ -28,12 +26,11 @@
 import { reactive } from 'vue'
 
 const emit = defineEmits(['addImage', 'closeModal'])
-const props = defineProps(['info'])
+const props = defineProps(['imageInfo', 'newImage'])
 
 interface objectInfo {
   url?: string
   image: string | ArrayBuffer | null
-  alt?: string
   textUk?: string
   textRu?: string
 }
@@ -41,17 +38,15 @@ interface objectInfo {
 const objInfo = reactive<objectInfo>({
   image: ''
 })
-//
-// if (props.info) {
-//   // objInfo = {
-//   //   url: props.info,
-//   //   image: props.info,
-//   //   alt: props.info,
-//   //   textUk: props.info,
-//   //   textRu: props.info
-//   // }
-//   console.log(props.info)
-// }
+
+if (props.newImage) {
+  console.log(props.imageInfo)
+} else {
+  objInfo.url = props.imageInfo.url
+  objInfo.textRu = props.imageInfo.text_ru
+  objInfo.textUk = props.imageInfo.text_uk
+  console.log(props.imageInfo)
+}
 
 function addImage() {
   emit('addImage', objInfo)

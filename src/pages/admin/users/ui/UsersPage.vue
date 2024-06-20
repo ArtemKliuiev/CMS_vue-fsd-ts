@@ -78,7 +78,6 @@ const snackbar = ref<boolean>(false)
 const delUser = ref<number | null>(null)
 const dialog = ref<boolean>(false)
 const router = useRouter()
-const api = useApi(UsersApi)
 const search = ref<string>('')
 const curPage = ref<number>(1)
 const allUsers = ref<UserOutSchema[]>([])
@@ -178,6 +177,8 @@ const rows = computed(() => {
 })
 
 async function getInfo(direction: string = 'descending', sort?: string) {
+  const api = await useApi(UsersApi)
+
   const response = await api.usersDatatable({
     searchLine: search.value,
     page: curPage.value,
@@ -191,6 +192,8 @@ async function getInfo(direction: string = 'descending', sort?: string) {
 }
 
 async function getAllUsers() {
+  const api = await useApi(UsersApi)
+
   const response = await api.usersDatatable()
 
   allUsers.value = response.data.results
@@ -206,6 +209,8 @@ function handleDeleteRow(index: number) {
 }
 
 const deleteRow = async () => {
+  const api = await useApi(UsersApi)
+
   if (delUser.value !== null) {
     const user = currentUsers[delUser.value]
 

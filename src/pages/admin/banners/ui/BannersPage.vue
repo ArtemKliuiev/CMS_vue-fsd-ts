@@ -13,7 +13,7 @@ import { SlidersApi } from '@/shared/api/gen'
 import { ref } from 'vue'
 
 const topSliders = ref<Array<{}>>([])
-const api = useApi(SlidersApi)
+
 const breadcrumbs = [
   {
     title: 'Admin',
@@ -27,6 +27,8 @@ const breadcrumbs = [
 ]
 
 async function getTopSliders() {
+  const api = await useApi(SlidersApi)
+
   const response = await api.getTopSlider({})
 
   topSliders.value = response.data.items

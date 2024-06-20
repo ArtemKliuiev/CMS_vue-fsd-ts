@@ -1,32 +1,23 @@
 <template>
   <div class="banners-section">
     <div class="banners-section__top-line">
+      <v-btn @click="addImage(true)">Додати</v-btn>
+
       <div class="banners-section__checkbox">
         <v-switch v-model="selected" color="#eee" :label="switchInfo"></v-switch>
       </div>
     </div>
 
     <div class="banners-section__image-card">
-      <ImageCard
-        @changeImage="(e) => console.log(e)"
-        v-for="(item, index) in items"
-        :key="index"
-        :imgInfo="item"
-        @delete="deleteFromServer"
-      />
+      <ImageCard v-for="(item, index) in items" :key="index" :imgInfo="item" />
 
       <ImageCard
-        @changeImage="(e) => console.log(e)"
         v-for="(item, index) in itemsArray"
         :key="index"
         :imgInfo="item"
-        addNewImage="true"
-        @delete="deleteFromLocal"
+        :addNewImage="true"
+        @delete="deleteFromLocal(index)"
       />
-
-      <div @click="dialog = true" v-if="maxImage > 0" class="banners-section__add-input">
-        <BaseSvg id="plus" />
-      </div>
     </div>
 
     <div class="banners-section__bottom">
@@ -67,12 +58,25 @@ import { BaseSvg, ImageCard } from '@/shared/ui'
 import { AddImage } from '@/shared/ui'
 const props = defineProps(['items'])
 
+interface objectInfo {
+  url?: string
+  image: string | ArrayBuffer | null
+  text_uk?: string
+  text_ru?: string
+}
+
 const delBtn = ref<boolean>(false)
 const switchInfo = ref<string>('Увімкнено')
 const selected = ref<boolean>(true)
 const dialog = ref<boolean>(false)
 const dialogDelUser = ref<boolean>(false)
 const itemsArray = reactive([])
+const objInfo = reactive<objectInfo>({
+  image: '',
+  url: '',
+  text_uk: '',
+  text_ru: ''
+})
 
 watch(selected, () => {
   if (selected.value) {
@@ -88,43 +92,17 @@ const maxImage = computed(() => {
   return 10 - (received + added)
 })
 
-function alertShow() {
-  return new Promise((resolve, reject) => {
-    watch(delBtn, () => {
-      resolve(true)
-    })
-
-    watch(dialogDelUser, () => {
-      if (!dialogDelUser.value) {
-        reject(false)
-      }
-    })
-  })
-}
-
-async function deleteFromServer(e: object) {
-  dialogDelUser.value = true
-
-  const confirm = await alertShow()
-
-  if (confirm) {
-    console.log(e)
-  }
-
-  dialogDelUser.value = false
-}
-
-function deleteFromLocal(e: object) {
-  const index = itemsArray.indexOf(e as never)
+function deleteFromLocal(index: number) {
   itemsArray.splice(index, 1)
+  console.log(index)
 }
 
-function changeImage() {}
-
-function addImage(obj: never) {
-  itemsArray.push(obj)
-  console.log(itemsArray)
-  dialog.value = false
+function addImage(condition: boolean) {
+  if (condition) {
+    if (maxImage.value > 0) {
+      itemsArray.push(objInfo as never)
+    }
+  }
 }
 </script>
 

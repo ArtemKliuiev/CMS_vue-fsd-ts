@@ -101,8 +101,7 @@ import type { UserOutSchema } from '@/shared/api/gen'
 const props = defineProps(['id'])
 const lang = ref<string>('uk')
 const cities = ref<Array<string>>([''])
-const userApi = useApi(UsersApi)
-const authApi = useApi(AuthApi)
+
 const city = ref<string>('')
 const sex = ref<string>('man')
 const selectDate = ref<string>('')
@@ -125,6 +124,8 @@ onMounted(() => {
 })
 
 async function getCities() {
+  const authApi = await useApi(AuthApi)
+
   const response = await authApi.getCities()
   cities.value = response.data.results.map((item: Array<string>) => {
     if (lang.value === 'ru') {
@@ -138,6 +139,8 @@ async function getCities() {
 //вызов функций вынести в onMounted
 
 async function getData() {
+  const userApi = await useApi(UsersApi)
+
   const response = await userApi.getUserById({
     userId: props.id
   })
@@ -170,6 +173,8 @@ function changeData() {
 
 async function setData() {
   changeData()
+
+  const userApi = await useApi(UsersApi)
 
   const response = await userApi.updateUserById({
     userId: props.id,
