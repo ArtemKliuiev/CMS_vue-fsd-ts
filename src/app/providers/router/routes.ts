@@ -26,6 +26,7 @@ import {
   CinemasCardCinema,
   CinemasCardHall
 } from '@/pages'
+import { PageCreate } from '@/pages/admin/pages/page-create/ui'
 
 export const routes = [
   {
@@ -67,6 +68,11 @@ export const routes = [
         path: 'pages',
         name: 'pages',
         component: PagesPage
+      },
+      {
+        path: 'page-create',
+        name: 'page-create',
+        component: PageCreate
       },
       {
         path: 'pages/home-page',

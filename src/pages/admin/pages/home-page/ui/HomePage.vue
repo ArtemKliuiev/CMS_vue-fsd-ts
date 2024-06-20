@@ -2,45 +2,33 @@
   <div>
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
-    Телефон
-    <BaseInput
-      class="movie-create__block"
-      placeholder="+380505555555"
-      :value="valueInput"
-      @update:modelValue="handleModelValue"
-      type="number"
-    />
+    <form @submit.prevent="onSubmit">
+      <p class="text">Телефон</p>
+      <BaseInput class="movie-create__block" placeholder="+380505555555" name="tel" />
 
-    Seo Текст:
-    <BaseTextarea
-      class="movie-create__block"
-      placeholder="Текст"
-      :value="valueTextArea"
-      @update:modelValue="handleModelValueText"
-    />
+      <p class="text">Seo Текст:</p>
+      <BaseTextarea class="movie-create__block" placeholder="Текст" name="seoText" />
 
-    <Seo
-      class="movie-create__block"
-      :valueTitle="title"
-      :valueDescription="description"
-      placeholderInput="Title"
-      placeholderDescription="Description"
-      @update:valueTitle="handleInput"
-      @update:valueDescription="handleDescription"
-    />
+      <Seo class="movie-create__block" />
+
+      <div class="movie-create__buttons">
+        <v-btn type="submit">Сохранить</v-btn>
+      </div>
+    </form>
   </div>
 </template>
 
 <script setup lang="ts">
 import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
-import { ref } from 'vue'
 import BaseTextarea from '@/shared/ui/base/text-area/ui/BaseTextarea.vue'
 import { Seo } from '@/widgets/seo'
+import { computed, ref } from 'vue'
+import { usePageHomeForm } from '@/entities'
 
-const valueInput = ref('')
-const valueTextArea = ref('')
-const title = ref('')
-const description = ref('')
+const isLoading = ref<boolean>(false)
+
+const form = usePageHomeForm()
+const formValues = computed(() => form.values)
 
 const breadcrumbs = [
   {
@@ -54,24 +42,13 @@ const breadcrumbs = [
   }
 ]
 
-const handleModelValue = (value: string) => {
-  valueInput.value = value
-  console.log(value)
-}
+async function onSubmit() {
+  console.log('submit')
+  const { valid } = await form.instance.validate()
+  console.log(valid)
+  if (!valid) return
 
-const handleModelValueText = (value: string) => {
-  valueTextArea.value = value
-  console.log(value)
-}
-
-const handleInput = (value: string) => {
-  title.value = value
-  console.log(value)
-}
-
-const handleDescription = (value: string) => {
-  description.value = value
-  console.log(value)
+  isLoading.value = true
 }
 </script>
 

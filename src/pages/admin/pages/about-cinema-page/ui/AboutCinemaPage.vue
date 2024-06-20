@@ -32,15 +32,7 @@
       label="Добавить картинку в галерею"
     ></v-file-input>
 
-    <Seo
-      class="movie-create__block"
-      :valueTitle="title"
-      :valueDescription="description"
-      :placeholderInput="'Title'"
-      :placeholderDescription="'Description'"
-      @update:valueTitle="handleInput"
-      @update:valueDescription="handleDescription"
-    />
+    <Seo class="movie-create__block" />
 
     <div class="movie-create__buttons">
       <v-btn>Сохранить</v-btn>
@@ -66,16 +58,6 @@ const handleModelValue = (value: string) => {
 
 const handleModelValueText = (value: string) => {
   valueTextArea.value = value
-  console.log(value)
-}
-
-const handleInput = (value: string) => {
-  title.value = value
-  console.log(value)
-}
-
-const handleDescription = (value: string) => {
-  description.value = value
   console.log(value)
 }
 

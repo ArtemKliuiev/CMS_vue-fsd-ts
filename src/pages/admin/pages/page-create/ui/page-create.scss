@@ -1,0 +1,10 @@
+.page-create {
+  &__contents {
+    display: flex;
+    gap: 50px;
+  }
+
+  &__content {
+    width: 100%;
+  }
+}

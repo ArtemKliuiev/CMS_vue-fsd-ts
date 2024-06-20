@@ -1,2 +1,6 @@
 export * from './cinemas-card-cinema'
 export * from './cinemas-card-hall'
+export * from './news-create'
+export * from './stock-create'
+export * from './page-create'
+export * from './pages'
