@@ -16,7 +16,9 @@
         :key="index"
         :imgInfo="item"
         :addNewImage="true"
-        @delete="deleteFromLocal(index)"
+        :index="index"
+        @delete="(info) => deleteFromLocal(info, index)"
+        @update="(info) => changeLocal(info, index)"
       />
     </div>
 
@@ -92,9 +94,13 @@ const maxImage = computed(() => {
   return 10 - (received + added)
 })
 
-function deleteFromLocal(index: number) {
+function deleteFromLocal(info, index: number) {
   itemsArray.splice(index, 1)
-  console.log(index)
+}
+
+function changeLocal(info, index: number) {
+  console.log(info, index)
+  itemsArray[index] = info as never
 }
 
 function addImage(condition: boolean) {

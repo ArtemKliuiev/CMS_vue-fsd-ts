@@ -32,7 +32,7 @@ async function getTopSliders() {
   const response = await api.getTopSlider({})
 
   topSliders.value = response.data.items
-  console.log(response)
+  // console.log(response)
 }
 getTopSliders()
 </script>

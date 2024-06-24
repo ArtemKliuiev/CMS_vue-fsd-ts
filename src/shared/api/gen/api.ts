@@ -226,6 +226,12 @@ export interface CinemaInSchema {
     'phone_2': any;
     /**
      * 
+     * @type {any}
+     * @memberof CinemaInSchema
+     */
+    'email': any;
+    /**
+     * 
      * @type {ImageInSchema}
      * @memberof CinemaInSchema
      */
@@ -350,6 +356,12 @@ export interface CinemaOutSchema {
      * @type {any}
      * @memberof CinemaOutSchema
      */
+    'email': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaOutSchema
+     */
     'address_uk'?: any;
     /**
      * 
@@ -442,6 +454,12 @@ export interface CinemaUpdateSchema {
      * @memberof CinemaUpdateSchema
      */
     'phone_2'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof CinemaUpdateSchema
+     */
+    'email'?: any;
     /**
      * 
      * @type {any}
@@ -1083,6 +1101,12 @@ export interface MovieCardOutSchema {
      * @type {any}
      * @memberof MovieCardOutSchema
      */
+    'released': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieCardOutSchema
+     */
     'slug'?: any;
 }
 /**
@@ -1313,6 +1337,12 @@ export interface MovieOutSchema {
      * @type {any}
      * @memberof MovieOutSchema
      */
+    'trailer_link': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
     'year': any;
     /**
      * 
@@ -1320,6 +1350,12 @@ export interface MovieOutSchema {
      * @memberof MovieOutSchema
      */
     'released': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieOutSchema
+     */
+    'budget': any;
     /**
      * 
      * @type {any}
@@ -6388,7 +6424,7 @@ export class MoviesApi extends BaseAPI {
 export const NewsPromosApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create News Promo
          * @param {NewsPromoInSchema} newsPromoInSchema 
          * @param {any} [acceptLanguage] 
@@ -6504,6 +6540,10 @@ export const NewsPromosApiAxiosParamCreator = function (configuration?: Configur
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
             if (promo !== undefined) {
                 localVarQueryParameter['promo'] = promo;
             }
@@ -6534,7 +6574,7 @@ export const NewsPromosApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Create news_promo.  Please provide slug:   - **news_promo_slug**  slug of news_promo  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів новин чи акцій            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Get news or promo by slug.  Please provide slug:   - **news_promo_slug**  slug of news or promo  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів новин чи акцій            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get News Promo By Slug
          * @param {any} npSlug 
          * @param {any} [acceptLanguage] 
@@ -6556,6 +6596,10 @@ export const NewsPromosApiAxiosParamCreator = function (configuration?: Configur
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (acceptLanguage != null) {
                 localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
@@ -6636,7 +6680,7 @@ export const NewsPromosApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = NewsPromosApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create News Promo
          * @param {NewsPromoInSchema} newsPromoInSchema 
          * @param {any} [acceptLanguage] 
@@ -6674,7 +6718,7 @@ export const NewsPromosApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Create news_promo.  Please provide slug:   - **news_promo_slug**  slug of news_promo  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів новин чи акцій            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Get news or promo by slug.  Please provide slug:   - **news_promo_slug**  slug of news or promo  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів новин чи акцій            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get News Promo By Slug
          * @param {any} npSlug 
          * @param {any} [acceptLanguage] 
@@ -6709,7 +6753,7 @@ export const NewsPromosApiFactory = function (configuration?: Configuration, bas
     const localVarFp = NewsPromosApiFp(configuration)
     return {
         /**
-         * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create News Promo
          * @param {NewsPromoInSchema} newsPromoInSchema 
          * @param {any} [acceptLanguage] 
@@ -6744,7 +6788,7 @@ export const NewsPromosApiFactory = function (configuration?: Configuration, bas
             return localVarFp.getAllNewsPromoCards(promo, page, pageSize, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Create news_promo.  Please provide slug:   - **news_promo_slug**  slug of news_promo  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів новин чи акцій            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Get news or promo by slug.  Please provide slug:   - **news_promo_slug**  slug of news or promo  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів новин чи акцій            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get News Promo By Slug
          * @param {any} npSlug 
          * @param {any} [acceptLanguage] 
@@ -6903,7 +6947,7 @@ export interface NewsPromosApiUpdateNewsPromoRequest {
  */
 export class NewsPromosApi extends BaseAPI {
     /**
-     * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+     * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename        4. Be sure to specify the field delete=false 
      * @summary Create News Promo
      * @param {NewsPromosApiCreateNewsPromoRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -6939,7 +6983,7 @@ export class NewsPromosApi extends BaseAPI {
     }
 
     /**
-     * Create news_promo.  Please provide slug:   - **news_promo_slug**  slug of news_promo  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів новин чи акцій            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * Get news or promo by slug.  Please provide slug:   - **news_promo_slug**  slug of news or promo  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів новин чи акцій            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
      * @summary Get News Promo By Slug
      * @param {NewsPromosApiGetNewsPromoBySlugRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -7084,6 +7128,10 @@ export const PagesApiAxiosParamCreator = function (configuration?: Configuration
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
             if (page !== undefined) {
                 localVarQueryParameter['page'] = page;
             }
@@ -7132,6 +7180,10 @@ export const PagesApiAxiosParamCreator = function (configuration?: Configuration
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
 
             if (acceptLanguage != null) {
                 localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 

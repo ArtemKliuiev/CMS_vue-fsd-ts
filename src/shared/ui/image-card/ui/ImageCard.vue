@@ -21,34 +21,41 @@
 
       <v-text-field v-model="objInfo.url" label="URL"></v-text-field>
 
-      <v-text-field v-model="objInfo.textUk" label="Текст (укр)"></v-text-field>
+      <v-text-field v-model="objInfo.text_uk" label="Текст (укр)"></v-text-field>
 
-      <v-text-field v-model="objInfo.textRu" label="Текст (рос)"></v-text-field>
+      <v-text-field v-model="objInfo.text_ru" label="Текст (рос)"></v-text-field>
     </div>
 
-    <div @click="$emit('delete', imgInfo)" class="image-card__close"></div>
+    {{ index }}
+    <div @click="$emit('delete', objInfo)" class="image-card__close"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { AddImage, BasePicture } from '@/shared/ui'
-import { reactive, ref } from 'vue'
+import { reactive, ref, watch } from 'vue'
 import { BaseSvg } from '@/shared'
-const props = defineProps(['imgInfo', 'addNewImage'])
+const props = defineProps(['imgInfo', 'addNewImage', 'index'])
+const emit = defineEmits(['delete', 'update'])
+
 const inputFile = ref<HTMLInputElement | null>(null)
 
 interface objectInfo {
   url?: string
   image: string | ArrayBuffer | null
-  textUk?: string
-  textRu?: string
+  text_uk?: string
+  text_ru?: string
 }
 
 const objInfo = reactive<objectInfo>({
   image: '',
   url: props.imgInfo.url,
-  textUk: props.imgInfo.text_uk,
-  textRu: props.imgInfo.text_ru
+  text_uk: props.imgInfo.text_uk,
+  text_ru: props.imgInfo.text_ru
+})
+
+watch(objInfo, () => {
+  emit('update', objInfo)
 })
 
 function changeImage() {
