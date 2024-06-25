@@ -1,7 +1,7 @@
 <template>
   <div class="banners-section">
     <div class="banners-section__top-line">
-      <v-btn @click="addImage(true)">Додати</v-btn>
+      <v-btn @click="addBanner">Додати</v-btn>
 
       <div class="banners-section__checkbox">
         <v-switch v-model="selected" color="#eee" :label="switchInfo"></v-switch>
@@ -9,16 +9,12 @@
     </div>
 
     <div class="banners-section__image-card">
-      <ImageCard v-for="(item, index) in items" :key="index" :imgInfo="item" />
-
       <ImageCard
-        v-for="(item, index) in itemsArray"
-        :key="index"
+        v-for="(item, index) in banners"
+        :key="item"
         :imgInfo="item"
-        :addNewImage="true"
-        :index="index"
-        @delete="(info) => deleteFromLocal(info, index)"
-        @update="(info) => changeLocal(info, index)"
+        v-model:banner="banners[index]"
+        @delete="deleteBanner(index)"
       />
     </div>
 
@@ -33,52 +29,44 @@
         </select>
       </div>
 
-      <v-btn>Зберегти</v-btn>
+      <v-btn @click="saveChange">Зберегти</v-btn>
     </div>
   </div>
 
-  <v-dialog v-model="dialog" width="auto">
-    <AddImage @addImage="addImage" @closeModal="dialog = false" />
-  </v-dialog>
+  <!--  <v-dialog v-model="dialog" width="auto">-->
+  <!--    <div class="alert">-->
+  <!--      <h3>Видалити баннер</h3>-->
 
-  <v-dialog v-model="dialogDelUser" width="auto">
-    <div class="alert">
-      <h3>Видалити баннер</h3>
+  <!--      <div class="alert__btn">-->
+  <!--        <v-btn @click="delBtn = !delBtn">Видалити</v-btn>-->
 
-      <div class="alert__btn">
-        <v-btn @click="delBtn = !delBtn">Видалити</v-btn>
-
-        <v-btn @click="dialogDelUser = false">Відмінити</v-btn>
-      </div>
-    </div>
-  </v-dialog>
+  <!--        <v-btn @click="dialogDelUser = false">Відмінити</v-btn>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </v-dialog>-->
 </template>
 
 <script lang="ts" setup>
-import { computed, reactive, ref, watch } from 'vue'
-import { BaseSvg, ImageCard } from '@/shared/ui'
-import { AddImage } from '@/shared/ui'
+import { computed, onBeforeMount, onMounted, onUpdated, reactive, ref, toRefs, watch } from 'vue'
+import { ImageCard } from '@/shared'
+import { compareObjects } from '@/shared'
+import { saveChange } from './saveChange'
+
 const props = defineProps(['items'])
 
-interface objectInfo {
-  url?: string
-  image: string | ArrayBuffer | null
-  text_uk?: string
-  text_ru?: string
+interface Banner {
+  id: number
+  image: object
+  text_ru: string
+  text_uk: string
+  delete: Boolean
 }
 
-const delBtn = ref<boolean>(false)
 const switchInfo = ref<string>('Увімкнено')
 const selected = ref<boolean>(true)
-const dialog = ref<boolean>(false)
-const dialogDelUser = ref<boolean>(false)
-const itemsArray = reactive([])
-const objInfo = reactive<objectInfo>({
-  image: '',
-  url: '',
-  text_uk: '',
-  text_ru: ''
-})
+const newArr = []
+
+const banners = computed(() => props.items)
 
 watch(selected, () => {
   if (selected.value) {
@@ -88,27 +76,26 @@ watch(selected, () => {
   }
 })
 
-const maxImage = computed(() => {
-  const received: number = props.items.length
-  const added: number = itemsArray.length
-  return 10 - (received + added)
-})
-
-function deleteFromLocal(info, index: number) {
-  itemsArray.splice(index, 1)
-}
-
-function changeLocal(info, index: number) {
-  console.log(info, index)
-  itemsArray[index] = info as never
-}
-
-function addImage(condition: boolean) {
-  if (condition) {
-    if (maxImage.value > 0) {
-      itemsArray.push(objInfo as never)
-    }
+function addBanner() {
+  if (banners.value.length < 10) {
+    banners.value.push({} as never)
   }
+  console.log(banners.value)
+}
+
+function deleteBanner(index: number) {
+  const current = banners.value[index]
+  if (current.id) {
+    current.delete = true
+  } else {
+    banners.value.splice(index, 1)
+  }
+}
+
+function saveChange() {
+  const one = banners.value[0]
+
+  console.log(props.items)
 }
 </script>
 
