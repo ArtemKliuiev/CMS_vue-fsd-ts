@@ -3,30 +3,31 @@
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
     <form @submit.prevent="onSubmit">
-      <p>Название кинотеатра</p>
-      <BaseInput class="movie-create__block" placeholder="Название кинотеатра" name="nameCinema" />
+      <BaseInput
+        class="movie-create__block"
+        placeholder="Название кинотеатра"
+        label="Название кинотеатра"
+        name="nameCinema"
+      />
 
-      <p class="text">Описание</p>
-      <BaseTextarea class="movie-create__block" placeholder="Текст" name="descriptionCinema" />
+      <BaseTextarea
+        class="movie-create__block"
+        placeholder="Текст"
+        label="Описание"
+        name="descriptionCinema"
+      />
 
-      <p class="text">Условия</p>
-      <BaseTextarea class="movie-create__block" placeholder="Текст" name="conditions" />
+      <BaseTextarea
+        class="movie-create__block"
+        placeholder="Текст"
+        label="Условия"
+        name="conditions"
+      />
 
-      <p class="text">Логотип</p>
-      <v-file-input
-        accept="image/png, image/jpeg"
-        show-size
-        label="Добавить логотип"
-      ></v-file-input>
+      <InputChoiceFile label="Логотип" label-text="Добавить логотип" />
 
-      <p class="text">Фото верхнего баннера</p>
-      <v-file-input
-        accept="image/png, image/jpeg"
-        show-size
-        label="Добавить фото верхнего баннера"
-      ></v-file-input>
+      <InputChoiceFile label="Фото верхнего баннера" label-text="Добавить фото верхнего баннера" />
 
-      <p class="text">Адресс</p>
       <BaseTextarea
         class="movie-create__block card-cinema__textarea"
         placeholder="
@@ -35,22 +36,18 @@
         Бронирование билетов: (048) 746-32-33, (048) 746-32-20
         e-mail: gоldduke@kino.odessa.ua
         "
+        label="Адресс"
         name="address"
       />
 
-      <p class="text">Координаты для карты</p>
       <BaseInput
         class="movie-create__block"
         placeholder="Координаты для карты"
+        label="Координаты для карты"
         name="mapCoordinates"
       />
 
-      <p class="text">Галерея картинок</p>
-      <v-file-input
-        accept="image/png, image/jpeg"
-        show-size
-        label="Добавить картинку в галерею"
-      ></v-file-input>
+      <InputChoiceFile label="Галерея картинок" label-text="Добавить картинку в галерею" />
 
       <div class="card-cinema__list">
         <h3 class="card-cinema__list-title">Список Залов</h3>
@@ -83,8 +80,12 @@ import BaseTextarea from '@/shared/ui/base/text-area/ui/BaseTextarea.vue'
 import { Seo } from '@/widgets/seo'
 import '@mdi/font/css/materialdesignicons.css'
 import BaseTable from '@/shared/ui/base/table/ui/BaseTable.vue'
-import { CinemasApi, useApi } from '@/shared'
+// import { CinemasApi, useApi } from '@/shared'
 import { useCinemasCardCinemaForm } from '@/entities'
+import InputChoiceFile from '@/shared/ui/base/input-choice-file/ui/InputChoiceFile.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 // const api = useApi(CinemasApi)
 

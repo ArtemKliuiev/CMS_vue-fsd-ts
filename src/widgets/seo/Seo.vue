@@ -2,20 +2,13 @@
   <div class="seo">
     <h2>Seo</h2>
     <div class="seo__title">
-      Title:
-      <BaseInput placeholder="Title" name="seoTitle" />
+      <BaseInput placeholder="Title" label="Title" name="seoTitle" />
     </div>
     <div class="seo__image">
-      Image:
-      <v-file-input
-        accept="image/png, image/jpeg"
-        show-size
-        label="Загрузить картинку в seo"
-      ></v-file-input>
+      <InputChoiceInput label="Image:" label-text="Загрузить картинку в seo" />
     </div>
     <div class="seo__description">
-      Description:
-      <BaseTextarea placeholder="Description" name="seoDescription" />
+      <BaseTextarea placeholder="Description" label="Description:" name="seoDescription" />
     </div>
   </div>
 </template>
@@ -25,6 +18,7 @@ import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
 import BaseTextarea from '@/shared/ui/base/text-area/ui/BaseTextarea.vue'
 import { InferType, object, string } from 'yup'
 import { useAppForm } from '@/index'
+import InputChoiceInput from '@/shared/ui/base/input-choice-file/ui/InputChoiceFile.vue'
 
 export type SeoCinemaFormSchema = InferType<ReturnType<typeof seoSchema>>
 

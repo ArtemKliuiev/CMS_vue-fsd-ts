@@ -2,41 +2,31 @@
   <div>
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
-    <p>Название</p>
-    <BaseInput
-      class="movie-create__block"
-      placeholder="О кинотеатре"
-      :value="valueInput"
-      @update:modelValue="handleModelValue"
-    />
+    <form @submit.prevent="onSubmit">
+      <BaseInput
+        class="movie-create__block"
+        placeholder="О кинотеатре"
+        label="Название"
+        name="name"
+      />
 
-    <p>Описание</p>
-    <BaseTextarea
-      class="movie-create__block"
-      placeholder="Текст"
-      :value="valueTextArea"
-      @update:modelValue="handleModelValueText"
-    />
+      <BaseTextarea
+        class="movie-create__block"
+        placeholder="Текст"
+        label="Описание"
+        name="description"
+      />
 
-    <p>Главная картинка</p>
-    <v-file-input
-      accept="image/png, image/jpeg"
-      show-size
-      label="Добавить главную картинку"
-    ></v-file-input>
+      <InputChoiceFile label="Главная картинка" label-text="Добавить главную картинку" />
 
-    <p>Галерея картинок</p>
-    <v-file-input
-      accept="image/png, image/jpeg"
-      show-size
-      label="Добавить картинку в галерею"
-    ></v-file-input>
+      <InputChoiceFile label="Галерея картинок" label-text="Добавить картинку в галерею" />
 
-    <Seo class="movie-create__block" />
+      <Seo class="movie-create__block" />
 
-    <div class="movie-create__buttons">
-      <v-btn>Сохранить</v-btn>
-    </div>
+      <div class="movie-create__buttons">
+        <v-btn type="submit">Сохранить</v-btn>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -44,22 +34,14 @@
 import { Seo } from '@/widgets/seo'
 import BaseTextarea from '@/shared/ui/base/text-area/ui/BaseTextarea.vue'
 import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { usePageAboutCinemaForm } from '@/entities'
+import InputChoiceFile from '@/shared/ui/base/input-choice-file/ui/InputChoiceFile.vue'
 
-const title = ref('')
-const description = ref('')
-const valueInput = ref('')
-const valueTextArea = ref('')
+const isLoading = ref<boolean>(false)
 
-const handleModelValue = (value: string) => {
-  valueInput.value = value
-  console.log(value)
-}
-
-const handleModelValueText = (value: string) => {
-  valueTextArea.value = value
-  console.log(value)
-}
+const form = usePageAboutCinemaForm()
+const formValues = computed(() => form.values)
 
 const breadcrumbs = [
   {
@@ -72,6 +54,15 @@ const breadcrumbs = [
     disabled: true
   }
 ]
+
+async function onSubmit() {
+  console.log('submit')
+  const { valid } = await form.instance.validate()
+  console.log(valid)
+  if (!valid) return
+
+  isLoading.value = true
+}
 </script>
 
 <style lang="scss"></style>

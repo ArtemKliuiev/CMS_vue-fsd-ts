@@ -13,6 +13,15 @@ input {
 
 .input {
   &__error-text {
-    color: red;
+    max-width: fit-content;
+    padding: 5px;
+    margin: 5px 0;
+    background: #a37272;
+    border-radius: 10px;
   }
+
+  &__error {
+    border: 1px solid red;
+  }
+
 }

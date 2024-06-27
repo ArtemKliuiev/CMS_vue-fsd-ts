@@ -3,11 +3,19 @@
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
     <form @submit.prevent="onSubmit">
-      <p class="text">Телефон</p>
-      <BaseInput class="movie-create__block" placeholder="+380505555555" name="tel" />
+      <BaseInput
+        class="movie-create__block"
+        placeholder="+380505555555"
+        label="Телефон"
+        name="tel"
+      />
 
-      <p class="text">Seo Текст:</p>
-      <BaseTextarea class="movie-create__block" placeholder="Текст" name="seoText" />
+      <BaseTextarea
+        class="movie-create__block"
+        placeholder="Текст"
+        label="Seo Текст:"
+        name="seoText"
+      />
 
       <Seo class="movie-create__block" />
 

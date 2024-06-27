@@ -5,8 +5,12 @@
     <form @submit.prevent="onSubmit">
       <div class="news-create__contents">
         <div class="news-create__content">
-          <p>Название акции</p>
-          <BaseInput class="movie-create__block" placeholder="Название акции" name="nameStock" />
+          <BaseInput
+            class="movie-create__block"
+            placeholder="Название акции"
+            label="Название акции"
+            name="nameStock"
+          />
         </div>
         <div class="news-create__content">
           <p>Дата публикации</p>
@@ -14,27 +18,21 @@
         </div>
       </div>
 
-      <p class="text">Описание</p>
-      <BaseTextarea class="movie-create__block" placeholder="Текст" name="descriptionStock" />
+      <BaseTextarea
+        class="movie-create__block"
+        placeholder="Текст"
+        label="Описание"
+        name="descriptionStock"
+      />
 
-      <p class="text">Главная картинка</p>
-      <v-file-input
-        accept="image/png, image/jpeg"
-        show-size
-        label="Добавить главную картинку"
-      ></v-file-input>
+      <InputChoiceFile label="Главная картинка" label-text="Добавить главную картинку" />
 
-      <p class="text">Галерея картинок</p>
-      <v-file-input
-        accept="image/png, image/jpeg"
-        show-size
-        label="Добавить картинку в галерею"
-      ></v-file-input>
+      <InputChoiceFile label="Галерея картинок" label-text="Добавить картинку в галерею" />
 
-      <p class="text">Ссылка на видео</p>
       <BaseInput
         class="movie-create__block"
         placeholder="Ссылка на видео в youtube"
+        label="Ссылка на видео"
         name="linkOnVideo"
       />
 
@@ -54,6 +52,7 @@ import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
 import { computed, ref } from 'vue'
 import '@mdi/font/css/materialdesignicons.css'
 import { useStockCreateForm } from '@/entities'
+import InputChoiceFile from '@/shared/ui/base/input-choice-file/ui/InputChoiceFile.vue'
 
 const valueInputDate = ref('')
 const isLoading = ref<boolean>(false)

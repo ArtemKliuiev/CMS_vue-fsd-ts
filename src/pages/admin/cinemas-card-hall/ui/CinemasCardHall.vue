@@ -3,32 +3,25 @@
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
     <form @submit.prevent="onSubmit">
-      <p>Номер зала</p>
-      <BaseInput class="movie-create__block" placeholder="8 зал" name="numberHall" />
+      <BaseInput
+        class="movie-create__block"
+        placeholder="8 зал"
+        label="Номер зала"
+        name="numberHall"
+      />
 
-      <p class="text">Описание зала</p>
-      <BaseTextarea class="movie-create__block" placeholder="Текст" name="descriptionCinemaHall" />
+      <BaseTextarea
+        class="movie-create__block"
+        placeholder="Текст"
+        label="Описание зала"
+        name="descriptionCinemaHall"
+      />
 
-      <p class="text">Схема зала</p>
-      <v-file-input
-        accept="image/png, image/jpeg"
-        show-size
-        label="Добавить схему зала"
-      ></v-file-input>
+      <InputChoiceFile label="Схема зала" label-text="Добавить схему зала" />
 
-      <p class="text">Верхний баннер</p>
-      <v-file-input
-        accept="image/png, image/jpeg"
-        show-size
-        label="Добавить верхний баннер"
-      ></v-file-input>
+      <InputChoiceFile label="Верхний баннер" label-text="Добавить верхний баннер" />
 
-      <p class="text">Галерея картинок</p>
-      <v-file-input
-        accept="image/png, image/jpeg"
-        show-size
-        label="Добавить картинку в галерею"
-      ></v-file-input>
+      <InputChoiceFile label="Галерея картинок" label-text="Добавить картинку в галерею" />
 
       <Seo class="movie-create__block" />
 
@@ -46,6 +39,7 @@ import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
 import '@mdi/font/css/materialdesignicons.css'
 import { computed, ref } from 'vue'
 import { useCinemasCardCinemaHallForm } from '@/entities'
+import InputChoiceFile from '@/shared/ui/base/input-choice-file/ui/InputChoiceFile.vue'
 
 const isLoading = ref<boolean>(false)
 

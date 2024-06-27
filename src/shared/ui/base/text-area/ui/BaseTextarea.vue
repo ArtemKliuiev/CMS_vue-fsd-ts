@@ -1,7 +1,14 @@
 <template>
   <div>
-    <textarea :placeholder="placeholder" :value="inputValue" @input="onInput" @blur="onBlur" />
-    <div class="input__error-text">
+    <label>{{ label }}</label>
+    <textarea
+      :placeholder="placeholder"
+      :value="inputValue"
+      @input="onInput"
+      @blur="onBlur"
+      :class="{ input__error: errorMessage }"
+    />
+    <div class="input__error-text" v-if="errorMessage">
       {{ errorMessage }}
     </div>
   </div>
@@ -21,13 +28,15 @@ interface Props {
   name?: string | null
   placeholder?: string
   errorMessage?: any
+  label?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   modelValue: null,
   name: null,
   placeholder: '',
-  errorMessage: ''
+  errorMessage: '',
+  label: ''
 })
 
 const emit = defineEmits<{
@@ -80,6 +89,6 @@ function onBlur(event: FocusEvent) {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import 'styles';
 </style>

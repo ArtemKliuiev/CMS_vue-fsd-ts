@@ -1,1 +1,1 @@
-export { default as Adverticing } from './Adverticing.vue'
+export { default as Adverticing } from './Advertising.vue'

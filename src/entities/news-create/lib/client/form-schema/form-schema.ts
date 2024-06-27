@@ -1,4 +1,13 @@
-import { object, string, InferType } from 'yup'
+import { object, string, InferType, setLocale } from 'yup'
+
+setLocale({
+  mixed: {
+    required: 'required field'
+  },
+  string: {
+    max: 'more than ${max} characters'
+  }
+})
 
 export type NewsCreateFormSchema = InferType<ReturnType<typeof newsCreateSchema>>
 

@@ -2,76 +2,58 @@
   <div>
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
-    <p>Название фильма</p>
-    <BaseInput
-      class="movie-create__block"
-      placeholder="Название фильма"
-      :value="valueInput"
-      @update:modelValue="handleModelValue"
-    />
+    <form @submit.prevent="onSubmit">
+      <BaseInput
+        class="movie-create__block"
+        placeholder="Название фильма"
+        label="Название фильма"
+        name="name"
+      />
 
-    <p class="text">Описание</p>
-    <BaseTextarea
-      class="movie-create__block"
-      placeholder="Текст"
-      :value="valueTextArea"
-      @update:modelValue="handleModelValueText"
-    />
+      <BaseTextarea
+        class="movie-create__block"
+        placeholder="Текст"
+        label="Описание"
+        name="description"
+      />
 
-    <p class="text">Главная картинка</p>
-    <v-file-input
-      accept="image/png, image/jpeg"
-      show-size
-      label="Добавить главную картинку"
-    ></v-file-input>
+      <InputChoiceFile label="Главная картинка" labelText="Картинка карточки" />
 
-    <p class="text">Галерея картинок</p>
-    <v-file-input
-      accept="image/png, image/jpeg"
-      show-size
-      label="Добавить картинку в галерею"
-    ></v-file-input>
+      <InputChoiceFile label="Галерея картинок" labelText="Добавить картинку в галерею" />
 
-    <p class="text">Ссылка на трейлер</p>
-    <BaseInput
-      class="movie-create__block"
-      placeholder="Ссылка на видео в youtube"
-      :value="valueInputYoutube"
-      @update:modelValue="handleModelValueYoutube"
-    />
+      <BaseInput
+        class="movie-create__block"
+        placeholder="Ссылка на видео в youtube"
+        label="Ссылка на трейлер"
+        name="linkOnVideo"
+      />
 
-    <p class="text">Тип кино</p>
-    <v-select multiple label="Тип кино" :items="['3D', '2D', 'IMAX']"></v-select>
+      <SelectVuetify label="Тип кино" label-text="Тип кино" :items="['3D', '2D', 'IMAX']" />
 
-    <Seo
-      class="movie-create__block"
-      :valueTitle="title"
-      :valueDescription="description"
-      placeholderInput="Title"
-      placeholderDescription="Description"
-      @update:valueTitle="handleInput"
-      @update:valueDescription="handleDescription"
-    />
+      <Seo class="movie-create__block" />
 
-    <div class="movie-create__buttons">
-      <v-btn>Сохранить</v-btn>
-      <v-btn>Вернуть базовую версию</v-btn>
-    </div>
+      <div class="movie-create__buttons">
+        <v-btn type="submit">Сохранить</v-btn>
+        <v-btn>Вернуть базовую версию</v-btn>
+      </div>
+    </form>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
 import BaseTextarea from '@/shared/ui/base/text-area/ui/BaseTextarea.vue'
 import { Seo } from '@/widgets/seo'
 import '@mdi/font/css/materialdesignicons.css'
+import { computed, ref } from 'vue'
+import { usePageMoviesCreateForm } from '@/entities'
+import InputChoiceFile from '@/shared/ui/base/input-choice-file/ui/InputChoiceFile.vue'
+import { SelectVuetify } from '@/shared'
 
-const title = ref('')
-const description = ref('')
-const valueInput = ref('')
-const valueTextArea = ref('')
-const valueInputYoutube = ref('')
+const isLoading = ref<boolean>(false)
+
+const form = usePageMoviesCreateForm()
+const formValues = computed(() => form.values)
 
 const breadcrumbs = [
   {
@@ -85,29 +67,13 @@ const breadcrumbs = [
   }
 ]
 
-const handleInput = (value: string) => {
-  title.value = value
-  console.log(value)
-}
+async function onSubmit() {
+  console.log('submit')
+  const { valid } = await form.instance.validate()
+  console.log(valid)
+  if (!valid) return
 
-const handleDescription = (value: string) => {
-  description.value = value
-  console.log(value)
-}
-
-const handleModelValue = (value: string) => {
-  valueInput.value = value
-  console.log(value)
-}
-
-const handleModelValueText = (value: string) => {
-  valueTextArea.value = value
-  console.log(value)
-}
-
-const handleModelValueYoutube = (value: string) => {
-  valueInputYoutube.value = value
-  console.log(value)
+  isLoading.value = true
 }
 </script>
 

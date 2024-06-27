@@ -7,3 +7,5 @@ function getEnvVar(key: string) {
   }
   return envVar
 }
+
+export * from './locale'
