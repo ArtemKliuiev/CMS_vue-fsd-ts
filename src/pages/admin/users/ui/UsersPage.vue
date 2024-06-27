@@ -3,7 +3,7 @@
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
     <div class="users__search">
-      <BaseInput v-model="search" @changeValue="setSearch" placeholder="Пошук користувача" />
+      <BaseInput v-model="search" @input="setSearch" placeholder="Пошук користувача" />
     </div>
 
     <div class="users__table">

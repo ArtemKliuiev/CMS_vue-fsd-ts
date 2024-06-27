@@ -1,19 +1,19 @@
 <template>
   <div
-    v-if="!computedBaner.delete"
+    v-if="!computedBanner.delete"
     class="image-card"
-    :class="{ 'image-card_new': !computedBaner.id }"
+    :class="{ 'image-card_new': !computedBanner.id }"
   >
     <div @click="changeImage" class="image-card__image">
       <BasePicture
-        v-if="computedBaner.id"
-        :srcset="computedBaner.image.webp"
-        :src="computedBaner.image.image"
+        v-if="computedBanner.id"
+        :srcset="computedBanner.image.webp"
+        :src="computedBanner.image.image"
         :lazy="true"
       />
 
       <div v-else class="image-card__new-image">
-        <BasePicture v-if="computedBaner.image !== ''" :srcset="computedBaner.image" />
+        <BasePicture v-if="computedBanner.image" :srcset="computedBanner.image.image" />
         <BaseSvg v-else id="plus" />
       </div>
     </div>
@@ -28,15 +28,15 @@
         label="Завантажити зображення"
       ></v-file-input>
 
-      <v-text-field v-model="computedBaner.url" label="URL"></v-text-field>
+      <v-text-field v-model="computedBanner.url" label="URL"></v-text-field>
 
-      <v-text-field v-model="computedBaner.text_uk" label="Текст (укр)"></v-text-field>
+      <v-text-field v-model="computedBanner.text_uk" label="Текст (укр)"></v-text-field>
 
-      <v-text-field v-model="computedBaner.text_ru" label="Текст (рос)"></v-text-field>
+      <v-text-field v-model="computedBanner.text_ru" label="Текст (рос)"></v-text-field>
     </div>
 
     {{ index }}
-    <div @click="$emit('delete', computedBaner.id)" class="image-card__close"></div>
+    <div @click="$emit('delete', computedBanner.id)" class="image-card__close"></div>
   </div>
 </template>
 
@@ -47,7 +47,7 @@ import { BaseSvg } from '@/shared'
 const props = defineProps(['index', 'banner'])
 const emit = defineEmits(['delete', 'update:banner'])
 
-const computedBaner = computed({
+const computedBanner = computed({
   get() {
     return props.banner
   },
@@ -72,7 +72,7 @@ function newImage(event: Event & { target: { files: FileList } }) {
   reader.readAsDataURL(event.target.files[0])
 
   reader.onload = () => {
-    computedBaner.value.image = reader.result
+    computedBanner.value.image.image = reader.result
     console.log(1223423)
   }
 }
