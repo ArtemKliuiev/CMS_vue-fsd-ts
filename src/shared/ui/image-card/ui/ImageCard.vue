@@ -1,12 +1,21 @@
 <template>
-  <div class="image-card" :class="{ 'image-card_new': addNewImage }">
+  <div
+    v-if="!computedBanner.delete"
+    class="image-card"
+    :class="{ 'image-card_new': !computedBanner.id }"
+  >
     <div @click="changeImage" class="image-card__image">
-      <div v-if="addNewImage" class="image-card__new-image">
-        <BasePicture v-if="objInfo.image !== ''" :srcset="objInfo.image" />
+      <BasePicture
+        v-if="computedBanner.id"
+        :srcset="computedBanner.image.webp"
+        :src="computedBanner.image.image"
+        :lazy="true"
+      />
+
+      <div v-else class="image-card__new-image">
+        <BasePicture v-if="computedBanner.image" :srcset="computedBanner.image.image" />
         <BaseSvg v-else id="plus" />
       </div>
-
-      <BasePicture v-else :srcset="imgInfo.image.webp" :src="imgInfo.image.image" :lazy="true" />
     </div>
 
     <div class="image-card__main">
@@ -19,37 +28,37 @@
         label="Завантажити зображення"
       ></v-file-input>
 
-      <v-text-field v-model="objInfo.url" label="URL"></v-text-field>
+      <v-text-field v-model="computedBanner.url" label="URL"></v-text-field>
 
-      <v-text-field v-model="objInfo.textUk" label="Текст (укр)"></v-text-field>
+      <v-text-field v-model="computedBanner.text_uk" label="Текст (укр)"></v-text-field>
 
-      <v-text-field v-model="objInfo.textRu" label="Текст (рос)"></v-text-field>
+      <v-text-field v-model="computedBanner.text_ru" label="Текст (рос)"></v-text-field>
     </div>
 
-    <div @click="$emit('delete', imgInfo)" class="image-card__close"></div>
+    {{ index }}
+    <div @click="$emit('delete', computedBanner.id)" class="image-card__close"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { AddImage, BasePicture } from '@/shared/ui'
-import { reactive, ref } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
 import { BaseSvg } from '@/shared'
-const props = defineProps(['imgInfo', 'addNewImage'])
-const inputFile = ref<HTMLInputElement | null>(null)
+const props = defineProps(['index', 'banner'])
+const emit = defineEmits(['delete', 'update:banner'])
 
-interface objectInfo {
-  url?: string
-  image: string | ArrayBuffer | null
-  textUk?: string
-  textRu?: string
-}
-
-const objInfo = reactive<objectInfo>({
-  image: '',
-  url: props.imgInfo.url,
-  textUk: props.imgInfo.text_uk,
-  textRu: props.imgInfo.text_ru
+const computedBanner = computed({
+  get() {
+    return props.banner
+  },
+  set(value) {
+    emit('update:banner', value)
+  }
 })
+
+// console.log(objInfo)
+
+const inputFile = ref<HTMLInputElement | null>(null)
 
 function changeImage() {
   if (inputFile.value) {
@@ -63,7 +72,7 @@ function newImage(event: Event & { target: { files: FileList } }) {
   reader.readAsDataURL(event.target.files[0])
 
   reader.onload = () => {
-    objInfo.image = reader.result
+    computedBanner.value.image.image = reader.result
     console.log(1223423)
   }
 }

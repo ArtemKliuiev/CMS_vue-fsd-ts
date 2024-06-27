@@ -63,9 +63,7 @@ import BaseInput from '@/shared/ui/base/input/ui/BaseInput.vue'
 import { ref } from 'vue'
 import { authFunc, regisFunc } from '@/shared/api'
 import { useRouter } from 'vue-router'
-import { checkAdmin } from '@/shared/api/useApiOptions/auth/checkAdmin'
 
-checkAdmin()
 defineProps(['place'])
 
 const router = useRouter()
