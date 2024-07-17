@@ -12,8 +12,7 @@
       <ImageCard
         v-for="(item, index) in banners"
         :key="item"
-        :imgInfo="item"
-        v-model:banner="banners[index]"
+        :banner="item"
         @delete="deleteBanner(index)"
       />
     </div>
@@ -22,11 +21,13 @@
       <div class="banners-section__select">
         <span>Швидкість обертання</span>
 
-        <select>
-          <option>5c</option>
-          <option>10c</option>
-          <option>15c</option>
+        <select v-model="selectOption">
+          <option>10</option>
+          <option>20</option>
+          <option>30</option>
         </select>
+
+        <span> секунд</span>
       </div>
 
       <v-btn @click="saveChange">Зберегти</v-btn>
@@ -47,12 +48,11 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, onBeforeMount, onMounted, onUpdated, reactive, ref, toRefs, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { ImageCard } from '@/shared'
-import { compareObjects } from '@/shared'
-import { saveChange } from './saveChange'
 
-const props = defineProps(['items'])
+const props = defineProps(['dataSliders', 'startItems'])
+const emit = defineEmits(['sendBanners'])
 
 interface Banner {
   id: number
@@ -63,10 +63,19 @@ interface Banner {
 }
 
 const switchInfo = ref<string>('Увімкнено')
+const selectOption = ref<string>('30')
 const selected = ref<boolean>(true)
-const newArr = []
 
-const banners = computed(() => props.items)
+watch(props.dataSliders, () => {
+  selectOption.value = props.dataSliders.speed
+  selected.value = props.dataSliders.active
+})
+
+const banners = computed(() => props.dataSliders.items)
+
+setTimeout(() => {
+  console.log(props.dataSliders.active)
+}, 2000)
 
 watch(selected, () => {
   if (selected.value) {
@@ -80,7 +89,6 @@ function addBanner() {
   if (banners.value.length < 10) {
     banners.value.push({} as never)
   }
-  console.log(banners.value)
 }
 
 function deleteBanner(index: number) {
@@ -92,10 +100,26 @@ function deleteBanner(index: number) {
   }
 }
 
-function saveChange() {
-  const one = banners.value[0]
+function checkEmptyBanner() {
+  const arr: Array<Object> = []
 
-  console.log(props.items)
+  banners.value.forEach((item: any) => {
+    if (item.image && item.text_ru && item.text_uk && item.url) {
+      arr.push(item)
+    }
+  })
+
+  return arr
+}
+
+function saveChange() {
+  const arrForSend = checkEmptyBanner()
+
+  emit('sendBanners', {
+    active: selected.value,
+    speed: selectOption.value,
+    items: arrForSend
+  })
 }
 </script>
 

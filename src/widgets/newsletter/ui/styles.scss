@@ -1,0 +1,95 @@
+@import "@/shared/scss-variables/index";
+
+.newsletter{
+  h2{
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  h3{
+    span{
+      color: $error-color;
+      font-size: 16px;
+    }
+  }
+
+  &__block{
+    max-width: 80vw;
+    margin: 20px auto;
+    border-radius: 5px;
+    padding: 20px;
+    border: 1px solid $white-one;
+  }
+
+  &__choose{
+    margin: 20px 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__inform{
+    margin: 30px 0 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h3{
+    max-width: 33%;
+  }
+
+  &__list{
+    border-radius: 5px;
+    padding: 20px 15px 20px 0px;
+    border: 1px solid $white-one;
+
+    &-item{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__chips{
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid $white-one;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__btn{
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__alert{
+    background-color: $bg-color;
+    position: relative;
+    width: 400px;
+    border-radius: 5px;
+    border: 1px solid $white-one;
+    padding: 30px;
+    overflow: auto;
+
+    h3{
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    li{
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__btn{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

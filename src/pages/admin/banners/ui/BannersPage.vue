@@ -2,7 +2,8 @@
   <div>
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
-    <BannersSection v-if="topSliders" :items="topSliders" />
+    <BannersSection v-if="topSliders" :dataSliders="topSliders" @sendBanners="sendTopBanners" />
+
     {{ topSliders }}
   </div>
 </template>
@@ -11,9 +12,10 @@
 import { BannersSection } from '@/widgets/banners'
 import { useApi } from '@/shared/api'
 import { SlidersApi } from '@/shared/api/gen'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
+import { TopSliderUpdateSchema } from '@/shared/api/gen'
 
-const topSliders = ref<Array<{}>>([])
+const topSliders = ref<TopSliderUpdateSchema>({})
 
 const breadcrumbs = [
   {
@@ -27,16 +29,29 @@ const breadcrumbs = [
   }
 ]
 
+onMounted(() => {
+  getTopSliders()
+})
+
 async function getTopSliders() {
   const api = await useApi(SlidersApi)
 
   const response = await api.getTopSlider({})
 
-  topSliders.value = response.data.items
-  console.log(response)
+  topSliders.value = response.data
 }
 
-getTopSliders()
+async function sendTopBanners(bannersArray: TopSliderUpdateSchema) {
+  const api = await useApi(SlidersApi)
+
+  console.log(bannersArray)
+
+  const response = await api.updateTopSlider({
+    topSliderUpdateSchema: bannersArray
+  })
+
+  console.log(response)
+}
 </script>
 
 <style lang="scss" scoped>

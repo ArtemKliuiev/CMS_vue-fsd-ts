@@ -1,0 +1,22 @@
+@import "colors";
+
+.skeleton {
+  background-color: $bg-color;
+  background-image:
+          linear-gradient(
+                          90deg,
+                          rgba($dark-color-3, 0),
+                          rgba($dark-color-3, 0.5),
+                          rgba($dark-color-3, 0)
+          );
+  background-size: 100px 100%;
+  background-repeat: no-repeat;
+  background-position: left -40px top 0;
+  animation: shine 700ms ease infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: right -40px top 0;
+  }
+}

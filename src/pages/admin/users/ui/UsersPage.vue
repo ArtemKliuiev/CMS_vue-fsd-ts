@@ -114,7 +114,6 @@ onMounted(() => {
     search.value = query.search as string
 
     sort(query)
-    console.log(query)
   } else {
     getInfo()
   }
@@ -155,6 +154,7 @@ function queryReplace() {
 }
 
 const quantityPage = computed(() => {
+  console.log(Math.ceil(allUsers.value.length / 15))
   return Math.ceil(allUsers.value.length / 15)
 })
 
@@ -189,12 +189,15 @@ async function getInfo(direction: string = 'descending', sort?: string) {
 
   currentUsers.length = 0
   currentUsers.push(...response.data.results)
+  await getAllUsers()
 }
 
 async function getAllUsers() {
   const api = await useApi(UsersApi)
 
-  const response = await api.usersDatatable()
+  const response = await api.usersDatatable({
+    searchLine: search.value
+  })
 
   allUsers.value = response.data.results
 }

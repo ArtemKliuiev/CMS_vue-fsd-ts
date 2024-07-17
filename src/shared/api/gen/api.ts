@@ -740,13 +740,13 @@ export interface HallInSchema {
      * @type {any}
      * @memberof HallInSchema
      */
-    'gallery'?: any;
+    'tech_id'?: any;
     /**
      * 
      * @type {any}
      * @memberof HallInSchema
      */
-    'tech': any;
+    'gallery'?: any;
 }
 /**
  * Pydantic schema for showing hall full data.
@@ -768,10 +768,10 @@ export interface HallOutSchema {
     'seo_image': ImageOutSchema;
     /**
      * 
-     * @type {any}
+     * @type {TechOutSchema}
      * @memberof HallOutSchema
      */
-    'tech_display': any;
+    'tech': TechOutSchema;
     /**
      * 
      * @type {any}
@@ -802,12 +802,6 @@ export interface HallOutSchema {
      * @memberof HallOutSchema
      */
     'id'?: any;
-    /**
-     * 
-     * @type {any}
-     * @memberof HallOutSchema
-     */
-    'tech': any;
     /**
      * 
      * @type {any}
@@ -875,12 +869,6 @@ export interface HallUpdateSchema {
      * @memberof HallUpdateSchema
      */
     'gallery'?: any;
-    /**
-     * 
-     * @type {any}
-     * @memberof HallUpdateSchema
-     */
-    'tech': any;
 }
 /**
  * Pydantic schema for uploading image to server side.
@@ -1089,6 +1077,18 @@ export interface MovieCardOutSchema {
      * @type {any}
      * @memberof MovieCardOutSchema
      */
+    'techs': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieCardOutSchema
+     */
+    'released': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieCardOutSchema
+     */
     'name': any;
     /**
      * 
@@ -1096,12 +1096,6 @@ export interface MovieCardOutSchema {
      * @memberof MovieCardOutSchema
      */
     'legal_age'?: any;
-    /**
-     * 
-     * @type {any}
-     * @memberof MovieCardOutSchema
-     */
-    'released': any;
     /**
      * 
      * @type {any}
@@ -1204,12 +1198,6 @@ export interface MovieInSchema {
      * @type {any}
      * @memberof MovieInSchema
      */
-    'techs': any;
-    /**
-     * 
-     * @type {any}
-     * @memberof MovieInSchema
-     */
     'genres': any;
     /**
      * 
@@ -1229,6 +1217,12 @@ export interface MovieInSchema {
      * @memberof MovieInSchema
      */
     'participants': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieInSchema
+     */
+    'techs': any;
 }
 /**
  * Pydantic schema for showing Movie full data.
@@ -1253,12 +1247,6 @@ export interface MovieOutSchema {
      * @type {any}
      * @memberof MovieOutSchema
      */
-    'genres_display': any;
-    /**
-     * 
-     * @type {any}
-     * @memberof MovieOutSchema
-     */
     'genres': any;
     /**
      * 
@@ -1277,13 +1265,7 @@ export interface MovieOutSchema {
      * @type {any}
      * @memberof MovieOutSchema
      */
-    'countries_display': any;
-    /**
-     * 
-     * @type {any}
-     * @memberof MovieOutSchema
-     */
-    'techs_display': any;
+    'released': any;
     /**
      * 
      * @type {any}
@@ -1349,12 +1331,6 @@ export interface MovieOutSchema {
      * @type {any}
      * @memberof MovieOutSchema
      */
-    'released': any;
-    /**
-     * 
-     * @type {any}
-     * @memberof MovieOutSchema
-     */
     'budget': any;
     /**
      * 
@@ -1391,6 +1367,44 @@ export interface MovieParticipantOutSchema {
      * 
      * @type {any}
      * @memberof MovieParticipantOutSchema
+     */
+    'id'?: any;
+}
+/**
+ * Pydantic schema for getting all movie participants in system grouped by role.
+ * @export
+ * @interface MovieParticipantRoleOutSchema
+ */
+export interface MovieParticipantRoleOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieParticipantRoleOutSchema
+     */
+    'persons': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieParticipantRoleOutSchema
+     */
+    'name'?: any;
+}
+/**
+ * Pydantic schema for getting all movie participants in system.
+ * @export
+ * @interface MovieParticipantSelectOutSchema
+ */
+export interface MovieParticipantSelectOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieParticipantSelectOutSchema
+     */
+    'name': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof MovieParticipantSelectOutSchema
      */
     'id'?: any;
 }
@@ -1471,25 +1485,7 @@ export interface MovieUpdateSchema {
      * @type {any}
      * @memberof MovieUpdateSchema
      */
-    'legal_age'?: any;
-    /**
-     * 
-     * @type {any}
-     * @memberof MovieUpdateSchema
-     */
     'duration'?: any;
-    /**
-     * 
-     * @type {any}
-     * @memberof MovieUpdateSchema
-     */
-    'released'?: any;
-    /**
-     * 
-     * @type {any}
-     * @memberof MovieUpdateSchema
-     */
-    'techs'?: any;
     /**
      * 
      * @type {any}
@@ -1624,6 +1620,12 @@ export interface NewsPromoInSchema {
      * @memberof NewsPromoInSchema
      */
     'gallery'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof NewsPromoInSchema
+     */
+    'tags': any;
 }
 /**
  * Pydantic schema for showing news and promo full data.
@@ -1703,6 +1705,12 @@ export interface NewsPromoOutSchema {
      * @memberof NewsPromoOutSchema
      */
     'gallery'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof NewsPromoOutSchema
+     */
+    'tags': any;
 }
 /**
  * Pydantic schema for updating news and promo.
@@ -1776,6 +1784,12 @@ export interface NewsPromoUpdateSchema {
      * @memberof NewsPromoUpdateSchema
      */
     'gallery'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof NewsPromoUpdateSchema
+     */
+    'tags'?: any;
 }
 /**
  * Pydantic schema for showing pages card.
@@ -2241,6 +2255,68 @@ export interface PaginatedResponseSchemaPageCardOutSchema {
 /**
  * 
  * @export
+ * @interface PaginatedResponseSchemaTagOutSchema
+ */
+export interface PaginatedResponseSchemaTagOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaTagOutSchema
+     */
+    'count': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaTagOutSchema
+     */
+    'next': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaTagOutSchema
+     */
+    'previous': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaTagOutSchema
+     */
+    'results': any;
+}
+/**
+ * 
+ * @export
+ * @interface PaginatedResponseSchemaTechOutSchema
+ */
+export interface PaginatedResponseSchemaTechOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaTechOutSchema
+     */
+    'count': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaTechOutSchema
+     */
+    'next': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaTechOutSchema
+     */
+    'previous': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof PaginatedResponseSchemaTechOutSchema
+     */
+    'results': any;
+}
+/**
+ * 
+ * @export
  * @interface PaginatedResponseSchemaUserOutSchema
  */
 export interface PaginatedResponseSchemaUserOutSchema {
@@ -2284,6 +2360,31 @@ export interface ReleaseEnum {
 export interface SpeedEnum {
 }
 /**
+ * Pydantic schema for showing tag info.
+ * @export
+ * @interface TagOutSchema
+ */
+export interface TagOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof TagOutSchema
+     */
+    'name'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof TagOutSchema
+     */
+    'color'?: any;
+    /**
+     * 
+     * @type {any}
+     * @memberof TagOutSchema
+     */
+    'id'?: any;
+}
+/**
  * Pydantic schema for getting task info.  Purpose of this schema to get task info
  * @export
  * @interface TaskInfoOutSchema
@@ -2295,20 +2396,37 @@ export interface TaskInfoOutSchema {
      * @memberof TaskInfoOutSchema
      */
     'progress': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof TaskInfoOutSchema
+     */
+    'letters_count': any;
 }
 /**
- * 
+ * Pydantic schema for showing Movie techs.
  * @export
- * @interface TechEnum
+ * @interface TechOutSchema
  */
-export interface TechEnum {
-}
-/**
- * 
- * @export
- * @interface TechsEnum
- */
-export interface TechsEnum {
+export interface TechOutSchema {
+    /**
+     * 
+     * @type {any}
+     * @memberof TechOutSchema
+     */
+    'name': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof TechOutSchema
+     */
+    'color': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof TechOutSchema
+     */
+    'id'?: any;
 }
 /**
  * 
@@ -2509,6 +2627,18 @@ export interface UserOutSchema {
      * @type {any}
      * @memberof UserOutSchema
      */
+    'date_joined': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof UserOutSchema
+     */
+    'birthday': any;
+    /**
+     * 
+     * @type {any}
+     * @memberof UserOutSchema
+     */
     'id'?: any;
     /**
      * 
@@ -2564,12 +2694,6 @@ export interface UserOutSchema {
      * @memberof UserOutSchema
      */
     'is_superuser'?: any;
-    /**
-     * 
-     * @type {any}
-     * @memberof UserOutSchema
-     */
-    'birthday': any;
 }
 /**
  * Pydantic schema for User.  Purpose of this schema to get user\'s personal data for registration
@@ -2936,7 +3060,7 @@ export const AuthApiAxiosParamCreator = function (configuration?: Configuration)
             };
         },
         /**
-         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Паролі не співпадають           2) Пароль повинен бути:              * Принаймні одна велика літера              * Принаймні одна мала літера              * Принаймні одна цифра              * Принаймні один спеціальний символ із набору ?!@%^&-              * Мінімальна довжина 8 символів           3) Введено некоректний номер телефону           4) Ім\'я та прізвище повинно починатися з великої літери              (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)     - **409**: Error: Conflict.       Причини:           1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.       Причини:           1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.     Причини:           1) Паролі не співпадають           2) Пароль повинен бути:              * Принаймні одна велика літера              * Принаймні одна мала літера              * Принаймні одна цифра              * Принаймні один спеціальний символ із набору ?!@%^&-              * Мінімальна довжина 8 символів           3) Введено некоректний номер телефону           4) Ім\'я та прізвище повинно починатися з великої літери              (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)     - **500**: Internal server error if an unexpected error occurs.
          * @summary Register
          * @param {UserRegisterSchema} userRegisterSchema 
          * @param {any} [acceptLanguage] 
@@ -3096,7 +3220,7 @@ export const AuthApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Паролі не співпадають           2) Пароль повинен бути:              * Принаймні одна велика літера              * Принаймні одна мала літера              * Принаймні одна цифра              * Принаймні один спеціальний символ із набору ?!@%^&-              * Мінімальна довжина 8 символів           3) Введено некоректний номер телефону           4) Ім\'я та прізвище повинно починатися з великої літери              (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)     - **409**: Error: Conflict.       Причини:           1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.       Причини:           1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.     Причини:           1) Паролі не співпадають           2) Пароль повинен бути:              * Принаймні одна велика літера              * Принаймні одна мала літера              * Принаймні одна цифра              * Принаймні один спеціальний символ із набору ?!@%^&-              * Мінімальна довжина 8 символів           3) Введено некоректний номер телефону           4) Ім\'я та прізвище повинно починатися з великої літери              (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)     - **500**: Internal server error if an unexpected error occurs.
          * @summary Register
          * @param {UserRegisterSchema} userRegisterSchema 
          * @param {any} [acceptLanguage] 
@@ -3185,7 +3309,7 @@ export const AuthApiFactory = function (configuration?: Configuration, basePath?
             return localVarFp.refreshToken(tokenRefreshInputSchema, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Паролі не співпадають           2) Пароль повинен бути:              * Принаймні одна велика літера              * Принаймні одна мала літера              * Принаймні одна цифра              * Принаймні один спеціальний символ із набору ?!@%^&-              * Мінімальна довжина 8 символів           3) Введено некоректний номер телефону           4) Ім\'я та прізвище повинно починатися з великої літери              (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)     - **409**: Error: Conflict.       Причини:           1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.       Причини:           1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.     Причини:           1) Паролі не співпадають           2) Пароль повинен бути:              * Принаймні одна велика літера              * Принаймні одна мала літера              * Принаймні одна цифра              * Принаймні один спеціальний символ із набору ?!@%^&-              * Мінімальна довжина 8 символів           3) Введено некоректний номер телефону           4) Ім\'я та прізвище повинно починатися з великої літери              (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)     - **500**: Internal server error if an unexpected error occurs.
          * @summary Register
          * @param {UserRegisterSchema} userRegisterSchema 
          * @param {any} [acceptLanguage] 
@@ -3424,7 +3548,7 @@ export class AuthApi extends BaseAPI {
     }
 
     /**
-     * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Паролі не співпадають           2) Пароль повинен бути:              * Принаймні одна велика літера              * Принаймні одна мала літера              * Принаймні одна цифра              * Принаймні один спеціальний символ із набору ?!@%^&-              * Мінімальна довжина 8 символів           3) Введено некоректний номер телефону           4) Ім\'я та прізвище повинно починатися з великої літери              (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)     - **409**: Error: Conflict.       Причини:           1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * Register new user.  Please provide:   - **Request body**  data for registration new user  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.       Причини:           1) Ця електронна адреса вже використовується   - **422**: Error: Unprocessable Entity.     Причини:           1) Паролі не співпадають           2) Пароль повинен бути:              * Принаймні одна велика літера              * Принаймні одна мала літера              * Принаймні одна цифра              * Принаймні один спеціальний символ із набору ?!@%^&-              * Мінімальна довжина 8 символів           3) Введено некоректний номер телефону           4) Ім\'я та прізвище повинно починатися з великої літери              (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)     - **500**: Internal server error if an unexpected error occurs.
      * @summary Register
      * @param {AuthApiRegisterRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -3456,7 +3580,7 @@ export class AuthApi extends BaseAPI {
 export const CinemasApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)           2) Введено некоректний номер телефону     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів           5) Введено некоректний номер телефону     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create Cinema
          * @param {CinemaInSchema} cinemaInSchema 
          * @param {any} [acceptLanguage] 
@@ -3503,7 +3627,7 @@ export const CinemasApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Delete cinema by id.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Delete cinema by id.  Please provide:   - **cnm_slug**  slug of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Found.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Cinema By Slug
          * @param {any} cnmSlug 
          * @param {any} [acceptLanguage] 
@@ -3595,7 +3719,7 @@ export const CinemasApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Create cinema.  Please provide:   - **cnm_slug**  slug of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Cinema By Slug
          * @param {any} cnmSlug 
          * @param {any} [acceptLanguage] 
@@ -3636,7 +3760,7 @@ export const CinemasApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)           2) Введено некоректний номер телефону     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Cinema
          * @param {any} cnmSlug 
          * @param {CinemaUpdateSchema} cinemaUpdateSchema 
@@ -3697,7 +3821,7 @@ export const CinemasApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CinemasApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)           2) Введено некоректний номер телефону     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів           5) Введено некоректний номер телефону     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create Cinema
          * @param {CinemaInSchema} cinemaInSchema 
          * @param {any} [acceptLanguage] 
@@ -3709,7 +3833,7 @@ export const CinemasApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Delete cinema by id.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Delete cinema by id.  Please provide:   - **cnm_slug**  slug of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Found.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Cinema By Slug
          * @param {any} cnmSlug 
          * @param {any} [acceptLanguage] 
@@ -3734,7 +3858,7 @@ export const CinemasApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Create cinema.  Please provide:   - **cnm_slug**  slug of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Cinema By Slug
          * @param {any} cnmSlug 
          * @param {any} [acceptLanguage] 
@@ -3746,7 +3870,7 @@ export const CinemasApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)           2) Введено некоректний номер телефону     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Cinema
          * @param {any} cnmSlug 
          * @param {CinemaUpdateSchema} cinemaUpdateSchema 
@@ -3769,7 +3893,7 @@ export const CinemasApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = CinemasApiFp(configuration)
     return {
         /**
-         * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)           2) Введено некоректний номер телефону     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів           5) Введено некоректний номер телефону     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create Cinema
          * @param {CinemaInSchema} cinemaInSchema 
          * @param {any} [acceptLanguage] 
@@ -3780,7 +3904,7 @@ export const CinemasApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.createCinema(cinemaInSchema, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete cinema by id.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Delete cinema by id.  Please provide:   - **cnm_slug**  slug of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Found.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Cinema By Slug
          * @param {any} cnmSlug 
          * @param {any} [acceptLanguage] 
@@ -3803,7 +3927,7 @@ export const CinemasApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getAllCinemaCards(acceptLanguage, page, pageSize, options).then((request) => request(axios, basePath));
         },
         /**
-         * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Create cinema.  Please provide:   - **cnm_slug**  slug of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Cinema By Slug
          * @param {any} cnmSlug 
          * @param {any} [acceptLanguage] 
@@ -3814,7 +3938,7 @@ export const CinemasApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getCinemaBySlug(cnmSlug, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)           2) Введено некоректний номер телефону     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Cinema
          * @param {any} cnmSlug 
          * @param {CinemaUpdateSchema} cinemaUpdateSchema 
@@ -3955,7 +4079,7 @@ export interface CinemasApiUpdateCinemaRequest {
  */
 export class CinemasApi extends BaseAPI {
     /**
-     * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)           2) Введено некоректний номер телефону     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+     * Create cinema.  Please provide:   - **body**  body for creating new cinema  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів           5) Введено некоректний номер телефону     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
      * @summary Create Cinema
      * @param {CinemasApiCreateCinemaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -3967,7 +4091,7 @@ export class CinemasApi extends BaseAPI {
     }
 
     /**
-     * Delete cinema by id.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * Delete cinema by id.  Please provide:   - **cnm_slug**  slug of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Found.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
      * @summary Delete Cinema By Slug
      * @param {CinemasApiDeleteCinemaBySlugRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -3991,7 +4115,7 @@ export class CinemasApi extends BaseAPI {
     }
 
     /**
-     * Create cinema.  Please provide:   - **cinema_id**  id of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * Create cinema.  Please provide:   - **cnm_slug**  slug of cinema  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
      * @summary Get Cinema By Slug
      * @param {CinemasApiGetCinemaBySlugRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -4003,7 +4127,7 @@ export class CinemasApi extends BaseAPI {
     }
 
     /**
-     * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)           2) Введено некоректний номер телефону     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+     * Update cinema.  Please provide:   - **body**  body for creating new cinema  Returns   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів кінотеатрів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
      * @summary Update Cinema
      * @param {CinemasApiUpdateCinemaRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -4158,7 +4282,7 @@ export class GalleriesApi extends BaseAPI {
 export const HallsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create Hall
          * @param {any} cnmSlug 
          * @param {HallInSchema} hallInSchema 
@@ -4212,7 +4336,7 @@ export const HallsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Delete hall by id.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Delete hall by id.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Hall By Slug
          * @param {any} hallId 
          * @param {any} [acceptLanguage] 
@@ -4311,7 +4435,7 @@ export const HallsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Create hall.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Create hall.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Hall By Id
          * @param {any} hallId 
          * @param {any} [acceptLanguage] 
@@ -4352,7 +4476,7 @@ export const HallsApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Update hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Found.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Hall
          * @param {any} hallId 
          * @param {HallUpdateSchema} hallUpdateSchema 
@@ -4413,7 +4537,7 @@ export const HallsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = HallsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create Hall
          * @param {any} cnmSlug 
          * @param {HallInSchema} hallInSchema 
@@ -4426,7 +4550,7 @@ export const HallsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Delete hall by id.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Delete hall by id.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Hall By Slug
          * @param {any} hallId 
          * @param {any} [acceptLanguage] 
@@ -4452,7 +4576,7 @@ export const HallsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Create hall.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Create hall.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Hall By Id
          * @param {any} hallId 
          * @param {any} [acceptLanguage] 
@@ -4464,7 +4588,7 @@ export const HallsApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Found.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Hall
          * @param {any} hallId 
          * @param {HallUpdateSchema} hallUpdateSchema 
@@ -4487,7 +4611,7 @@ export const HallsApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = HallsApiFp(configuration)
     return {
         /**
-         * Create hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create Hall
          * @param {any} cnmSlug 
          * @param {HallInSchema} hallInSchema 
@@ -4499,7 +4623,7 @@ export const HallsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.createHall(cnmSlug, hallInSchema, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete hall by id.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Delete hall by id.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Hall By Slug
          * @param {any} hallId 
          * @param {any} [acceptLanguage] 
@@ -4523,7 +4647,7 @@ export const HallsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getAllHallCards(cnmSlug, page, pageSize, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Create hall.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Create hall.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Hall By Id
          * @param {any} hallId 
          * @param {any} [acceptLanguage] 
@@ -4534,7 +4658,7 @@ export const HallsApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getHallById(hallId, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Found.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Hall
          * @param {any} hallId 
          * @param {HallUpdateSchema} hallUpdateSchema 
@@ -4689,7 +4813,7 @@ export interface HallsApiUpdateHallRequest {
  */
 export class HallsApi extends BaseAPI {
     /**
-     * Create hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+     * Create hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
      * @summary Create Hall
      * @param {HallsApiCreateHallRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -4701,7 +4825,7 @@ export class HallsApi extends BaseAPI {
     }
 
     /**
-     * Delete hall by id.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * Delete hall by id.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
      * @summary Delete Hall By Slug
      * @param {HallsApiDeleteHallBySlugRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -4725,7 +4849,7 @@ export class HallsApi extends BaseAPI {
     }
 
     /**
-     * Create hall.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * Create hall.  Please provide:   - **hall_id**  id of hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
      * @summary Get Hall By Id
      * @param {HallsApiGetHallByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -4737,7 +4861,7 @@ export class HallsApi extends BaseAPI {
     }
 
     /**
-     * Update hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+     * Update hall.  Please provide:   - **body**  body for creating new hall  Returns:   - **200**: Success response with the data.   - **404**: Error: Found.       Причини:           1) Не знайдено: немає збігів залів            на заданному запиті.           2) Не знайдено: немає збігів картинок            на заданному запиті.     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина number 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
      * @summary Update Hall
      * @param {HallsApiUpdateHallRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -4757,7 +4881,7 @@ export class HallsApi extends BaseAPI {
 export const MailingApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Дозволено відправляти тільки html           2) Максимально дозволений розмір файлу 1MB     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.     Причини:           1) Дозволено відправляти тільки html           2) Максимально дозволений розмір файлу 1MB     - **500**: Internal server error if an unexpected error occurs.
          * @summary Create Template
          * @param {any} file 
          * @param {any} [acceptLanguage] 
@@ -4809,7 +4933,7 @@ export const MailingApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **403**: Error: Not Found.      Причини:           1) Не можна видаляти шаблони поки йде розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **400**: Error: Not Found.      Причини:           1) Не можна видаляти шаблони поки йде розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Template
          * @param {any} tempId 
          * @param {any} [acceptLanguage] 
@@ -4895,7 +5019,7 @@ export const MailingApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Треба зачекати поки закінчиться поточне розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **400**: Error: Not Found.       Причини:           1) Треба зачекати поки закінчиться поточне розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Start Mailing
          * @param {MailingInSchema} mailingInSchema 
          * @param {any} [acceptLanguage] 
@@ -4942,8 +5066,8 @@ export const MailingApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **201**: Success mailing completed.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Status Mailing
+         * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **201**: Success mailing completed.   - **400**: Error: Not Found.       Причини:           1) Hа теперішній час розсилання не активне.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get status of mailing (Long polling)
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -4993,7 +5117,7 @@ export const MailingApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MailingApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Дозволено відправляти тільки html           2) Максимально дозволений розмір файлу 1MB     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.     Причини:           1) Дозволено відправляти тільки html           2) Максимально дозволений розмір файлу 1MB     - **500**: Internal server error if an unexpected error occurs.
          * @summary Create Template
          * @param {any} file 
          * @param {any} [acceptLanguage] 
@@ -5005,7 +5129,7 @@ export const MailingApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **403**: Error: Not Found.      Причини:           1) Не можна видаляти шаблони поки йде розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **400**: Error: Not Found.      Причини:           1) Не можна видаляти шаблони поки йде розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Template
          * @param {any} tempId 
          * @param {any} [acceptLanguage] 
@@ -5028,7 +5152,7 @@ export const MailingApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Треба зачекати поки закінчиться поточне розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **400**: Error: Not Found.       Причини:           1) Треба зачекати поки закінчиться поточне розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Start Mailing
          * @param {MailingInSchema} mailingInSchema 
          * @param {any} [acceptLanguage] 
@@ -5040,8 +5164,8 @@ export const MailingApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **201**: Success mailing completed.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Status Mailing
+         * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **201**: Success mailing completed.   - **400**: Error: Not Found.       Причини:           1) Hа теперішній час розсилання не активне.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get status of mailing (Long polling)
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5061,7 +5185,7 @@ export const MailingApiFactory = function (configuration?: Configuration, basePa
     const localVarFp = MailingApiFp(configuration)
     return {
         /**
-         * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Дозволено відправляти тільки html           2) Максимально дозволений розмір файлу 1MB     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.     Причини:           1) Дозволено відправляти тільки html           2) Максимально дозволений розмір файлу 1MB     - **500**: Internal server error if an unexpected error occurs.
          * @summary Create Template
          * @param {any} file 
          * @param {any} [acceptLanguage] 
@@ -5072,7 +5196,7 @@ export const MailingApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.createTemplate(file, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **403**: Error: Not Found.      Причини:           1) Не можна видаляти шаблони поки йде розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **400**: Error: Not Found.      Причини:           1) Не можна видаляти шаблони поки йде розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Template
          * @param {any} tempId 
          * @param {any} [acceptLanguage] 
@@ -5093,7 +5217,7 @@ export const MailingApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getTemplates(acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Треба зачекати поки закінчиться поточне розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **400**: Error: Not Found.       Причини:           1) Треба зачекати поки закінчиться поточне розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Start Mailing
          * @param {MailingInSchema} mailingInSchema 
          * @param {any} [acceptLanguage] 
@@ -5104,8 +5228,8 @@ export const MailingApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.startMailing(mailingInSchema, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **201**: Success mailing completed.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-         * @summary Status Mailing
+         * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **201**: Success mailing completed.   - **400**: Error: Not Found.       Причини:           1) Hа теперішній час розсилання не активне.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get status of mailing (Long polling)
          * @param {any} [acceptLanguage] 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -5215,7 +5339,7 @@ export interface MailingApiStatusMailingRequest {
  */
 export class MailingApi extends BaseAPI {
     /**
-     * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Дозволено відправляти тільки html           2) Максимально дозволений розмір файлу 1MB     - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * Create template for mailing.  Please provide:   - **file**  file for new template  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.     Причини:           1) Дозволено відправляти тільки html           2) Максимально дозволений розмір файлу 1MB     - **500**: Internal server error if an unexpected error occurs.
      * @summary Create Template
      * @param {MailingApiCreateTemplateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5227,7 +5351,7 @@ export class MailingApi extends BaseAPI {
     }
 
     /**
-     * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **403**: Error: Not Found.      Причини:           1) Не можна видаляти шаблони поки йде розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * Delete template for mailing by id.  Returns:   - **200**: Success response with the data.   - **400**: Error: Not Found.      Причини:           1) Не можна видаляти шаблони поки йде розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Delete Template
      * @param {MailingApiDeleteTemplateRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5251,7 +5375,7 @@ export class MailingApi extends BaseAPI {
     }
 
     /**
-     * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Треба зачекати поки закінчиться поточне розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * Start mailing letter to recipients.  Returns:   - **200**: Success response with the data.   - **400**: Error: Not Found.       Причини:           1) Треба зачекати поки закінчиться поточне розсилання.   - **404**: Error: Not Found.      Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Start Mailing
      * @param {MailingApiStartMailingRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -5263,8 +5387,8 @@ export class MailingApi extends BaseAPI {
     }
 
     /**
-     * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **201**: Success mailing completed.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
-     * @summary Status Mailing
+     * Get status for current mailing.  Returns:   - **200**: Success response with the data.   - **201**: Success mailing completed.   - **400**: Error: Not Found.       Причини:           1) Hа теперішній час розсилання не активне.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів шаблонів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get status of mailing (Long polling)
      * @param {MailingApiStatusMailingRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -5283,7 +5407,7 @@ export class MailingApi extends BaseAPI {
 export const MoviesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create movie.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create movie.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create Movie
          * @param {MovieInSchema} movieInSchema 
          * @param {any} [acceptLanguage] 
@@ -5474,7 +5598,7 @@ export const MoviesApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Get movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Get movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Movie By Slug
          * @param {any} mvSlug 
          * @param {any} [acceptLanguage] 
@@ -5656,6 +5780,43 @@ export const MoviesApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
+         * Get participants for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Participants Grouped
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getParticipantsGrouped: async (acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/movie/participants-grouped/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get techs for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Techs
          * @param {any} [acceptLanguage] 
@@ -5703,7 +5864,7 @@ export const MoviesApiAxiosParamCreator = function (configuration?: Configuratio
             };
         },
         /**
-         * Update movie by slug.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update movie by slug.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Movie
          * @param {any} mvSlug 
          * @param {MovieUpdateSchema} movieUpdateSchema 
@@ -5764,7 +5925,7 @@ export const MoviesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MoviesApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create movie.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create movie.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create Movie
          * @param {MovieInSchema} movieInSchema 
          * @param {any} [acceptLanguage] 
@@ -5815,7 +5976,7 @@ export const MoviesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Get movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Get movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Movie By Slug
          * @param {any} mvSlug 
          * @param {any} [acceptLanguage] 
@@ -5866,6 +6027,17 @@ export const MoviesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Get participants for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Participants Grouped
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getParticipantsGrouped(acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<MovieParticipantRoleOutSchema>>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getParticipantsGrouped(acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get techs for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Techs
          * @param {any} [acceptLanguage] 
@@ -5874,12 +6046,12 @@ export const MoviesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getTechs(acceptLanguage?: any, page?: any, pageSize?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaList>> {
+        async getTechs(acceptLanguage?: any, page?: any, pageSize?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaTechOutSchema>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getTechs(acceptLanguage, page, pageSize, options);
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update movie by slug.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update movie by slug.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Movie
          * @param {any} mvSlug 
          * @param {MovieUpdateSchema} movieUpdateSchema 
@@ -5902,7 +6074,7 @@ export const MoviesApiFactory = function (configuration?: Configuration, basePat
     const localVarFp = MoviesApiFp(configuration)
     return {
         /**
-         * Create movie.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create movie.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create Movie
          * @param {MovieInSchema} movieInSchema 
          * @param {any} [acceptLanguage] 
@@ -5949,7 +6121,7 @@ export const MoviesApiFactory = function (configuration?: Configuration, basePat
             return localVarFp.getCountries(acceptLanguage, page, pageSize, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Get movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Movie By Slug
          * @param {any} mvSlug 
          * @param {any} [acceptLanguage] 
@@ -5996,6 +6168,16 @@ export const MoviesApiFactory = function (configuration?: Configuration, basePat
             return localVarFp.getParticipants(acceptLanguage, page, pageSize, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get participants for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Participants Grouped
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getParticipantsGrouped(acceptLanguage?: any, options?: any): AxiosPromise<Array<MovieParticipantRoleOutSchema>> {
+            return localVarFp.getParticipantsGrouped(acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get techs for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
          * @summary Get Techs
          * @param {any} [acceptLanguage] 
@@ -6004,11 +6186,11 @@ export const MoviesApiFactory = function (configuration?: Configuration, basePat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getTechs(acceptLanguage?: any, page?: any, pageSize?: any, options?: any): AxiosPromise<PaginatedResponseSchemaList> {
+        getTechs(acceptLanguage?: any, page?: any, pageSize?: any, options?: any): AxiosPromise<PaginatedResponseSchemaTechOutSchema> {
             return localVarFp.getTechs(acceptLanguage, page, pageSize, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update movie by slug.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update movie by slug.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Movie
          * @param {any} mvSlug 
          * @param {MovieUpdateSchema} movieUpdateSchema 
@@ -6233,6 +6415,20 @@ export interface MoviesApiGetParticipantsRequest {
 }
 
 /**
+ * Request parameters for getParticipantsGrouped operation in MoviesApi.
+ * @export
+ * @interface MoviesApiGetParticipantsGroupedRequest
+ */
+export interface MoviesApiGetParticipantsGroupedRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof MoviesApiGetParticipantsGrouped
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
  * Request parameters for getTechs operation in MoviesApi.
  * @export
  * @interface MoviesApiGetTechsRequest
@@ -6296,7 +6492,7 @@ export interface MoviesApiUpdateMovieRequest {
  */
 export class MoviesApi extends BaseAPI {
     /**
-     * Create movie.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+     * Create movie.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
      * @summary Create Movie
      * @param {MoviesApiCreateMovieRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -6344,7 +6540,7 @@ export class MoviesApi extends BaseAPI {
     }
 
     /**
-     * Get movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * Get movie by slug.  Please provide:   - **mv_slug**  slug of movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
      * @summary Get Movie By Slug
      * @param {MoviesApiGetMovieBySlugRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -6392,6 +6588,18 @@ export class MoviesApi extends BaseAPI {
     }
 
     /**
+     * Get participants for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get Participants Grouped
+     * @param {MoviesApiGetParticipantsGroupedRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof MoviesApi
+     */
+    public getParticipantsGrouped(requestParameters: MoviesApiGetParticipantsGroupedRequest = {}, options?: AxiosRequestConfig) {
+        return MoviesApiFp(this.configuration).getParticipantsGrouped(requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
      * Get techs for input.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Get Techs
      * @param {MoviesApiGetTechsRequest} requestParameters Request parameters.
@@ -6404,7 +6612,7 @@ export class MoviesApi extends BaseAPI {
     }
 
     /**
-     * Update movie by slug.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+     * Update movie by slug.  Please provide:   - **body**  body for creating new movie  Returns:   - **200**: Success response with the data.   - **404**: Error: Not Found.       Причини:           1) Не знайдено: немає збігів фільмів            на заданному запиті.     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 100 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.  Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
      * @summary Update Movie
      * @param {MoviesApiUpdateMovieRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -6418,13 +6626,13 @@ export class MoviesApi extends BaseAPI {
 
 
 /**
- * NewsPromosApi - axios parameter creator
+ * NewsAndPromosApi - axios parameter creator
  * @export
  */
-export const NewsPromosApiAxiosParamCreator = function (configuration?: Configuration) {
+export const NewsAndPromosApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів           5) Максимальна кількість тегів 5     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create News Promo
          * @param {NewsPromoInSchema} newsPromoInSchema 
          * @param {any} [acceptLanguage] 
@@ -6434,7 +6642,7 @@ export const NewsPromosApiAxiosParamCreator = function (configuration?: Configur
         createNewsPromo: async (newsPromoInSchema: NewsPromoInSchema, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'newsPromoInSchema' is not null or undefined
             assertParamExists('createNewsPromo', 'newsPromoInSchema', newsPromoInSchema)
-            const localVarPath = `/api/news_promo/`;
+            const localVarPath = `/api/news-promo/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6481,7 +6689,7 @@ export const NewsPromosApiAxiosParamCreator = function (configuration?: Configur
         deleteNewsPromoBySlug: async (npSlug: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'npSlug' is not null or undefined
             assertParamExists('deleteNewsPromoBySlug', 'npSlug', npSlug)
-            const localVarPath = `/api/news_promo/{np_slug}/`
+            const localVarPath = `/api/news-promo/{np_slug}/`
                 .replace(`{${"np_slug"}}`, encodeURIComponent(String(npSlug)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6528,7 +6736,7 @@ export const NewsPromosApiAxiosParamCreator = function (configuration?: Configur
         getAllNewsPromoCards: async (promo: any, page?: any, pageSize?: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'promo' is not null or undefined
             assertParamExists('getAllNewsPromoCards', 'promo', promo)
-            const localVarPath = `/api/news_promo/all-cards/`;
+            const localVarPath = `/api/news-promo/all-cards/`;
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -6574,6 +6782,57 @@ export const NewsPromosApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
+         * Get all tags.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get All Tags
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAllTags: async (acceptLanguage?: any, page?: any, pageSize?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/news-promo/all-tags/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (page !== undefined) {
+                localVarQueryParameter['page'] = page;
+            }
+
+            if (pageSize !== undefined) {
+                localVarQueryParameter['page_size'] = pageSize;
+            }
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Get news or promo by slug.  Please provide slug:   - **news_promo_slug**  slug of news or promo  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів новин чи акцій            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get News Promo By Slug
          * @param {any} npSlug 
@@ -6584,7 +6843,7 @@ export const NewsPromosApiAxiosParamCreator = function (configuration?: Configur
         getNewsPromoBySlug: async (npSlug: any, acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'npSlug' is not null or undefined
             assertParamExists('getNewsPromoBySlug', 'npSlug', npSlug)
-            const localVarPath = `/api/news_promo/{np_slug}/`
+            const localVarPath = `/api/news-promo/{np_slug}/`
                 .replace(`{${"np_slug"}}`, encodeURIComponent(String(npSlug)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6619,7 +6878,7 @@ export const NewsPromosApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Update news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns   - **200**: Success response with the data.   - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів           5) Максимальна кількість тегів 5      - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update News Promo
          * @param {any} npSlug 
          * @param {NewsPromoUpdateSchema} newsPromoUpdateSchema 
@@ -6632,7 +6891,7 @@ export const NewsPromosApiAxiosParamCreator = function (configuration?: Configur
             assertParamExists('updateNewsPromo', 'npSlug', npSlug)
             // verify required parameter 'newsPromoUpdateSchema' is not null or undefined
             assertParamExists('updateNewsPromo', 'newsPromoUpdateSchema', newsPromoUpdateSchema)
-            const localVarPath = `/api/news_promo/{np_slug}/`
+            const localVarPath = `/api/news-promo/{np_slug}/`
                 .replace(`{${"np_slug"}}`, encodeURIComponent(String(npSlug)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -6673,14 +6932,14 @@ export const NewsPromosApiAxiosParamCreator = function (configuration?: Configur
 };
 
 /**
- * NewsPromosApi - functional programming interface
+ * NewsAndPromosApi - functional programming interface
  * @export
  */
-export const NewsPromosApiFp = function(configuration?: Configuration) {
-    const localVarAxiosParamCreator = NewsPromosApiAxiosParamCreator(configuration)
+export const NewsAndPromosApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = NewsAndPromosApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів           5) Максимальна кількість тегів 5     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create News Promo
          * @param {NewsPromoInSchema} newsPromoInSchema 
          * @param {any} [acceptLanguage] 
@@ -6718,6 +6977,19 @@ export const NewsPromosApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
+         * Get all tags.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get All Tags
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAllTags(acceptLanguage?: any, page?: any, pageSize?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<PaginatedResponseSchemaTagOutSchema>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAllTags(acceptLanguage, page, pageSize, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
          * Get news or promo by slug.  Please provide slug:   - **news_promo_slug**  slug of news or promo  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів новин чи акцій            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get News Promo By Slug
          * @param {any} npSlug 
@@ -6730,7 +7002,7 @@ export const NewsPromosApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns   - **200**: Success response with the data.   - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів           5) Максимальна кількість тегів 5      - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update News Promo
          * @param {any} npSlug 
          * @param {NewsPromoUpdateSchema} newsPromoUpdateSchema 
@@ -6746,14 +7018,14 @@ export const NewsPromosApiFp = function(configuration?: Configuration) {
 };
 
 /**
- * NewsPromosApi - factory interface
+ * NewsAndPromosApi - factory interface
  * @export
  */
-export const NewsPromosApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
-    const localVarFp = NewsPromosApiFp(configuration)
+export const NewsAndPromosApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = NewsAndPromosApiFp(configuration)
     return {
         /**
-         * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів           5) Максимальна кількість тегів 5     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create News Promo
          * @param {NewsPromoInSchema} newsPromoInSchema 
          * @param {any} [acceptLanguage] 
@@ -6788,6 +7060,18 @@ export const NewsPromosApiFactory = function (configuration?: Configuration, bas
             return localVarFp.getAllNewsPromoCards(promo, page, pageSize, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
+         * Get all tags.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get All Tags
+         * @param {any} [acceptLanguage] 
+         * @param {any} [page] 
+         * @param {any} [pageSize] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAllTags(acceptLanguage?: any, page?: any, pageSize?: any, options?: any): AxiosPromise<PaginatedResponseSchemaTagOutSchema> {
+            return localVarFp.getAllTags(acceptLanguage, page, pageSize, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Get news or promo by slug.  Please provide slug:   - **news_promo_slug**  slug of news or promo  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів новин чи акцій            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Get News Promo By Slug
          * @param {any} npSlug 
@@ -6799,7 +7083,7 @@ export const NewsPromosApiFactory = function (configuration?: Configuration, bas
             return localVarFp.getNewsPromoBySlug(npSlug, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns   - **200**: Success response with the data.   - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів           5) Максимальна кількість тегів 5      - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update News Promo
          * @param {any} npSlug 
          * @param {NewsPromoUpdateSchema} newsPromoUpdateSchema 
@@ -6814,196 +7098,236 @@ export const NewsPromosApiFactory = function (configuration?: Configuration, bas
 };
 
 /**
- * Request parameters for createNewsPromo operation in NewsPromosApi.
+ * Request parameters for createNewsPromo operation in NewsAndPromosApi.
  * @export
- * @interface NewsPromosApiCreateNewsPromoRequest
+ * @interface NewsAndPromosApiCreateNewsPromoRequest
  */
-export interface NewsPromosApiCreateNewsPromoRequest {
+export interface NewsAndPromosApiCreateNewsPromoRequest {
     /**
      * 
      * @type {NewsPromoInSchema}
-     * @memberof NewsPromosApiCreateNewsPromo
+     * @memberof NewsAndPromosApiCreateNewsPromo
      */
     readonly newsPromoInSchema: NewsPromoInSchema
 
     /**
      * 
      * @type {any}
-     * @memberof NewsPromosApiCreateNewsPromo
+     * @memberof NewsAndPromosApiCreateNewsPromo
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * Request parameters for deleteNewsPromoBySlug operation in NewsPromosApi.
+ * Request parameters for deleteNewsPromoBySlug operation in NewsAndPromosApi.
  * @export
- * @interface NewsPromosApiDeleteNewsPromoBySlugRequest
+ * @interface NewsAndPromosApiDeleteNewsPromoBySlugRequest
  */
-export interface NewsPromosApiDeleteNewsPromoBySlugRequest {
+export interface NewsAndPromosApiDeleteNewsPromoBySlugRequest {
     /**
      * 
      * @type {any}
-     * @memberof NewsPromosApiDeleteNewsPromoBySlug
+     * @memberof NewsAndPromosApiDeleteNewsPromoBySlug
      */
     readonly npSlug: any
 
     /**
      * 
      * @type {any}
-     * @memberof NewsPromosApiDeleteNewsPromoBySlug
+     * @memberof NewsAndPromosApiDeleteNewsPromoBySlug
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * Request parameters for getAllNewsPromoCards operation in NewsPromosApi.
+ * Request parameters for getAllNewsPromoCards operation in NewsAndPromosApi.
  * @export
- * @interface NewsPromosApiGetAllNewsPromoCardsRequest
+ * @interface NewsAndPromosApiGetAllNewsPromoCardsRequest
  */
-export interface NewsPromosApiGetAllNewsPromoCardsRequest {
+export interface NewsAndPromosApiGetAllNewsPromoCardsRequest {
     /**
      * 
      * @type {any}
-     * @memberof NewsPromosApiGetAllNewsPromoCards
+     * @memberof NewsAndPromosApiGetAllNewsPromoCards
      */
     readonly promo: any
 
     /**
      * 
      * @type {any}
-     * @memberof NewsPromosApiGetAllNewsPromoCards
+     * @memberof NewsAndPromosApiGetAllNewsPromoCards
      */
     readonly page?: any
 
     /**
      * 
      * @type {any}
-     * @memberof NewsPromosApiGetAllNewsPromoCards
+     * @memberof NewsAndPromosApiGetAllNewsPromoCards
      */
     readonly pageSize?: any
 
     /**
      * 
      * @type {any}
-     * @memberof NewsPromosApiGetAllNewsPromoCards
+     * @memberof NewsAndPromosApiGetAllNewsPromoCards
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * Request parameters for getNewsPromoBySlug operation in NewsPromosApi.
+ * Request parameters for getAllTags operation in NewsAndPromosApi.
  * @export
- * @interface NewsPromosApiGetNewsPromoBySlugRequest
+ * @interface NewsAndPromosApiGetAllTagsRequest
  */
-export interface NewsPromosApiGetNewsPromoBySlugRequest {
+export interface NewsAndPromosApiGetAllTagsRequest {
     /**
      * 
      * @type {any}
-     * @memberof NewsPromosApiGetNewsPromoBySlug
+     * @memberof NewsAndPromosApiGetAllTags
+     */
+    readonly acceptLanguage?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof NewsAndPromosApiGetAllTags
+     */
+    readonly page?: any
+
+    /**
+     * 
+     * @type {any}
+     * @memberof NewsAndPromosApiGetAllTags
+     */
+    readonly pageSize?: any
+}
+
+/**
+ * Request parameters for getNewsPromoBySlug operation in NewsAndPromosApi.
+ * @export
+ * @interface NewsAndPromosApiGetNewsPromoBySlugRequest
+ */
+export interface NewsAndPromosApiGetNewsPromoBySlugRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof NewsAndPromosApiGetNewsPromoBySlug
      */
     readonly npSlug: any
 
     /**
      * 
      * @type {any}
-     * @memberof NewsPromosApiGetNewsPromoBySlug
+     * @memberof NewsAndPromosApiGetNewsPromoBySlug
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * Request parameters for updateNewsPromo operation in NewsPromosApi.
+ * Request parameters for updateNewsPromo operation in NewsAndPromosApi.
  * @export
- * @interface NewsPromosApiUpdateNewsPromoRequest
+ * @interface NewsAndPromosApiUpdateNewsPromoRequest
  */
-export interface NewsPromosApiUpdateNewsPromoRequest {
+export interface NewsAndPromosApiUpdateNewsPromoRequest {
     /**
      * 
      * @type {any}
-     * @memberof NewsPromosApiUpdateNewsPromo
+     * @memberof NewsAndPromosApiUpdateNewsPromo
      */
     readonly npSlug: any
 
     /**
      * 
      * @type {NewsPromoUpdateSchema}
-     * @memberof NewsPromosApiUpdateNewsPromo
+     * @memberof NewsAndPromosApiUpdateNewsPromo
      */
     readonly newsPromoUpdateSchema: NewsPromoUpdateSchema
 
     /**
      * 
      * @type {any}
-     * @memberof NewsPromosApiUpdateNewsPromo
+     * @memberof NewsAndPromosApiUpdateNewsPromo
      */
     readonly acceptLanguage?: any
 }
 
 /**
- * NewsPromosApi - object-oriented interface
+ * NewsAndPromosApi - object-oriented interface
  * @export
- * @class NewsPromosApi
+ * @class NewsAndPromosApi
  * @extends {BaseAPI}
  */
-export class NewsPromosApi extends BaseAPI {
+export class NewsAndPromosApi extends BaseAPI {
     /**
-     * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+     * Create news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів           5) Максимальна кількість тегів 5     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified.             Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified.             Example: *filename.png*            c) optional alt. If you don\'t specify it,             I\'ll take the value from filename        4. Be sure to specify the field delete=false 
      * @summary Create News Promo
-     * @param {NewsPromosApiCreateNewsPromoRequest} requestParameters Request parameters.
+     * @param {NewsAndPromosApiCreateNewsPromoRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NewsPromosApi
+     * @memberof NewsAndPromosApi
      */
-    public createNewsPromo(requestParameters: NewsPromosApiCreateNewsPromoRequest, options?: AxiosRequestConfig) {
-        return NewsPromosApiFp(this.configuration).createNewsPromo(requestParameters.newsPromoInSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public createNewsPromo(requestParameters: NewsAndPromosApiCreateNewsPromoRequest, options?: AxiosRequestConfig) {
+        return NewsAndPromosApiFp(this.configuration).createNewsPromo(requestParameters.newsPromoInSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Delete news_promo by slug.  Please provide:   - **news_promo_slug**  slug of news_promo  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів новин чи акцій            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
      * @summary Delete News Promo By Slug
-     * @param {NewsPromosApiDeleteNewsPromoBySlugRequest} requestParameters Request parameters.
+     * @param {NewsAndPromosApiDeleteNewsPromoBySlugRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NewsPromosApi
+     * @memberof NewsAndPromosApi
      */
-    public deleteNewsPromoBySlug(requestParameters: NewsPromosApiDeleteNewsPromoBySlugRequest, options?: AxiosRequestConfig) {
-        return NewsPromosApiFp(this.configuration).deleteNewsPromoBySlug(requestParameters.npSlug, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public deleteNewsPromoBySlug(requestParameters: NewsAndPromosApiDeleteNewsPromoBySlugRequest, options?: AxiosRequestConfig) {
+        return NewsAndPromosApiFp(this.configuration).deleteNewsPromoBySlug(requestParameters.npSlug, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get all news_promo cards.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
      * @summary Get All News Promo Cards
-     * @param {NewsPromosApiGetAllNewsPromoCardsRequest} requestParameters Request parameters.
+     * @param {NewsAndPromosApiGetAllNewsPromoCardsRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NewsPromosApi
+     * @memberof NewsAndPromosApi
      */
-    public getAllNewsPromoCards(requestParameters: NewsPromosApiGetAllNewsPromoCardsRequest, options?: AxiosRequestConfig) {
-        return NewsPromosApiFp(this.configuration).getAllNewsPromoCards(requestParameters.promo, requestParameters.page, requestParameters.pageSize, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public getAllNewsPromoCards(requestParameters: NewsAndPromosApiGetAllNewsPromoCardsRequest, options?: AxiosRequestConfig) {
+        return NewsAndPromosApiFp(this.configuration).getAllNewsPromoCards(requestParameters.promo, requestParameters.page, requestParameters.pageSize, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get all tags.  Returns:   - **200**: Success response with the data.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get All Tags
+     * @param {NewsAndPromosApiGetAllTagsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof NewsAndPromosApi
+     */
+    public getAllTags(requestParameters: NewsAndPromosApiGetAllTagsRequest = {}, options?: AxiosRequestConfig) {
+        return NewsAndPromosApiFp(this.configuration).getAllTags(requestParameters.acceptLanguage, requestParameters.page, requestParameters.pageSize, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
      * Get news or promo by slug.  Please provide slug:   - **news_promo_slug**  slug of news or promo  Returns:   - **200**: Success response with the data.   - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів новин чи акцій            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
      * @summary Get News Promo By Slug
-     * @param {NewsPromosApiGetNewsPromoBySlugRequest} requestParameters Request parameters.
+     * @param {NewsAndPromosApiGetNewsPromoBySlugRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NewsPromosApi
+     * @memberof NewsAndPromosApi
      */
-    public getNewsPromoBySlug(requestParameters: NewsPromosApiGetNewsPromoBySlugRequest, options?: AxiosRequestConfig) {
-        return NewsPromosApiFp(this.configuration).getNewsPromoBySlug(requestParameters.npSlug, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public getNewsPromoBySlug(requestParameters: NewsAndPromosApiGetNewsPromoBySlugRequest, options?: AxiosRequestConfig) {
+        return NewsAndPromosApiFp(this.configuration).getNewsPromoBySlug(requestParameters.npSlug, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Update news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name, description,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+     * Update news_promo.  Please provide:   - **body**  body for creating new news_promo  Returns   - **200**: Success response with the data.   - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина description 20_000 символів           2) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів           5) Максимальна кількість тегів 5      - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
      * @summary Update News Promo
-     * @param {NewsPromosApiUpdateNewsPromoRequest} requestParameters Request parameters.
+     * @param {NewsAndPromosApiUpdateNewsPromoRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof NewsPromosApi
+     * @memberof NewsAndPromosApi
      */
-    public updateNewsPromo(requestParameters: NewsPromosApiUpdateNewsPromoRequest, options?: AxiosRequestConfig) {
-        return NewsPromosApiFp(this.configuration).updateNewsPromo(requestParameters.npSlug, requestParameters.newsPromoUpdateSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    public updateNewsPromo(requestParameters: NewsAndPromosApiUpdateNewsPromoRequest, options?: AxiosRequestConfig) {
+        return NewsAndPromosApiFp(this.configuration).updateNewsPromo(requestParameters.npSlug, requestParameters.newsPromoUpdateSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -7015,7 +7339,7 @@ export class NewsPromosApi extends BaseAPI {
 export const PagesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create page.  Please provide:   - **body**  body for creating new page  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create page.  Please provide:   - **body**  body for creating new page  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create Page
          * @param {PageInSchema} pageInSchema 
          * @param {any} [acceptLanguage] 
@@ -7062,7 +7386,7 @@ export const PagesApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Delete page by slug.  Please provide:   - **pg_slug**  slug of page  Returns:   - **200**: Success response with the data.     - **409**: Error: Conflict.       Причини:           1) Цю сторінку заборонено видаляти.     - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів сторінок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Delete page by slug.  Please provide:   - **pg_slug**  slug of page  Returns:   - **200**: Success response with the data.     - **406**: Error: Conflict.       Причини:           1) Цю сторінку заборонено видаляти.     - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів сторінок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Page By Slug
          * @param {any} pgSlug 
          * @param {any} [acceptLanguage] 
@@ -7203,7 +7527,7 @@ export const PagesApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Update page.  Please provide:   - **body**  body for creating new page  Returns   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update page.  Please provide:   - **body**  body for creating new page  Returns   - **200**: Success response with the data.   - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Page
          * @param {any} pgSlug 
          * @param {PageUpdateSchema} pageUpdateSchema 
@@ -7264,7 +7588,7 @@ export const PagesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PagesApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create page.  Please provide:   - **body**  body for creating new page  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create page.  Please provide:   - **body**  body for creating new page  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create Page
          * @param {PageInSchema} pageInSchema 
          * @param {any} [acceptLanguage] 
@@ -7276,7 +7600,7 @@ export const PagesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Delete page by slug.  Please provide:   - **pg_slug**  slug of page  Returns:   - **200**: Success response with the data.     - **409**: Error: Conflict.       Причини:           1) Цю сторінку заборонено видаляти.     - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів сторінок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Delete page by slug.  Please provide:   - **pg_slug**  slug of page  Returns:   - **200**: Success response with the data.     - **406**: Error: Conflict.       Причини:           1) Цю сторінку заборонено видаляти.     - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів сторінок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Page By Slug
          * @param {any} pgSlug 
          * @param {any} [acceptLanguage] 
@@ -7313,7 +7637,7 @@ export const PagesApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update page.  Please provide:   - **body**  body for creating new page  Returns   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update page.  Please provide:   - **body**  body for creating new page  Returns   - **200**: Success response with the data.   - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Page
          * @param {any} pgSlug 
          * @param {PageUpdateSchema} pageUpdateSchema 
@@ -7336,7 +7660,7 @@ export const PagesApiFactory = function (configuration?: Configuration, basePath
     const localVarFp = PagesApiFp(configuration)
     return {
         /**
-         * Create page.  Please provide:   - **body**  body for creating new page  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Create page.  Please provide:   - **body**  body for creating new page  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Create Page
          * @param {PageInSchema} pageInSchema 
          * @param {any} [acceptLanguage] 
@@ -7347,7 +7671,7 @@ export const PagesApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.createPage(pageInSchema, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete page by slug.  Please provide:   - **pg_slug**  slug of page  Returns:   - **200**: Success response with the data.     - **409**: Error: Conflict.       Причини:           1) Цю сторінку заборонено видаляти.     - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів сторінок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+         * Delete page by slug.  Please provide:   - **pg_slug**  slug of page  Returns:   - **200**: Success response with the data.     - **406**: Error: Conflict.       Причини:           1) Цю сторінку заборонено видаляти.     - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів сторінок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
          * @summary Delete Page By Slug
          * @param {any} pgSlug 
          * @param {any} [acceptLanguage] 
@@ -7381,7 +7705,7 @@ export const PagesApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getPageBySlug(pgSlug, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update page.  Please provide:   - **body**  body for creating new page  Returns   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update page.  Please provide:   - **body**  body for creating new page  Returns   - **200**: Success response with the data.   - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Page
          * @param {any} pgSlug 
          * @param {PageUpdateSchema} pageUpdateSchema 
@@ -7522,7 +7846,7 @@ export interface PagesApiUpdatePageRequest {
  */
 export class PagesApi extends BaseAPI {
     /**
-     * Create page.  Please provide:   - **body**  body for creating new page  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name,            seo_title, seo_description)     - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+     * Create page.  Please provide:   - **body**  body for creating new page  Returns:   - **200**: Success response with the data.   - **409**: Error: Conflict.     Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
      * @summary Create Page
      * @param {PagesApiCreatePageRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -7534,7 +7858,7 @@ export class PagesApi extends BaseAPI {
     }
 
     /**
-     * Delete page by slug.  Please provide:   - **pg_slug**  slug of page  Returns:   - **200**: Success response with the data.     - **409**: Error: Conflict.       Причини:           1) Цю сторінку заборонено видаляти.     - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів сторінок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
+     * Delete page by slug.  Please provide:   - **pg_slug**  slug of page  Returns:   - **200**: Success response with the data.     - **406**: Error: Conflict.       Причини:           1) Цю сторінку заборонено видаляти.     - **404**: Error: Forbidden.       Причини:           1) Не знайдено: немає збігів сторінок            на заданному запиті.     - **500**: Internal server error if an unexpected error occurs.
      * @summary Delete Page By Slug
      * @param {PagesApiDeletePageBySlugRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -7570,7 +7894,7 @@ export class PagesApi extends BaseAPI {
     }
 
     /**
-     * Update page.  Please provide:   - **body**  body for creating new page  Returns   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повинні починатися (name,            seo_title, seo_description)     - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+     * Update page.  Please provide:   - **body**  body for creating new page  Returns   - **200**: Success response with the data.   - **409**: Error: Conflict.       Причини:           1) Поле name повинно бути унікальним. Ця назва вже зайнята   - **422**: Error: Unprocessable Entity.       Причини:           1) Максимальни довжина name 60 символів           3) Максимальни довжина seo_title 60 символів           4) Максимальни довжина seo_description 160 символів     - **500**: Internal server error if an unexpected error occurs.   Operations with gallery items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename    - Create:      1. Do not specify the id field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
      * @summary Update Page
      * @param {PagesApiUpdatePageRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -7748,7 +8072,7 @@ export const SlidersApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Update bottom slider and it\'s items.  Please provide:   - **body**  body for updating related items to bottom slider  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.     - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update bottom slider and it\'s items.  Please provide:   - **body**  body for updating related items to bottom slider  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Bottom Slider
          * @param {BottomSliderUpdateSchema} bottomSliderUpdateSchema 
          * @param {any} [acceptLanguage] 
@@ -7842,7 +8166,7 @@ export const SlidersApiAxiosParamCreator = function (configuration?: Configurati
             };
         },
         /**
-         * Update top slider and it\'s items.  Please provide:   - **body**  body for updating related items to top slider  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повиннен починатися text     - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field      5. It is not necessary to specify the text_uk, text_ru field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false        5. Be sure to specify the text_uk, text_ru field
+         * Update top slider and it\'s items.  Please provide:   - **body**  body for updating related items to top slider  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field      5. It is not necessary to specify the text_uk, text_ru field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false        5. Be sure to specify the text_uk, text_ru field
          * @summary Update Top Slider
          * @param {TopSliderUpdateSchema} topSliderUpdateSchema 
          * @param {any} [acceptLanguage] 
@@ -7945,7 +8269,7 @@ export const SlidersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update bottom slider and it\'s items.  Please provide:   - **body**  body for updating related items to bottom slider  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.     - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update bottom slider and it\'s items.  Please provide:   - **body**  body for updating related items to bottom slider  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Bottom Slider
          * @param {BottomSliderUpdateSchema} bottomSliderUpdateSchema 
          * @param {any} [acceptLanguage] 
@@ -7969,7 +8293,7 @@ export const SlidersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update top slider and it\'s items.  Please provide:   - **body**  body for updating related items to top slider  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повиннен починатися text     - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field      5. It is not necessary to specify the text_uk, text_ru field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false        5. Be sure to specify the text_uk, text_ru field
+         * Update top slider and it\'s items.  Please provide:   - **body**  body for updating related items to top slider  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field      5. It is not necessary to specify the text_uk, text_ru field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false        5. Be sure to specify the text_uk, text_ru field
          * @summary Update Top Slider
          * @param {TopSliderUpdateSchema} topSliderUpdateSchema 
          * @param {any} [acceptLanguage] 
@@ -8033,7 +8357,7 @@ export const SlidersApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.getTopSlider(acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update bottom slider and it\'s items.  Please provide:   - **body**  body for updating related items to bottom slider  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.     - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+         * Update bottom slider and it\'s items.  Please provide:   - **body**  body for updating related items to bottom slider  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
          * @summary Update Bottom Slider
          * @param {BottomSliderUpdateSchema} bottomSliderUpdateSchema 
          * @param {any} [acceptLanguage] 
@@ -8055,7 +8379,7 @@ export const SlidersApiFactory = function (configuration?: Configuration, basePa
             return localVarFp.updateEtendBanner(eTEndBBannerUpdateSchema, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update top slider and it\'s items.  Please provide:   - **body**  body for updating related items to top slider  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повиннен починатися text     - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field      5. It is not necessary to specify the text_uk, text_ru field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false        5. Be sure to specify the text_uk, text_ru field
+         * Update top slider and it\'s items.  Please provide:   - **body**  body for updating related items to top slider  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field      5. It is not necessary to specify the text_uk, text_ru field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false        5. Be sure to specify the text_uk, text_ru field
          * @summary Update Top Slider
          * @param {TopSliderUpdateSchema} topSliderUpdateSchema 
          * @param {any} [acceptLanguage] 
@@ -8257,7 +8581,7 @@ export class SlidersApi extends BaseAPI {
     }
 
     /**
-     * Update bottom slider and it\'s items.  Please provide:   - **body**  body for updating related items to bottom slider  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.     - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
+     * Update bottom slider and it\'s items.  Please provide:   - **body**  body for updating related items to bottom slider  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false 
      * @summary Update Bottom Slider
      * @param {SlidersApiUpdateBottomSliderRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -8281,7 +8605,7 @@ export class SlidersApi extends BaseAPI {
     }
 
     /**
-     * Update top slider and it\'s items.  Please provide:   - **body**  body for updating related items to top slider  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Недійсне значення (не написане великими літерами).            З великих літер повиннен починатися text     - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field      5. It is not necessary to specify the text_uk, text_ru field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false        5. Be sure to specify the text_uk, text_ru field
+     * Update top slider and it\'s items.  Please provide:   - **body**  body for updating related items to top slider  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.     - **500**: Internal server error if an unexpected error occurs.  Operations with slider items:  - Delete        1. Be sure to specify the id field        2. Be sure to specify the field delete=true    - Update        1. Be sure to specify the id field        2. Be sure to specify the field delete=false        3. It is optional to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. It is not necessary to specify the url field      5. It is not necessary to specify the text_uk, text_ru field  - Create:      1. Do not specify the id field        2. Be sure to specify the url field        3. Be sure to specify the image field            a) required image if filename is specified. Format base64(svg,png,jpg,jpeg,webp)            b) filename is required if image is specified. Example: *filename.png*            c) optional alt. If you don\'t specify it, I\'ll take the value from filename        4. Be sure to specify the field delete=false        5. Be sure to specify the text_uk, text_ru field
      * @summary Update Top Slider
      * @param {SlidersApiUpdateTopSliderRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.
@@ -8290,6 +8614,396 @@ export class SlidersApi extends BaseAPI {
      */
     public updateTopSlider(requestParameters: SlidersApiUpdateTopSliderRequest, options?: AxiosRequestConfig) {
         return SlidersApiFp(this.configuration).updateTopSlider(requestParameters.topSliderUpdateSchema, requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+}
+
+
+/**
+ * StatisticApi - axios parameter creator
+ * @export
+ */
+export const StatisticApiAxiosParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Get computed numbers of statistic for our site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Computed Nums
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getComputedNums: async (acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/statistic/computed_nums/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get most income movies on site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Most Income Movies
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMostIncomeMovies: async (acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/statistic/most-income-movies/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get get most popular movies on site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Most Popular Movies
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMostPopularMovies: async (acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/statistic/most-popular-movies/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get most popular techs on site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Most Popular Techs
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMostPopularTechs: async (acceptLanguage?: any, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            const localVarPath = `/api/statistic/most-popular-techs/`;
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication CustomJWTAuth required
+            // http bearer authentication required
+            await setBearerAuthToObject(localVarHeaderParameter, configuration)
+
+            if (acceptLanguage != null) {
+                localVarHeaderParameter['Accept-Language'] = typeof acceptLanguage === 'string' 
+                    ? acceptLanguage 
+                    : JSON.stringify(acceptLanguage);
+            }
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * StatisticApi - functional programming interface
+ * @export
+ */
+export const StatisticApiFp = function(configuration?: Configuration) {
+    const localVarAxiosParamCreator = StatisticApiAxiosParamCreator(configuration)
+    return {
+        /**
+         * Get computed numbers of statistic for our site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Computed Nums
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getComputedNums(acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getComputedNums(acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get most income movies on site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Most Income Movies
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMostIncomeMovies(acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMostIncomeMovies(acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get get most popular movies on site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Most Popular Movies
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMostPopularMovies(acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMostPopularMovies(acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+        /**
+         * Get most popular techs on site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Most Popular Techs
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getMostPopularTechs(acceptLanguage?: any, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<any>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getMostPopularTechs(acceptLanguage, options);
+            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+        },
+    }
+};
+
+/**
+ * StatisticApi - factory interface
+ * @export
+ */
+export const StatisticApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
+    const localVarFp = StatisticApiFp(configuration)
+    return {
+        /**
+         * Get computed numbers of statistic for our site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Computed Nums
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getComputedNums(acceptLanguage?: any, options?: any): AxiosPromise<any> {
+            return localVarFp.getComputedNums(acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get most income movies on site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Most Income Movies
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMostIncomeMovies(acceptLanguage?: any, options?: any): AxiosPromise<any> {
+            return localVarFp.getMostIncomeMovies(acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get get most popular movies on site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Most Popular Movies
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMostPopularMovies(acceptLanguage?: any, options?: any): AxiosPromise<any> {
+            return localVarFp.getMostPopularMovies(acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get most popular techs on site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * @summary Get Most Popular Techs
+         * @param {any} [acceptLanguage] 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getMostPopularTechs(acceptLanguage?: any, options?: any): AxiosPromise<any> {
+            return localVarFp.getMostPopularTechs(acceptLanguage, options).then((request) => request(axios, basePath));
+        },
+    };
+};
+
+/**
+ * Request parameters for getComputedNums operation in StatisticApi.
+ * @export
+ * @interface StatisticApiGetComputedNumsRequest
+ */
+export interface StatisticApiGetComputedNumsRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof StatisticApiGetComputedNums
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for getMostIncomeMovies operation in StatisticApi.
+ * @export
+ * @interface StatisticApiGetMostIncomeMoviesRequest
+ */
+export interface StatisticApiGetMostIncomeMoviesRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof StatisticApiGetMostIncomeMovies
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for getMostPopularMovies operation in StatisticApi.
+ * @export
+ * @interface StatisticApiGetMostPopularMoviesRequest
+ */
+export interface StatisticApiGetMostPopularMoviesRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof StatisticApiGetMostPopularMovies
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * Request parameters for getMostPopularTechs operation in StatisticApi.
+ * @export
+ * @interface StatisticApiGetMostPopularTechsRequest
+ */
+export interface StatisticApiGetMostPopularTechsRequest {
+    /**
+     * 
+     * @type {any}
+     * @memberof StatisticApiGetMostPopularTechs
+     */
+    readonly acceptLanguage?: any
+}
+
+/**
+ * StatisticApi - object-oriented interface
+ * @export
+ * @class StatisticApi
+ * @extends {BaseAPI}
+ */
+export class StatisticApi extends BaseAPI {
+    /**
+     * Get computed numbers of statistic for our site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get Computed Nums
+     * @param {StatisticApiGetComputedNumsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StatisticApi
+     */
+    public getComputedNums(requestParameters: StatisticApiGetComputedNumsRequest = {}, options?: AxiosRequestConfig) {
+        return StatisticApiFp(this.configuration).getComputedNums(requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get most income movies on site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get Most Income Movies
+     * @param {StatisticApiGetMostIncomeMoviesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StatisticApi
+     */
+    public getMostIncomeMovies(requestParameters: StatisticApiGetMostIncomeMoviesRequest = {}, options?: AxiosRequestConfig) {
+        return StatisticApiFp(this.configuration).getMostIncomeMovies(requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get get most popular movies on site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get Most Popular Movies
+     * @param {StatisticApiGetMostPopularMoviesRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StatisticApi
+     */
+    public getMostPopularMovies(requestParameters: StatisticApiGetMostPopularMoviesRequest = {}, options?: AxiosRequestConfig) {
+        return StatisticApiFp(this.configuration).getMostPopularMovies(requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get most popular techs on site.  Returns:   - **200**: Success response with the data.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * @summary Get Most Popular Techs
+     * @param {StatisticApiGetMostPopularTechsRequest} requestParameters Request parameters.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof StatisticApi
+     */
+    public getMostPopularTechs(requestParameters: StatisticApiGetMostPopularTechsRequest = {}, options?: AxiosRequestConfig) {
+        return StatisticApiFp(this.configuration).getMostPopularTechs(requestParameters.acceptLanguage, options).then((request) => request(this.axios, this.basePath));
     }
 }
 
@@ -8391,7 +9105,7 @@ export const UsersApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Введено некоректний номер телефону           2) Ім\'я та прізвище повинно починатися з великої літери            (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.     Причини:           1) Введено некоректний номер телефону           2) Ім\'я та прізвище повинно починатися з великої літери            (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)   - **500**: Internal server error if an unexpected error occurs.
          * @summary Update User By Id
          * @param {any} userId 
          * @param {UserUpdateSchema} userUpdateSchema 
@@ -8542,7 +9256,7 @@ export const UsersApiFp = function(configuration?: Configuration) {
             return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
         },
         /**
-         * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Введено некоректний номер телефону           2) Ім\'я та прізвище повинно починатися з великої літери            (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.     Причини:           1) Введено некоректний номер телефону           2) Ім\'я та прізвище повинно починатися з великої літери            (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)   - **500**: Internal server error if an unexpected error occurs.
          * @summary Update User By Id
          * @param {any} userId 
          * @param {UserUpdateSchema} userUpdateSchema 
@@ -8603,7 +9317,7 @@ export const UsersApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.getUserById(userId, acceptLanguage, options).then((request) => request(axios, basePath));
         },
         /**
-         * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Введено некоректний номер телефону           2) Ім\'я та прізвище повинно починатися з великої літери            (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+         * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.     Причини:           1) Введено некоректний номер телефону           2) Ім\'я та прізвище повинно починатися з великої літери            (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)   - **500**: Internal server error if an unexpected error occurs.
          * @summary Update User By Id
          * @param {any} userId 
          * @param {UserUpdateSchema} userUpdateSchema 
@@ -8783,7 +9497,7 @@ export class UsersApi extends BaseAPI {
     }
 
     /**
-     * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **403**: Error: Forbidden.       Причини:           1) Введено некоректний номер телефону           2) Ім\'я та прізвище повинно починатися з великої літери            (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.   - **500**: Internal server error if an unexpected error occurs.
+     * Update user by id.  Please provide:   - **Request body**  data for updating user  Returns:   - **200**: Success response with the data.   - **404**: Error: Conflict.       Причини:           1) Не знайдено: немає збігів користувачів            на заданному запиті.   - **422**: Error: Unprocessable Entity.     Причини:           1) Введено некоректний номер телефону           2) Ім\'я та прізвище повинно починатися з великої літери            (наступні маленькі), доступна кирилиця,            доступні спецсимволи(\'-)   - **500**: Internal server error if an unexpected error occurs.
      * @summary Update User By Id
      * @param {UsersApiUpdateUserByIdRequest} requestParameters Request parameters.
      * @param {*} [options] Override http request option.

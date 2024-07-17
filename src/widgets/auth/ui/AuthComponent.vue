@@ -74,8 +74,8 @@ const lastName = ref<string>('')
 const email = ref<string>('')
 const createPass = ref<string>('')
 const confirmPass = ref<string>('')
-const login = ref<string>('')
-const pass = ref<string>('')
+const login = ref<string>('user@example.com')
+const pass = ref<string>('Sword123*')
 //todo Рефакторинг
 
 async function authentication() {
@@ -90,13 +90,13 @@ async function authentication() {
 }
 
 function registration() {
-  regisFunc({
-    first_name: name.value,
-    last_name: lastName.value,
-    email: email.value,
-    password1: createPass.value,
-    password2: confirmPass.value
-  })
+  // regisFunc({
+  //   first_name: name.value,
+  //   last_name: lastName.value,
+  //   email: email.value,
+  //   password1: createPass.value,
+  //   password2: confirmPass.value
+  // })
 }
 </script>
 
