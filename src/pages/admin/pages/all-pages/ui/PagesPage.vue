@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h2 class="stock-page__title">Список Страниц</h2>
+    <h2 class="stock-page__title">Список сторінок</h2>
     <div class="stock-page__button">
       <router-link to="page-create">
-        <v-btn>Создать новую</v-btn>
+        <v-btn> Створити нову</v-btn>
       </router-link>
     </div>
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
@@ -24,12 +24,12 @@ import { useRouter } from 'vue-router'
 
 const breadcrumbs = [
   {
-    title: 'Admin',
+    title: 'Адмін',
     disabled: false,
     href: 'statistics'
   },
   {
-    title: 'Pages',
+    title: 'Сторінки',
     disabled: true
   }
 ]
@@ -37,14 +37,14 @@ const breadcrumbs = [
 const router = useRouter()
 
 const tableData = {
-  headers: [{ name: 'Название' }, { name: 'Дата создания' }, { name: 'Статус' }],
+  headers: [{ name: 'Назва' }, { name: 'Дата створення' }, { name: 'Статус' }],
   rows: [
-    { name: 'Главная страница', date: '12.06.2020', state: 'ВКЛ' },
-    { name: 'О кинотеатре', date: '14.06.2020', state: 'ВЫКЛ' },
+    { name: 'Головна сторінка', date: '12.06.2020', state: 'ВКЛ' },
+    { name: 'Про кінотеатр', date: '14.06.2020', state: 'ВЫКЛ' },
     { name: 'Кафе-бар', date: '11.06.2020', state: 'ВКЛ' },
     { name: 'Vip-зал', date: '11.06.2020', state: 'ВКЛ' },
     { name: 'Реклама', date: '11.06.2020', state: 'ВКЛ' },
-    { name: 'Детская комната', date: '11.06.2020', state: 'ВКЛ' }
+    { name: 'Дитяча кімната', date: '11.06.2020', state: 'ВКЛ' }
   ],
   showDeleteIcon: false
 }

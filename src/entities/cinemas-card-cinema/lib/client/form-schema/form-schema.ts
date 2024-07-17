@@ -2,10 +2,10 @@ import { object, string, InferType, setLocale } from 'yup'
 
 setLocale({
   mixed: {
-    required: 'the required field'
+    required: "Це поле обов'язкове"
   },
   string: {
-    max: 'more than ${max} characters'
+    max: 'Більше ніж ${max} символів'
   }
 })
 

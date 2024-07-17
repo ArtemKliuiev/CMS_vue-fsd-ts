@@ -1,14 +1,14 @@
 <template>
   <div class="seo">
-    <h2>Seo</h2>
+    <h2>Сео</h2>
     <div class="seo__title">
-      <BaseInput placeholder="Title" label="Title" name="seoTitle" />
+      <BaseInput placeholder="Назва" label="Назва" name="seoTitle" />
     </div>
     <div class="seo__image">
-      <InputChoiceInput label="Image:" label-text="Загрузить картинку в seo" />
+      <InputChoiceInput label="Image:" label-text="Завантажити картинку в seo" />
     </div>
     <div class="seo__description">
-      <BaseTextarea placeholder="Description" label="Description:" name="seoDescription" />
+      <BaseTextarea placeholder="Опис" label="Опис:" name="seoDescription" />
     </div>
   </div>
 </template>
@@ -36,8 +36,8 @@ const { values, setErrors, handleSubmit } = useAppForm<SeoCinemaFormSchema>({
 
 function seoSchema() {
   return object({
-    seoTitle: string().required().max(30),
-    seoDescription: string().required().max(100)
+    seoTitle: string().max(30),
+    seoDescription: string().max(100)
   })
 }
 </script>

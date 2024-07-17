@@ -4,28 +4,25 @@
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
     <router-link to="cinemas-card-cinema">
-      <v-btn>Добавить</v-btn>
+      <v-btn>Додати</v-btn>
     </router-link>
-
   </div>
 </template>
 
 <script setup lang="ts">
-
 const breadcrumbs = [
   {
-    title: 'Admin',
+    title: 'Адмін',
     disabled: false,
     href: 'statistics'
   },
   {
-    title: 'Cinemas',
+    title: 'Кінотеатри',
     disabled: true
   }
 ]
-
 </script>
 
 <style lang="scss" scoped>
-@import "styles";
+@import 'CinemasPage';
 </style>

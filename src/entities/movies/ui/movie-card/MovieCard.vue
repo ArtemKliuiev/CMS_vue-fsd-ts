@@ -1,27 +1,41 @@
 <template>
   <div class="movie-card">
     <div class="movie-card__photo">
-      <BasePicture :srcset="props.card.img.webp" :src="props.card.img.default" :alt="'movie'" />
+      <BasePicture
+        :srcset="movieCard.card_img.image_webp"
+        :src="movieCard.card_img.image"
+        :alt="movieCard.card_img.alt"
+      />
     </div>
-    <p class="movie-card__name">Приключение животных</p>
+    <p class="movie-card__name">{{ movieCard.name }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
 import { BasePicture } from '@/shared/ui'
 
-import { defineProps } from 'vue'
-
 interface Card {
-  img: {
-    webp: string
-    default: string
+  card_img: {
+    alt: string
+    image: string
+    image_webp: string
   }
+  legal_age: string
+  name: string
+  released: string
+  slug: string
+  techs: [
+    {
+      color: string
+      id: number
+      name: string
+    }
+  ]
 }
 
-const props = defineProps<{ card: Card }>()
+const props = defineProps<{ movieCard: Card }>()
 </script>
 
-<style lang="scss" scoped>
-@import 'styles';
+<style lang="scss">
+@import 'MovieCard';
 </style>

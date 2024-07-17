@@ -13,14 +13,14 @@
       <BaseTextarea
         class="movie-create__block"
         placeholder="Текст"
-        label="Seo Текст:"
+        label="Сео Текст:"
         name="seoText"
       />
 
       <Seo class="movie-create__block" />
 
       <div class="movie-create__buttons">
-        <v-btn type="submit">Сохранить</v-btn>
+        <v-btn type="submit">Зберегти</v-btn>
       </div>
     </form>
   </div>
@@ -40,12 +40,12 @@ const formValues = computed(() => form.values)
 
 const breadcrumbs = [
   {
-    title: 'Pages',
+    title: 'Сторінки',
     disabled: false,
     href: '/admin/pages'
   },
   {
-    title: 'Home page',
+    title: 'Головна сторінка',
     disabled: true
   }
 ]
