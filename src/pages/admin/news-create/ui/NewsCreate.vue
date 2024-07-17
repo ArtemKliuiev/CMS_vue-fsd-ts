@@ -7,13 +7,13 @@
         <div class="news-create__content">
           <BaseInput
             class="movie-create__block"
-            placeholder="Название новости"
-            label="Название новости"
+            placeholder="Назва новини"
+            label="Назва новини"
             name="nameNews"
           />
         </div>
         <div class="news-create__content">
-          <p>Дата публикации</p>
+          <p>дата публікації</p>
           <input type="date" v-model="valueInputDate" @change="handleInputDate" />
         </div>
       </div>
@@ -21,25 +21,30 @@
       <BaseTextarea
         class="movie-create__block"
         placeholder="Текст"
-        label="Описание"
+        label="Опис"
         name="descriptionNews"
       />
 
-      <InputChoiceFile label="Главная картинка" label-text="Добавить главную картинку" />
+      <InputChoiceFile
+        label="Головна картинка"
+        label-text="
+          Додати головну картинку
+         "
+      />
 
-      <InputChoiceFile label="Галерея картинок" label-text="Добавить картинку в галерею" />
+      <InputChoiceFile label="Галерея картинок" label-text="Додати картинку до галереї" />
 
       <BaseInput
         class="movie-create__block"
-        placeholder="Ссылка на видео в youtube"
-        label="Ссылка на видео"
+        placeholder="Посилання на відео в youtube"
+        label="Посилання на відео"
         name="linkOnVideo"
       />
 
       <Seo class="movie-create__block" />
 
       <div class="movie-create__buttons">
-        <v-btn type="submit">Сохранить</v-btn>
+        <v-btn type="submit">Зберегти</v-btn>
       </div>
     </form>
   </div>
@@ -62,12 +67,12 @@ const formValues = computed(() => form.values)
 
 const breadcrumbs = [
   {
-    title: 'News',
+    title: 'Новини',
     disabled: false,
     href: 'news'
   },
   {
-    title: 'News create',
+    title: 'Створення новини',
     disabled: true
   }
 ]
@@ -87,5 +92,5 @@ async function onSubmit() {
 </script>
 
 <style lang="scss">
-@import 'styles';
+@import 'NewsCreate';
 </style>

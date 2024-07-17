@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h2 class="stock-page__title">Список Акций</h2>
+    <h2 class="stock-page__title">Список Акцій</h2>
     <div class="stock-page__button">
       <router-link to="stock-create">
-        <v-btn>Создать Акцию</v-btn>
+        <v-btn>Створити Акцію</v-btn>
       </router-link>
     </div>
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
@@ -21,18 +21,18 @@ import BaseTable from '@/shared/ui/base/table/ui/BaseTable.vue'
 
 const breadcrumbs = [
   {
-    title: 'Admin',
+    title: 'Адмін',
     disabled: false,
     href: 'statistics'
   },
   {
-    title: 'Stock',
+    title: 'Акції',
     disabled: true
   }
 ]
 
 const tableData = {
-  headers: [{ name: 'Название' }, { name: 'Дата создания' }, { name: 'Статус' }],
+  headers: [{ name: 'Назва' }, { name: 'Дата створення' }, { name: 'Статус' }],
   rows: [
     { name: '3 билета в подарок', date: '12.06.2020', state: 'ВКЛ' },
     { name: '5 билета в подарок', date: '14.06.2020', state: 'ВЫКЛ' },
@@ -43,5 +43,5 @@ const tableData = {
 </script>
 
 <style lang="scss">
-@import 'styles';
+@import 'StockPage';
 </style>

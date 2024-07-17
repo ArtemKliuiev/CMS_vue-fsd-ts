@@ -6,27 +6,27 @@
       <BaseInput
         class="movie-create__block"
         placeholder="8 зал"
-        label="Номер зала"
+        label="Номер залу"
         name="numberHall"
       />
 
       <BaseTextarea
         class="movie-create__block"
         placeholder="Текст"
-        label="Описание зала"
+        label="Опис залу"
         name="descriptionCinemaHall"
       />
 
-      <InputChoiceFile label="Схема зала" label-text="Добавить схему зала" />
+      <InputChoiceFile label="Схема залу" label-text="Додати схему залу" />
 
-      <InputChoiceFile label="Верхний баннер" label-text="Добавить верхний баннер" />
+      <InputChoiceFile label="Верхній банер" label-text="Додати верхній банер" />
 
-      <InputChoiceFile label="Галерея картинок" label-text="Добавить картинку в галерею" />
+      <InputChoiceFile label="Галерея картинок" label-text="Додати картинку до галереї" />
 
       <Seo class="movie-create__block" />
 
       <div class="movie-create__buttons">
-        <v-btn type="submit">Сохранить</v-btn>
+        <v-btn type="submit">Зберегти</v-btn>
       </div>
     </form>
   </div>
@@ -47,17 +47,17 @@ const formValues = computed(() => form.values)
 
 const breadcrumbs = [
   {
-    title: 'Cinemas',
+    title: 'Кінотеатри',
     disabled: false,
     href: 'cinemas'
   },
   {
-    title: 'Cinema card cinema',
+    title: 'Картка кінотеатру',
     disabled: false,
     href: 'cinemas-card-cinema'
   },
   {
-    title: 'Cinema card hall',
+    title: 'Картка залу',
     disabled: true
   }
 ]

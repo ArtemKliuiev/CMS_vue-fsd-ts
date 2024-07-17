@@ -5,36 +5,36 @@
     <form @submit.prevent="onSubmit">
       <BaseInput
         class="movie-create__block"
-        placeholder="Название фильма"
-        label="Название фильма"
+        placeholder="Назва фільму"
+        label="Назва фільму"
         name="name"
       />
 
       <BaseTextarea
         class="movie-create__block"
         placeholder="Текст"
-        label="Описание"
+        label="Опис"
         name="description"
       />
 
-      <InputChoiceFile label="Главная картинка" labelText="Картинка карточки" />
+      <InputChoiceFile label="Головна картинка" labelText="Картинка картки" />
 
-      <InputChoiceFile label="Галерея картинок" labelText="Добавить картинку в галерею" />
+      <InputChoiceFile label="Галерея картинок" labelText="Додати картинку до галереї" />
 
       <BaseInput
         class="movie-create__block"
-        placeholder="Ссылка на видео в youtube"
-        label="Ссылка на трейлер"
+        placeholder="Посилання на відео в youtube"
+        label="Посилання на трейлер"
         name="linkOnVideo"
       />
 
-      <SelectVuetify label="Тип кино" label-text="Тип кино" :items="['3D', '2D', 'IMAX']" />
+      <SelectVuetify label="Тип кіно" label-text="Тип кіно" :items="['3D', '2D', 'IMAX']" />
 
       <Seo class="movie-create__block" />
 
       <div class="movie-create__buttons">
-        <v-btn type="submit">Сохранить</v-btn>
-        <v-btn>Вернуть базовую версию</v-btn>
+        <v-btn type="submit">Зберегти</v-btn>
+        <v-btn> Повернути базову версію</v-btn>
       </div>
     </form>
   </div>
@@ -57,12 +57,12 @@ const formValues = computed(() => form.values)
 
 const breadcrumbs = [
   {
-    title: 'Movies',
+    title: 'Фільми',
     disabled: false,
     href: 'movies'
   },
   {
-    title: 'Movies create',
+    title: 'Редагування фільму',
     disabled: true
   }
 ]
@@ -78,5 +78,5 @@ async function onSubmit() {
 </script>
 
 <style lang="scss">
-@import 'styles';
+@import 'MovieCreate';
 </style>

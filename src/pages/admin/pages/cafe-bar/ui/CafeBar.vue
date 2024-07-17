@@ -3,23 +3,23 @@
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
 
     <form @submit.prevent="onSubmit">
-      <BaseInput class="movie-create__block" placeholder="Кафе-Бар" label="Название" name="name" />
+      <BaseInput class="movie-create__block" placeholder="Кафе-Бар" label="Назва" name="name" />
 
       <BaseTextarea
         class="movie-create__block"
         placeholder="Текст"
-        label="Описание"
+        label="Опис"
         name="description"
       />
 
-      <InputChoiceFile label="Главная картинка" label-text="Добавить главную картинку" />
+      <InputChoiceFile label="Головна картинка" label-text="Додати головну картинку" />
 
-      <InputChoiceFile label="Галерея картинок" label-text="Добавить картинку в галерею" />
+      <InputChoiceFile label="Галерея картинок" label-text="Додати картинку до галереї" />
 
       <Seo class="movie-create__block" />
 
       <div class="movie-create__buttons">
-        <v-btn type="submit">Сохранить</v-btn>
+        <v-btn type="submit">Зберегти</v-btn>
       </div>
     </form>
   </div>
@@ -40,12 +40,12 @@ const formValues = computed(() => form.values)
 
 const breadcrumbs = [
   {
-    title: 'Pages',
+    title: 'Сторінки',
     disabled: false,
     href: '/admin/pages'
   },
   {
-    title: 'Cafe-bar',
+    title: 'Кафе-Бар',
     disabled: true
   }
 ]

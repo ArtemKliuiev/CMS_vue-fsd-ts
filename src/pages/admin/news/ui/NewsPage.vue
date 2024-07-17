@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h2 class="news-page__title">Список Новостей</h2>
+    <h2 class="news-page__title">Список новин</h2>
     <div class="news-page__button">
       <router-link to="news-create">
-        <v-btn>Создать Новость</v-btn>
+        <v-btn>Створити Новину</v-btn>
       </router-link>
     </div>
     <v-breadcrumbs :items="breadcrumbs"></v-breadcrumbs>
@@ -23,18 +23,18 @@ import BaseTable from '@/shared/ui/base/table/ui/BaseTable.vue'
 
 const breadcrumbs = [
   {
-    title: 'Admin',
+    title: 'Адмін',
     disabled: false,
     href: 'statistics'
   },
   {
-    title: 'News',
+    title: 'Новини',
     disabled: true
   }
 ]
 
 const tableData = {
-  headers: [{ name: 'Название' }, { name: 'Дата создания' }, { name: 'Статус' }],
+  headers: [{ name: 'Назва' }, { name: 'Дата створення' }, { name: 'Статус' }],
   rows: [
     { name: '3 билета в подарок', date: '12.06.2020', state: 'ВКЛ' },
     { name: '5 билета в подарок', date: '14.06.2020', state: 'ВЫКЛ' },
@@ -53,5 +53,5 @@ const handleDeleteRow = (index: number) => {
 </script>
 
 <style lang="scss">
-@import 'styles';
+@import 'NewsPage';
 </style>

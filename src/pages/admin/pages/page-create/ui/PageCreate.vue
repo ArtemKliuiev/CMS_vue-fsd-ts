@@ -7,13 +7,13 @@
         <div class="page-create__content">
           <BaseInput
             class="page-create__block"
-            placeholder="Название страницы"
-            label="Название страницы"
+            placeholder="Назва сторінки"
+            label="Назва сторінки"
             name="namePage"
           />
         </div>
         <div class="page-create__content">
-          <p>Дата публикации</p>
+          <p>Дата публікації</p>
           <input type="date" v-model="valueInputDate" @change="handleInputDate" />
         </div>
       </div>
@@ -21,25 +21,25 @@
       <BaseTextarea
         class="page-create__block"
         placeholder="Текст"
-        label="Описание"
+        label="Опис"
         name="descriptionPage"
       />
 
-      <InputChoiceFile label="Главная картинка" label-text="Добавить главную картинку" />
+      <InputChoiceFile label="Головна картинка" label-text="Додати головну картинку" />
 
-      <InputChoiceFile label="Галерея картинок" label-text="Добавить картинку в галерею" />
+      <InputChoiceFile label="Галерея картинок" label-text="Додати картинку до галереї" />
 
       <BaseInput
         class="movie-create__block"
-        placeholder="Ссылка на видео в youtube"
-        label="Ссылка на видео"
+        placeholder="Посилання на відео в youtube"
+        label="Посилання на відео"
         name="linkOnVideo"
       />
 
       <Seo class="page-create__block" />
 
       <div class="movie-create__buttons">
-        <v-btn type="submit">Сохранить</v-btn>
+        <v-btn type="submit">Зберегти</v-btn>
       </div>
     </form>
   </div>
@@ -62,12 +62,12 @@ const formValues = computed(() => form.values)
 
 const breadcrumbs = [
   {
-    title: 'Pages',
+    title: 'Сторінки',
     disabled: false,
     href: 'pages'
   },
   {
-    title: 'Page create',
+    title: 'Створення сторінки',
     disabled: true
   }
 ]
